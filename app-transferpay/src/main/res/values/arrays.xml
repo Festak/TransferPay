@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="branding_temporary_array">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+    </string-array>
+
+    <string-array name="countries">
+        <item>@string/country_belarus</item>
+        <item>@string/country_russia</item>
+        <item>@string/country_usa</item>
+        <item>@string/country_eu_uk</item>
+        <item>@string/country_eu_germany</item>
+        <item>@string/country_eu_norway</item>
+        <item>@string/country_ap_philippines</item>
+        <item>@string/country_ap_bangladesh</item>
+        <item>@string/country_ap_china</item>
+        <item>@string/country_ap_india</item>
+        <item>@string/country_ap_indonesia</item>
+        <item>@string/country_ap_malaysia</item>
+        <item>@string/country_ap_singapore</item>
+        <item>@string/country_ap_south_korea</item>
+        <item>@string/country_ap_sri_lanka</item>
+        <item>@string/country_ap_thailand</item>
+        <item>@string/country_ap_vietman</item>
+    </string-array>
+
+    <string-array name="nationalities">
+        <item>@string/nationality_african</item>
+        <item>@string/nationality_belarus</item>
+        <item>@string/nationality_russian</item>
+    </string-array>
+
+    <string-array name="currencies">
+        <item>@string/currency_eur</item>
+        <item>@string/currency_usd</item>
+        <item>@string/currency_blr_rub</item>
+        <item>@string/currency_russian_rub</item>
+    </string-array>
+
+    <string-array name="card_types">
+        <item>@string/card_type_visa</item>
+        <item>@string/card_type_amex</item>
+        <item>@string/card_type_master_card</item>
+    </string-array>
+
+    <string-array name="delivery_options">
+        <item>@string/delivery_option_bank_account</item>
+        <item>@string/delivery_option_credit_card</item>
+    </string-array>
+
+    <string-array name="identification_types">
+        <item>@string/identification_type_passport</item>
+        <item>@string/identification_type_national_id</item>
+    </string-array>
+
+    <string-array name="payment_options">
+        <item>VISA XXXX-XXXX-XXXX-XXXX-1234</item>
+        <item>CARD XXXX-XXXX-XXXX-XXXX-4321</item>
+        <item>BANK 12-1432-1445-123</item>
+    </string-array>
+
+</resources>

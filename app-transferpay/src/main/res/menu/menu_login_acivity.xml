@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.transfer.pay.ui.activities.brand.BrandActivity">
+    <item
+        android:id="@+id/action_spa_settings"
+        android:icon="@drawable/ic_edit_24dp"
+        android:orderInCategory="100"
+        android:title="@string/menu_action_spa_settings"
+        app:showAsAction="always" />
+</menu>

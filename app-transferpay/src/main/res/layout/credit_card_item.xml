@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.transfer.pay.models.CreditCardModel" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_icon_credit_card_size">
+
+        <ImageView
+            android:id="@+id/CreditCardIcon"
+            android:layout_width="@dimen/home_icon_credit_card_size"
+            android:layout_height="@dimen/home_icon_credit_card_size"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            app:srcCompat="@drawable/ic_credit_card_24dp" />
+
+
+        <TextView
+            android:id="@+id/creditCardNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/CreditCardIcon"
+            android:layout_toRightOf="@+id/CreditCardIcon"
+            android:text="@{model.creditCardNumber}"
+            tools:text="XXXX-XXXX-XXXX-1234" />
+
+
+        <Button
+            android:id="@+id/buttonSend"
+            style="@style/ButtonPrimary"
+            android:layout_width="wrap_content"
+            android:onClick="@{listener.onClick}"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="Delete" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/listDivider" />
+
+    </RelativeLayout>
+</layout>

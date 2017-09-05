@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AdaptiveButtonLayout">
+        <attr name="firstButtonText" format="string" />
+        <attr name="secondButtonText" format="string" />
+    </declare-styleable>
+</resources>

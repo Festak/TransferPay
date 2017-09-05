@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="card"
+            type="com.transfer.pay.models.CreditCardModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/fieldCardholderName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/add_card_label_cardholder_name"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:text="@={card.cardHolderName}" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                style="@style/SpinnerLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_card_card_type" />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinnerCardType"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:selectedValue="@={card.cardType}" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/fieldCardNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/add_card_label_card_number"
+                    android:inputType="phone"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:text="@={card.creditCardNumber}" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/fieldValidThru"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/add_card_label_valid_thru"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:text="@={card.validDate}" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flexWrap="wrap"
+                app:justifyContent="space_between">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fieldCvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_flexBasisPercent="50%">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/fieldCvvInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/add_card_label_cvv"
+                        android:inputType="numberPassword"
+                        android:lines="1"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:text="@={card.CVV}" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_card_description_cvv"
+                    android:textAlignment="center"
+                    android:textColor="@color/textLight"
+                    android:textSize="12sp"
+                    app:layout_alignSelf="center"
+                    app:layout_flexBasisPercent="30%" />
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="28dp"
+                    app:layout_minWidth="56dp"
+                    app:srcCompat="@drawable/ic_credit_card_24dp" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.transfer.pay.models.User" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <LinearLayout
+            android:id="@+id/panelButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonDisagree"
+                style="@style/ButtonPrimary"
+                android:layout_width="0dp"
+                android:layout_marginRight="@dimen/button_shift"
+                android:layout_weight="1"
+                android:text="@string/my_profile_change_pin"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/buttonAgree"
+                style="@style/ButtonPrimary"
+                android:layout_width="0dp"
+                android:layout_marginLeft="@dimen/button_shift"
+                android:layout_weight="1"
+                android:text="@string/my_profile_change_password"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/panelButtons"
+            android:layout_alignParentTop="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    style="@style/MyProfileHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/titlePersonalDetails"
+                        style="@style/MyProfileTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/transaction_history_date_margin"
+                        android:paddingBottom="@dimen/my_profile_header_padding"
+                        android:text="@string/my_profile_title_personal_details" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/emailLabel"
+                        style="@style/HintText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/my_profile_label_email" />
+
+                    <TextView
+                        style="@style/UserDataText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="@{user.email}"
+                        tools:text="test@test.com" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/birthDateLabel"
+                        style="@style/HintText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/my_profile_label_birth_date" />
+
+                    <TextView
+                        style="@style/UserDataText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="@{user.dateOfBirth}"
+                        tools:text="09.10.1996" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/transaction_history_date_margin">
+
+                    <TextView
+                        android:id="@+id/genderLabel"
+                        style="@style/HintText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/my_profile_label_gender" />
+
+                    <TextView
+                        style="@style/UserDataText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="@{user.sex}"
+                        tools:text="Male" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    style="@style/MyProfileHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/titleContactInformation"
+                        style="@style/MyProfileTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/transaction_history_date_margin"
+                        android:paddingBottom="@dimen/my_profile_header_padding"
+                        android:text="@string/my_profile_title_contact_information" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/address"
+                        style="@style/HintText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:paddingRight="20dp"
+                        android:text="@string/my_profile_label_address" />
+
+                    <TextView
+                        style="@style/UserDataText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:width="210dp"
+                        android:gravity="right"
+                        android:paddingLeft="100dp"
+                        android:text="@{user.addressLineOne}"
+                        android:textAlignment="gravity"
+                        tools:text="Gorodzeckaya" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="@dimen/transaction_history_date_margin">
+
+                    <TextView
+                        android:id="@+id/mobile"
+                        style="@style/HintText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/my_profile_label_mobile" />
+
+                    <TextView
+                        style="@style/UserDataText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="@{user.mobileNumber}"
+                        tools:text="+375291107538" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/MyProfileHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/titleIdPersonal"
+                        style="@style/MyProfileTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/transaction_history_date_margin"
+                        android:paddingBottom="@dimen/my_profile_header_padding"
+                        android:text="@string/my_profile_title_id_information" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--Id Type-->
+                    <TextView
+                        android:id="@+id/idType"
+                        style="@style/HintText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/my_profile_label_id_type" />
+
+                    <TextView
+                        style="@style/UserDataText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="@{user.identificationType}"
+                        tools:text="ID card" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/idDetails"
+                        style="@style/HintText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/my_profile_label_id_details" />
+
+                    <TextView
+                        style="@style/UserDataText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="@{user.idOfDetails}"
+                        tools:text="UserName" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/transaction_history_date_margin">
+
+                    <TextView
+                        android:id="@+id/idExpiry"
+                        style="@style/HintText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/my_profile_label_id_expiry" />
+
+                    <TextView
+                        style="@style/UserDataText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="@{user.idExpiryDate}"
+                        tools:text="2019" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>

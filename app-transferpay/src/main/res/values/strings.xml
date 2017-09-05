@@ -1,0 +1,241 @@
+<resources>
+    <string name="app_name">TransferPay</string>
+
+    <!-- Brand Screen -->
+
+
+    <!-- Common Strings -->
+    <string name="ok">OK</string>
+    <string name="pick_image_source">Pick image source</string>
+
+    <!-- Two Factor Auth Screen-->
+    <string name="two_factor_auth_title">Two Factor Authentication</string>
+    <string name="two_factor_auth_verif_code_text">Enter the verification code send by SMS to your mobile</string>
+    <string name="two_factor_auth_verify">Verify</string>
+    <string name="two_factor_auth_resend_code">Re-send code</string>
+    <string name="two_factor_auth_code_enter">Enter code</string>
+
+    <!-- LOGIN Screen -->
+    <string name="login_screen_title">Log-in</string>
+    <string name="login_label_login">Login</string>
+    <string name="login_label_password">Password</string>
+    <string name="login_link_forgot_password"><u>Forgot Password</u></string>
+    <string name="login_link_sing_up"><u>Not yet registered? Sign-up Now</u></string>
+    <string name="login_button_log_in">Log-in</string>
+
+    <!-- LOGIN Screen Menu -->
+    <string name="menu_action_spa_settings">Settings</string>
+
+    <!-- BENEFICIARIES Screen -->
+    <string name="beneficiaries_screen_title">Beneficiaries</string>
+    <string name="beneficiaries_message_currency">EUR 1 = USD 1,07</string>
+    <string name="beneficiaries_button_add_beneficiary">+Beneficiary</string>
+
+    <!-- BENEFICIARIES Screen Menu -->
+    <string name="menu_action_settings">Settings</string>
+    <string name="menu_action_history">History</string>
+    <string name="menu_action_beneficiaries">Beneficiaries</string>
+    <string name="menu_action_transactions_history">Transactions History</string>
+    <string name="menu_action_wallet">Wallet</string>
+    <string name="menu_action_my_profile">My Profile</string>
+    <string name="menu_action_terms_and_conditions">Terms and Conditions</string>
+    <string name="menu_action_setting">Setting</string>
+    <string name="menu_action_logout">Logout</string>
+    <string name="menu_code_version">Code version</string>
+
+    <!-- NEW BENEFICIARIES SCREEN -->
+    <string name="beneficiary_new_title">New Beneficiary</string>
+    <string name="beneficiary_new_country">Beneficiary Country</string>
+    <string name="beneficiary_new_full_name">Beneficiary Name</string>
+    <string name="beneficiary_new_bank">Beneficiary Bank</string>
+    <string name="beneficiary_new_delivery_option">Delivery Option</string>
+    <string name="beneficiary_new_choose_bank">Choose Bank</string>
+    <string name="beneficiary_new_account_no">Account Number</string>
+    <string name="beneficiary_new_card_number">Credit Card Number</string>
+    <string name="beneficiary_new_details">Beneficiary Details</string>
+    <string name="beneficiary_new_or">or</string>
+    <string name="beneficiary_new_choose_country_in_settings">Choose country in settings</string>
+    <string name="beneficiary_new_choose_bank_in_settings">Choose bank in settings</string>
+
+
+    <!-- SETTINGS Screen -->
+    <string name="settings_screen_title">Settings</string>
+    <string name="settings_default_title">Default</string>
+    <string name="settings_label_branding_logo">Default Bank Logo</string>
+    <string name="settings_label_default_country">Default country</string>
+    <string name="settings_label_default_bank_name">Default Bank Name</string>
+    <string name="settings_label_my_currency">My currency</string>
+    <string name="settings_label_beneficiary_currency">Beneficiary currency</string>
+    <string name="settings_label_exchange_rate">Exchange rate</string>
+    <string name="settings_label_fee_min">Fee min</string>
+    <string name="settings_label_fee_percentage">Fee %</string>
+    <string name="settings_button_payment_option">Payment Options</string>
+    <string name="settings_button_save">Save</string>
+    <string name="settings_error_number">ErrorNumber</string>
+
+    <!-- ADD CARD Screen -->
+    <string name="add_card_screen_title">Add Card Info</string>
+    <string name="add_card_label_cardholder_name">Cardholder Name</string>
+    <string name="add_card_label_card_number">Card Number</string>
+    <string name="add_card_label_valid_thru">Valid thru</string>
+    <string name="add_card_label_cvv">CVV</string>
+    <string name="add_card_card_type">Card Type</string>
+    <string name="add_card_label_button_save">Save</string>
+    <string name="add_card_description_cvv">The last 3 digits on back of your card</string>
+
+    <!-- REGISTRATION AML Screen -->
+    <string name="registration_aml_button_back">Back</string>
+    <string name="registration_aml_button_next">Next</string>
+    <string name="registration_aml_new_user">New user</string>
+
+    <!-- REGISTRATION AML Screen Step 1 -->
+    <string name="registration_aml_title_step_1">Step 1</string>
+    <string name="registration_aml_label_country">* Country</string>
+    <string name="registration_aml_label_email">* Email</string>
+    <string name="registration_aml_label_password">* Password</string>
+    <string name="registration_aml_label_confirm_Password">* Confirm Password</string>
+
+    <!-- REGISTRATION AML Screen Step 2 -->
+    <string name="registration_aml_title_step_2">Step 2</string>
+    <string name="registration_aml_label_first_name">* First Name</string>
+    <string name="registration_aml_label_last_name">* Last Name</string>
+    <string name="registration_aml_label_nationality">* Nationality</string>
+    <string name="registration_aml_label_birth_date">* Birth Date</string>
+    <string name="registration_aml_label_male">Male</string>
+    <string name="registration_aml_label_female">Female</string>
+
+    <!-- REGISTRATION AML Screen Step 3 -->
+    <string name="registration_aml_label_address_line_1">* Address Line 1</string>
+    <string name="registration_aml_label_address_line_2">Address Line 2</string>
+    <string name="registration_aml_label_address_city">* City</string>
+    <string name="registration_aml_label_address_zip">* Zip/Post Code</string>
+    <string name="registration_aml_label_address_state">State</string>
+    <string name="registration_aml_label_mobile_number">* Mobile Number</string>
+
+    <!-- REGISTRATION AML Screen Step 4 -->
+    <string name="registration_aml_label_identification_type">* Identification Type</string>
+    <string name="registration_aml_label_id_details">* Identification Number</string>
+    <string name="registration_aml_label_id_expiry">* Id Expiration Date</string>
+    <string name="registration_aml_label_id_scan">* Id Scan</string>
+
+    <!-- REGISTRATION AML Screen Step 5 -->
+    <string name="registration_aml_button_disagree">Disagree</string>
+    <string name="registration_aml_button_agree">Agree</string>
+
+    <!-- REGISTRATION AML Screen Step 6 -->
+    <string name="registration_aml_message_confirm_registration">Please enter the confirmation \ncode sent to your Email</string>
+    <string name="registration_aml_label_enter_code">Enter Code</string>
+    <string name="registration_aml_button_confirm">Confirm</string>
+
+    <!-- REGISTRATION AML Screen Step 7 -->
+    <string name="registration_aml_message_congratulation">Congratulations!\nYour account has been created.</string>
+    <string name="registration_aml_message_pin_number">Your app pin is</string>
+    <string name="registration_aml_message_how_to_change_pin">You can change this PIN from you Profile Screen.</string>
+    <string name="registration_aml_pin_number">1234</string>
+
+    <!-- Registration AML Screen Two Factor Auth -->
+    <string name="registration_aml_two_factor_auth">2nd Factor Authentification</string>
+
+    <!-- My Profile Screen -->
+    <string name="my_profile_title">My Profile</string>
+    <string name="my_profile_title_personal_details">Personal Details</string>
+    <string name="my_profile_title_contact_information">Contact Information</string>
+    <string name="my_profile_title_id_information">Id Information</string>
+    <string name="my_profile_label_email">Email</string>
+    <string name="my_profile_label_birth_date">Birth Date</string>
+    <string name="my_profile_label_gender">Gender</string>
+    <string name="my_profile_label_address">Address</string>
+    <string name="my_profile_label_mobile">Mobile</string>
+    <string name="my_profile_label_id_type">Id type</string>
+    <string name="my_profile_label_id_details">Id details</string>
+    <string name="my_profile_label_id_expiry">Id expiry</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="my_profile_change_pin">CHANGE PIN</string>
+    <string name="my_profile_change_password">CHANGE PASSWORD</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Payment options Screen -->
+    <string name="payment_option_add_credit_card">+Credit Card</string>
+
+    <!-- Transaction History Screen -->
+    <string name="transaction_history_title">Transaction History</string>
+    <string name="transaction_history_payment_option">PAYMENT \nOPTION</string>
+    <string name="transaction_history_verification_scenario">VERIFICATION \nSCENARIO</string>
+    <string name="transaction_history_verification_status">VERIFICATION \nSTATUS</string>
+
+    <!-- TRANSACTION OVERVIEW Screen -->
+    <string name="transaction_overview_pay_now">Pay Now</string>
+    <string name="transaction_overview_title">Transaction Overview</string>
+    <string name="transaction_overview_you_send">You Send</string>
+    <string name="transaction_overview_they_receive">They Receive</string>
+    <string name="transaction_overview_you_send_caps">YOU SEND</string>
+    <string name="transaction_overview_currency_exchange_rate">CURRENCY EXCHANGE RATE</string>
+    <string name="transaction_overview_exchange_amount">EXCHANGE AMOUT</string>
+    <string name="transaction_overview_transfer_fee">TRANSFER FEE</string>
+    <string name="transaction_overview_estimated_amount_received">ESTIMATED AMOUNT RECEIVED</string>
+    <string name="transaction_type_ok">OK</string>
+    <string name="transaction_type_pin">PIN</string>
+    <string name="transaction_type_pin_tan">PIN+TAN</string>
+
+    <!-- Logo Screen -->
+    <string name="logo_title">Logo</string>
+    <string name="logo_choosed_item">You selected new logo</string>
+
+    <!-- Wallet Screen -->
+    <string name="wallet_title">Wallet</string>
+
+    <!-- Terms Screen -->
+    <string name="terms_screen_title">Terms and conditions</string>
+
+    <!-- Spinner countries -->
+    <string name="country_belarus">Belarus</string>
+    <string name="country_usa">USA</string>
+    <string name="country_russia">Russia</string>
+    <!-- EU -->
+    <string name="country_eu_uk">UK</string>
+    <string name="country_eu_germany">Germany</string>
+    <string name="country_eu_norway">Norway</string>
+    <!-- AP -->
+    <string name="country_ap_philippines">Philippines</string>
+    <string name="country_ap_bangladesh">Bangladesh</string>
+    <string name="country_ap_china">China</string>
+    <string name="country_ap_india">India</string>
+    <string name="country_ap_indonesia">Indonesia</string>
+    <string name="country_ap_malaysia">Malaysia</string>
+    <string name="country_ap_singapore">Singapore</string>
+    <string name="country_ap_south_korea">South Korea</string>
+    <string name="country_ap_sri_lanka">Sri Lanka</string>
+    <string name="country_ap_thailand">Thailand</string>
+    <string name="country_ap_vietman">Vietnam</string>
+
+    <!-- Spinner currency -->
+    <string name="currency_usd">USD</string>
+    <string name="currency_eur">EUR</string>
+    <string name="currency_blr_rub">BLR</string>
+    <string name="currency_russian_rub">RUS</string>
+
+    <!-- Spinner card type -->
+    <string name="card_type_visa">Visa</string>
+    <string name="card_type_amex">AMEX</string>
+    <string name="card_type_master_card">MasterCard</string>
+
+    <!-- Spinner delivery option -->
+    <string name="delivery_option_bank_account">Bank Account</string>
+    <string name="delivery_option_credit_card">Credit Card</string>
+    <string name="delivery_option_cash_payout">Cash Payout</string>
+
+    <!-- Spinner nationalities -->
+    <string name="nationality_belarus">Belarusian</string>
+    <string name="nationality_russian">Russian</string>
+    <string name="nationality_african">African</string>
+
+    <!-- Spinner identification type -->
+    <string name="identification_type_passport">Passport</string>
+    <string name="identification_type_national_id">National ID</string>
+
+
+</resources>

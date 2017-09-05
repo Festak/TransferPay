@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Theme colors -->
+    <color name="colorPrimary">#0091ea</color>
+    <color name="colorPrimaryDark">#0064b7</color>
+    <color name="colorPrimaryLight">#64c1ff</color>
+    <color name="colorAccent">#27d8ef</color>
+    <color name="colorAccentDark">#00a6bc</color>
+    <color name="colorAccentLight">#74ffff</color>
+
+    <!-- Base colors -->
+    <color name="colorGray">#999999</color>
+    <color name="colorGrayLight">#CCCCCC</color>
+    <color name="colorBlueExtraLight">#f7fcff</color>
+    <color name="colorDark">#333333</color>
+    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorBlue">#FF0000FF</color>
+    <color name="colorGreyLight">#FFcccccc</color>
+    <color name="colorRed">#FFFF0000</color>
+    <color name="colorLightBlue">#b3e5fc</color>
+    <color name="colorLightBlueBorder">#64b5f6</color>
+
+    <!-- Common colors -->
+    <color name="listDivider">@color/colorGrayLight</color>
+    <color name="cardViewBackground">@color/colorWhite</color>
+    <color name="activityBackground">@color/colorBlueExtraLight</color>
+    <color name="text">@color/colorDark</color>
+
+    <color name="inputHighlight">@color/colorGrayLight</color>
+    <color name="inputHint">@color/colorGrayLight</color>
+    <color name="inputHintFloating">@color/colorPrimary</color>
+    <color name="inputText">@color/text</color>
+    <color name="inputError">@color/colorRed</color>
+
+    <color name="formsBackgroundColor">@color/colorLightBlue</color>
+    <color name="formsBackgroundBorder">@color/colorLightBlueBorder</color>
+    <color name="textInvert">#ffffff</color>
+
+    <!-- Icons -->
+    <color name="actionBarIcon">@color/colorWhite</color>
+    <color name="addButtonIcon">@color/colorWhite</color>
+    <color name="downloadLogo">@color/colorDark</color>
+
+    <!-- Text -->
+    <color name="textLink">@color/colorBlue</color>
+    <color name="textLight">@color/colorGray</color>
+
+    <!-- XXX colors -->
+</resources>

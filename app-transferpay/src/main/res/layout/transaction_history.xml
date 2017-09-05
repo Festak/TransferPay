@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="v"
+            type="android.view.View" />
+
+        <variable
+            name="presenter"
+            type="com.transfer.pay.ui.fragments.transactionhistory.TransactionHistoryPresenter" />
+
+        <variable
+            name="transaction"
+            type="com.transfer.pay.models.Transaction" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{transaction == null ? v.GONE : v.VISIBLE}">
+
+            <TextView
+                android:id="@+id/transactionDate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/transaction_history_date_margin"
+                android:layout_marginTop="@dimen/transaction_history_date_margin"
+                android:gravity="center_horizontal"
+                android:text="@{transaction.transactionDate}"
+                android:textStyle="bold"
+                tools:text="Fri Jun 09 10:24:36 2017" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/text" />
+
+            <RelativeLayout
+                android:visibility="@{transaction.bankAccount == null ? v.GONE : v.VISIBLE}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_icon_credit_card_size">
+
+                <ImageView
+                    android:id="@+id/bankAccountIcon"
+                    android:layout_width="@dimen/home_icon_credit_card_size"
+                    android:layout_height="@dimen/home_icon_credit_card_size"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    app:srcCompat="@drawable/ic_bank_account_24dp"/>
+
+                <TextView
+                    android:id="@+id/bankAccountName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_toRightOf="@+id/bankAccountIcon"
+                    android:text="@{transaction.bankAccount.get().name}"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="John Smith" />
+
+                <TextView
+                    android:id="@+id/bankAccountNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/bankAccountName"
+                    android:layout_toEndOf="@+id/bankAccountIcon"
+                    android:layout_toRightOf="@+id/bankAccountIcon"
+                    android:text="@{transaction.bankAccount.get().accountNo}"
+                    tools:text="XXXX-XXXX-XXXX-1234" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:visibility="@{transaction.creditCard == null ? v.GONE : v.VISIBLE}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_icon_credit_card_size">
+
+                <ImageView
+                    android:id="@+id/creditCardIcon"
+                    android:layout_width="@dimen/home_icon_credit_card_size"
+                    android:layout_height="@dimen/home_icon_credit_card_size"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    app:srcCompat="@drawable/ic_credit_card_24dp"/>
+
+                <TextView
+                    android:id="@+id/creditCardHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_toRightOf="@+id/creditCardIcon"
+                    android:text="@{transaction.creditCard.get().cardHolderName}"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="John Smith" />
+
+                <TextView
+                    android:id="@+id/creditCardNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/creditCardHolder"
+                    android:layout_toEndOf="@+id/creditCardIcon"
+                    android:layout_toRightOf="@+id/creditCardIcon"
+                    android:text="@{transaction.creditCard.get().creditCardNumber}"
+                    tools:text="XXXX-XXXX-XXXX-1234" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/text" />
+
+            <include
+                layout="@layout/transaction_data"
+                app:transaction="@{transaction}" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/text_link_margin_top"
+                android:background="@color/text" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/paymentOptionText"
+                    style="@style/HintText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/transaction_history_payment_option"
+                    android:textColor="@color/colorGray" />
+
+                <TextView
+                    android:id="@+id/paymentOptionData"
+                    style="@style/UserDataText"
+                    android:layout_width="@dimen/transaction_history_card_width"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:paddingLeft="100dp"
+                    android:text="@{transaction.paymentOption.get().toString()}"
+                    android:textAlignment="gravity"
+                    tools:text="VISA XXXX-XXXX-XXXX-XXXX-1234" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_link_margin_top">
+
+                <TextView
+                    android:id="@+id/verificationScenarioText"
+                    style="@style/HintText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/transaction_history_verification_scenario"
+                    android:textColor="@color/colorGray" />
+
+                <TextView
+                    android:id="@+id/verificationScenarioData"
+                    style="@style/UserDataText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="@{transaction.operationType}"
+                    tools:text="PIN+TAN" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

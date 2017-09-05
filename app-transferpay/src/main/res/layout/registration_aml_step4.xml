@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.transfer.pay.models.User" />
+
+        <variable
+            name="presenter"
+            type="com.transfer.pay.ui.fragments.registration.stepfour.RegistrationStepFourPresenter"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/SpinnerLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registration_aml_label_identification_type" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinnerIdentificationType"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    bind:selectedValue="@={user.identificationType}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fieldIdDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/registration_aml_label_id_details"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:text="@={user.idOfDetails}" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fieldsExpiryDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/expiryDate"
+                        android:layout_width="match_parent"
+                        android:drawableRight="@drawable/ic_calendar"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/registration_aml_label_id_expiry"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:text="@={user.idExpiryDate}" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fieldState"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusableInTouchMode="false"
+                        android:drawableRight="@drawable/ic_picture"
+                        android:onClick="@{()->presenter.onIdScanClick()}"
+                        android:hint="@string/registration_aml_label_id_scan"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:text="@={user.idOfScan}" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,73 @@
+<resources>
+    <!-- Common -->
+    <dimen name="text_link_margin_top">8dp</dimen>
+    <dimen name="text_link_size">16sp</dimen>
+
+    <!--Button-->
+    <dimen name="button_corner_radius">4dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_small_height">32dp</dimen>
+    <dimen name="button_width">280dp</dimen>
+    <dimen name="button_margin_top">16dp</dimen>
+
+    <!-- Navigation Buttons -->
+    <dimen name="navigation_footer_height">48dp</dimen>
+    <dimen name="navigation_button_bottom_margin">24dp</dimen>
+
+    <!-- Login Screen -->
+    <dimen name="login_top_margin">20dp</dimen>
+
+    <!-- Home Screen -->
+    <dimen name="home_icon_credit_card_size">64dp</dimen>
+
+    <dimen name="two_factor_auth_screen_top_margin">40dp</dimen>
+    <dimen name="two_factor_auth_title_text">200dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="button_shift">8dp</dimen>
+
+    <!-- registration -->
+    <dimen name="title_margin">10dp</dimen>
+    <dimen name="registration_footer_height">60dp</dimen>
+
+    <!-- Registration aml step 7 -->
+    <dimen name="registration_step_7_title_height">60dp</dimen>
+    <dimen name="registration_step_7_title_margin">60dp</dimen>
+    <dimen name="registration_step_7_pin_text_height">80dp</dimen>
+    <dimen name="registration_step_7_pin_text_size">21sp</dimen>
+    <dimen name="registration_step_7_pin_height">90dp</dimen>
+    <dimen name="registration_step_7_pin_size">72sp</dimen>
+    <dimen name="registration_step_7_bottom_text">16sp</dimen>
+
+    <!-- Spinner -->
+    <dimen name="spinner_dropdown_item">16dp</dimen>
+
+    <!-- Settings Screen -->
+    <dimen name="settings_load_logo_size">16dp</dimen>
+
+    <!-- Transaction history -->
+    <dimen name="transaction_history_top_margin">32dp</dimen>
+    <dimen name="transaction_history_date_margin">8dp</dimen>
+    <dimen name="transaction_history_card_width">250dp</dimen>
+
+    <!-- New Beneficiary screen -->
+    <dimen name="new_beneficiary_top_margin">16dp</dimen>
+    <dimen name="new_beneficiary_title_size">18sp</dimen>
+    <dimen name="new_beneficiary_or_size">16sp</dimen>
+    <dimen name="new_beneficiary_small_margin">8dp</dimen>
+
+    <!-- My Profile -->
+    <dimen name="my_profile_header_padding">6dp</dimen>
+
+    <!-- Logo Screen -->
+    <dimen name="logo_text_size">18sp</dimen>
+    <dimen name="logo_image_height">120dp</dimen>
+    <dimen name="logo_image_width">160dp</dimen>
+    <dimen name="logo_vertical_padding">4dp</dimen>
+
+</resources>
