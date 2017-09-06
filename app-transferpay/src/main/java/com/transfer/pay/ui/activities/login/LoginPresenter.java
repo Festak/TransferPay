@@ -8,6 +8,8 @@ import com.transfer.pay.data.DataStorage;
 import com.transfer.pay.R;
 import com.transfer.pay.UserManager;
 import com.transfer.pay.constants.Fields;
+import com.transfer.pay.databinding.LoginBinding;
+import com.transfer.pay.models.User;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 
 /**
@@ -27,14 +29,16 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
 
     @Override
     public boolean onUserBackPressed() {
-        // Consumes event if isFakeAsyncOperationRunning() = true
         return isFakeAsyncOperationRunning();
     }
 
     public void onForgotPasswordClick(View view) {
-        getViewHelper().showToast("onForgotPasswordClick");
-        // TODO: Temp method for removing all data
         cleanAllData();
+    }
+
+    public void onBindVariables(LoginBinding binding) {
+        binding.setPresenter(this);
+        binding.setUser(new User());
     }
 
     public void onSignUpClick(View view) {
@@ -51,7 +55,19 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
         });
     }
 
-    private void cleanAllData(){
+    private boolean compareUsers() {
+        User currentUser = getViewHelper().getBinding().getUser();
+        User savedUser = UserManager.getInstance().getUser();
+        String currentUserPassword = currentUser.password.get();
+        String currentUserLogin = currentUser.login.get();
+
+        String savedUserPassword = savedUser.password.get();
+        String savedUserLogin = savedUser.login.get();
+
+        return true;
+    }
+
+    private void cleanAllData() {
         DataStorage.getInstance().removeKey(Fields.Preferences.BENEFICIARIES);
         DataStorage.getInstance().removeKey(Fields.Preferences.CHOOSED_BENEFICIARY);
         DataStorage.getInstance().removeKey(Fields.Preferences.PAYMENT_OPTIONS);

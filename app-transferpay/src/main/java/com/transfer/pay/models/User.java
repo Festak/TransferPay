@@ -10,6 +10,7 @@ public class User {
     public final ObservableField<String> country = new ObservableField<>();
     public final ObservableField<String> email = new ObservableField<>();
     public final ObservableField<String> password = new ObservableField<>();
+    public final ObservableField<String> login = new ObservableField<>();
     public final ObservableField<String> firstName = new ObservableField<>();
     public final ObservableField<String> lastName = new ObservableField<>();
     public final ObservableField<String> nationality = new ObservableField<>();

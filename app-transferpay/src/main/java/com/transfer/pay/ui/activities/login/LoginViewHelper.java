@@ -24,7 +24,7 @@ public class LoginViewHelper extends ViewHelper<LoginPresenter, LoginBinding> {
 
     @Override
     protected void onBindVariables(LoginBinding binding) {
-        binding.setPresenter(getPresenter());
+        getPresenter().onBindVariables(binding);
     }
 
     @Override
