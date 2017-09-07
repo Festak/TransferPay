@@ -49,8 +49,12 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
         performFakeAsyncOperation(new Runnable() {
             @Override
             public void run() {
-                UserManager.getInstance().performLogin();
-                getRemittanceRouter().openTwoFactorAuthActivity();
+                if(compareUsers()) {
+                    UserManager.getInstance().performLogin();
+                    getRemittanceRouter().openTwoFactorAuthActivity();
+                } else {
+                    getViewHelper().showInvalidLogin();
+                }
             }
         });
     }
@@ -64,7 +68,12 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
         String savedUserPassword = savedUser.password.get();
         String savedUserLogin = savedUser.login.get();
 
-        return true;
+        if(currentUserLogin != null && currentUserLogin.equals(savedUserLogin)){
+            if (currentUserPassword != null && currentUserPassword.equals(savedUserPassword)){
+                return true;
+            }
+        }
+        return false;
     }
 
     private void cleanAllData() {

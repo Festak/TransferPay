@@ -1,5 +1,8 @@
 package com.transfer.pay.ui.fragments.registration.twofactorauth;
 
+import android.widget.EditText;
+import android.widget.Toast;
+
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.constants.ContainerId;
@@ -38,6 +41,15 @@ public class TwoFactorAuthViewHelper extends ViewHelper<TwoFactorAuthPresenter, 
 
     public RegistrationViewHelper getRegistrationViewHelper(){
         return getRegistrationPresenter().getViewHelper();
+    }
+
+    public void showToast(int stringId){
+        showToast(stringId, Toast.LENGTH_SHORT);
+    }
+
+    public String getTwoFactorEnteredNumber(){
+        EditText editText = (EditText)findViewById(R.id.two_factor_auth_sms_text);
+        return editText.getText().toString();
     }
 
 }

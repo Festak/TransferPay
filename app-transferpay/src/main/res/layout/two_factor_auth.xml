@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/two_factor_auth_screen_top_margin"
-                android:text="@string/two_factor_auth_verif_code_text"
+                android:text="@string/registration_aml_message_confirm_registration"
                 android:textAlignment="center" />
 
 

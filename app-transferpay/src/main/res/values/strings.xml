@@ -18,6 +18,7 @@
     <!-- LOGIN Screen -->
     <string name="login_screen_title">Log-in</string>
     <string name="login_label_login">Login</string>
+    <string name="login_invalid_access">Login or password are wrong</string>
     <string name="login_label_password">Password</string>
     <string name="login_link_forgot_password"><u>Forgot Password</u></string>
     <string name="login_link_sing_up"><u>Not yet registered? Sign-up Now</u></string>
@@ -92,6 +93,7 @@
     <string name="registration_aml_title_step_1">Step 1</string>
     <string name="registration_aml_label_country">* Country</string>
     <string name="registration_aml_label_email">* Email</string>
+    <string name="registration_aml_label_login">* Login</string>
     <string name="registration_aml_label_password">* Password</string>
     <string name="registration_aml_label_confirm_Password">* Confirm Password</string>
 
@@ -126,6 +128,9 @@
     <string name="registration_aml_message_confirm_registration">Please enter the confirmation \ncode sent to your Email</string>
     <string name="registration_aml_label_enter_code">Enter Code</string>
     <string name="registration_aml_button_confirm">Confirm</string>
+    <string name="registration_aml_code_send_successfully">Code send to your email successfully.</string>
+    <string name="registration_aml_code_send_failed">Code send failed. Probably check your internet connection.</string>
+    <string name="registration_aml_wrong_send_code">You entered wrong email code</string>
 
     <!-- REGISTRATION AML Screen Step 7 -->
     <string name="registration_aml_message_congratulation">Congratulations!\nYour account has been created.</string>
@@ -135,6 +140,9 @@
 
     <!-- Registration AML Screen Two Factor Auth -->
     <string name="registration_aml_two_factor_auth">2nd Factor Authentification</string>
+    <string name="registration_aml_two_factor_auth_sms_wrong">Something went failed. Check your phone number</string>
+    <string name="registration_aml_two_factor_auth_sms_ok">Sms has send successfully</string>
+    <string name="registration_aml_two_factor_auth_sms_validation">Please, enter correct sms code</string>
 
     <!-- My Profile Screen -->
     <string name="my_profile_title">My Profile</string>
