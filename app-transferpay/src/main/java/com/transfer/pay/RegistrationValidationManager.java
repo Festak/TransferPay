@@ -16,7 +16,7 @@ public class RegistrationValidationManager {
 
     public static RegistrationValidationModel getValidationModel() {
         if (validationModel == null) {
-            setValidationModel(new ValidationModel());
+            setValidationModel(new RegistrationValidationModel());
         }
         return validationModel;
     }
