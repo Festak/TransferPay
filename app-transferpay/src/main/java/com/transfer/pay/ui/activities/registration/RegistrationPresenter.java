@@ -71,7 +71,7 @@ public class RegistrationPresenter extends TransferPayBasePresenter<Registration
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(RegistrationValidationManager.getValidationModel().getCurrentValidationStep().size() == 0) {
+                if(RegistrationValidationManager.getValidationModel().getCurrentValidationMap().size() == 0) {
                     confirmNavigator.navigateConfirm(getCurrentFragmentId());
                 } else{
                     getViewHelper().showToast(R.string.registration_validation_message, Toast.LENGTH_SHORT);

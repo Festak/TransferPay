@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.transfer.pay">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
@@ -16,11 +17,11 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/RemittanceTheme"
+        android:theme="@style/TransferPayTheme"
         tools:replace="android:theme">
         <activity
             android:name="com.transfer.pay.ui.activities.brand.BrandActivity"
-            android:theme="@style/RemittanceTheme.NoActionBar">
+            android:theme="@style/TransferPayTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,27 +31,27 @@
         <activity
             android:name="com.transfer.pay.ui.activities.login.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/RemittanceTheme.NoActionBar"
+            android:theme="@style/TransferPayTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.transfer.pay.ui.activities.twofactorauth.TwoFactorAuthActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/RemittanceTheme.NoActionBar"
+            android:theme="@style/TransferPayTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.transfer.pay.ui.activities.fragmentactivity.TransferPayFragmentActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/RemittanceTheme.NoActionBar"
+            android:theme="@style/TransferPayTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.transfer.pay.ui.activities.home.HomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/RemittanceTheme.NoActionBar"
+            android:theme="@style/TransferPayTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.transfer.pay.ui.activities.registration.RegistrationActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/RemittanceTheme.NoActionBar"
+            android:theme="@style/TransferPayTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
     </application>
 

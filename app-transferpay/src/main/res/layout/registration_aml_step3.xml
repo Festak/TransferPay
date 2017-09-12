@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="user"
-            type="com.transfer.pay.models.User" />
+            type="com.transfer.pay.models.User"/>
+
+        <import type="com.transfer.pay.utils.validation.ValidationFactory"/>
+
 
         <variable
             name="validationModel"
@@ -40,7 +44,9 @@
                         android:hint="@string/registration_aml_label_address_line_1"
                         android:lines="1"
                         android:maxLines="1"
-                        android:text="@={user.addressLineOne}" />
+                        android:text="@={user.addressLineOne}"
+                        app:validationModel="@{validationModel}"
+                        app:validator="@{ValidationFactory.getEmptyRuleValidation()}"/>
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -55,7 +61,7 @@
                         android:hint="@string/registration_aml_label_address_line_2"
                         android:lines="1"
                         android:maxLines="1"
-                        android:text="@={user.addressLineTwo}" />
+                        android:text="@={user.addressLineTwo}"/>
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -75,8 +81,10 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/registration_aml_label_address_city"
                             android:lines="1"
+                            app:validationModel="@{validationModel}"
+                            app:validator="@{ValidationFactory.getEmptyRuleValidation()}"
                             android:maxLines="1"
-                            android:text="@={user.city}" />
+                            android:text="@={user.city}"/>
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -90,7 +98,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/registration_aml_label_address_zip"
-                            android:text="@={user.zipOrPostalCode}" />
+                            app:validationModel="@{validationModel}"
+                            app:validator="@{ValidationFactory.getEmptyRuleValidation()}"
+                            android:text="@={user.zipOrPostalCode}"/>
 
                     </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
@@ -107,7 +117,7 @@
                         android:hint="@string/registration_aml_label_address_state"
                         android:lines="1"
                         android:maxLines="1"
-                        android:text="@={user.state}" />
+                        android:text="@={user.state}"/>
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -122,9 +132,11 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/registration_aml_label_mobile_number"
                         android:inputType="phone"
+                        app:validationModel="@{validationModel}"
+                        app:validator="@{ValidationFactory.getEmptyRuleValidation()}"
                         android:lines="1"
                         android:maxLines="1"
-                        android:text="@={user.mobileNumber}" />
+                        android:text="@={user.mobileNumber}"/>
 
                 </android.support.design.widget.TextInputLayout>
 

@@ -18,13 +18,13 @@ public class RegistrationValidationModel {
         }
     }
 
-    public ObservableArrayMap<String, String> getCurrentValidationStep(){
+    public ObservableArrayMap<String, String> getCurrentValidationMap(){
         return registrationValidationSteps.get(currentStep.get());
     }
 
     public ObservableArrayMap<String, String> getValidationModelByStep(int step){
         currentStep.set(step);
-        return getCurrentValidationStep();
+        return getCurrentValidationMap();
     }
 
 

@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="RemittanceTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="TransferPayTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary color themes -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -16,15 +16,15 @@
     </style>
 
     <!-- Window -->
-    <style name="RemittanceTheme.NoActionBar">
+    <style name="TransferPayTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
     <!-- ActionBar -->
-    <style name="RemittanceTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="TransferPay.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="RemittanceTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="TransferPay.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!-- EditText -->
     <style name="App_EditTextStyle" parent="@android:style/Widget.EditText">

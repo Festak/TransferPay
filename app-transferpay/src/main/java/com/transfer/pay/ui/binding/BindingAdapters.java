@@ -16,6 +16,10 @@ import com.transfer.pay.listeners.spinner.BindedItemSelectedListener;
 
 public class BindingAdapters {
 
+    private BindingAdapters(){
+        // do nothing
+    }
+
     @BindingAdapter(value = {"bind:selectedValue", "bind:selectedValueAttrChanged"}, requireAll = false)
     public static void bindSpinnerData(AppCompatSpinner spinner, Object newSelectedValue, final InverseBindingListener inverseBindingListener) {
         spinner.setOnItemSelectedListener(new BindedItemSelectedListener(inverseBindingListener));

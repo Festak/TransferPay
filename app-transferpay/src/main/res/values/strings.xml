@@ -7,6 +7,7 @@
     <!-- Common Strings -->
     <string name="ok">OK</string>
     <string name="pick_image_source">Pick image source</string>
+    <string name="internet_connection_not_found">Please, turn ON your internet</string>
 
     <!-- Two Factor Auth Screen-->
     <string name="two_factor_auth_title">Two Factor Authentication</string>
@@ -88,7 +89,7 @@
     <string name="registration_aml_button_back">Back</string>
     <string name="registration_aml_button_next">Next</string>
     <string name="registration_aml_new_user">New user</string>
-    <string name="registration_validation_message">Please fill all required fields</string>
+    <string name="registration_validation_message">Please fill fields according to it rules</string>
 
     <!-- REGISTRATION AML Screen Step 1 -->
     <string name="registration_aml_title_step_1">Step 1</string>
@@ -119,7 +120,7 @@
     <string name="registration_aml_label_identification_type">* Identification Type</string>
     <string name="registration_aml_label_id_details">* Identification Number</string>
     <string name="registration_aml_label_id_expiry">* Id Expiration Date</string>
-    <string name="registration_aml_label_id_scan">* Id Scan</string>
+    <string name="registration_aml_label_id_scan">Id Scan</string>
 
     <!-- REGISTRATION AML Screen Step 5 -->
     <string name="registration_aml_button_disagree">Disagree</string>
