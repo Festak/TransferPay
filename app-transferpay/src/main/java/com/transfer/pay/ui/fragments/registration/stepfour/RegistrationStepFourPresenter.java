@@ -5,10 +5,13 @@ import android.graphics.Bitmap;
 
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.UserManager;
+import com.transfer.pay.databinding.RegistrationAmlStep3Binding;
 import com.transfer.pay.databinding.RegistrationAmlStep4Binding;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.utils.FileNameGenerator;
 import com.transfer.pay.utils.FileUtils;
+import com.transfer.pay.utils.validation.registration.RegistrationValidationManager;
+import com.transfer.pay.utils.validation.registration.RegistrationValidationModel;
 
 /**
  * Created by e.fetskovich on 6/5/17.
@@ -19,6 +22,13 @@ public class RegistrationStepFourPresenter extends TransferPayBasePresenter<Empt
     public void bindVariables(RegistrationAmlStep4Binding binding) {
         binding.setUser(UserManager.getInstance().getUser());
         binding.setPresenter(this);
+        bindValidationModel(binding);
+    }
+
+    private void bindValidationModel(RegistrationAmlStep4Binding binding){
+        RegistrationValidationManager.getValidationModel().currentStep.set(3);
+        RegistrationValidationModel model = RegistrationValidationManager.getValidationModel();
+        binding.setValidationModel(model);
     }
 
     @Override

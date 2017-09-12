@@ -1,6 +1,4 @@
-package com.transfer.pay;
-
-import com.transfer.pay.utils.RegistrationValidationModel;
+package com.transfer.pay.utils.validation.registration;
 
 /**
  * @author e.fetskovich on 9/12/17.

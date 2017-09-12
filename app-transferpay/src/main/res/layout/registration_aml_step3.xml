@@ -6,6 +6,11 @@
         <variable
             name="user"
             type="com.transfer.pay.models.User" />
+
+        <variable
+            name="validationModel"
+            type="com.transfer.pay.utils.validation.registration.RegistrationValidationModel"/>
+
     </data>
 
     <RelativeLayout

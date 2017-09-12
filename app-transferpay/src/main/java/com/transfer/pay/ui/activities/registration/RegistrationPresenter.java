@@ -2,8 +2,11 @@ package com.transfer.pay.ui.activities.registration;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.istatkevich.cmvp.core.fragmentswitcher.FragmentSwitcher;
+import com.transfer.pay.R;
+import com.transfer.pay.utils.validation.registration.RegistrationValidationManager;
 import com.transfer.pay.UserManager;
 import com.transfer.pay.constants.Fields;
 import com.transfer.pay.databinding.RegistrationBaseBinding;
@@ -68,7 +71,11 @@ public class RegistrationPresenter extends TransferPayBasePresenter<Registration
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                confirmNavigator.navigateConfirm(getCurrentFragmentId());
+                if(RegistrationValidationManager.getValidationModel().getCurrentValidationStep().size() == 0) {
+                    confirmNavigator.navigateConfirm(getCurrentFragmentId());
+                } else{
+                    getViewHelper().showToast(R.string.registration_validation_message, Toast.LENGTH_SHORT);
+                }
             }
         };
     }

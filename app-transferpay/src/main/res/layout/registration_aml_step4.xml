@@ -12,6 +12,10 @@
             name="presenter"
             type="com.transfer.pay.ui.fragments.registration.stepfour.RegistrationStepFourPresenter"/>
 
+        <variable
+            name="validationModel"
+            type="com.transfer.pay.utils.validation.registration.RegistrationValidationModel"/>
+
     </data>
 
     <RelativeLayout

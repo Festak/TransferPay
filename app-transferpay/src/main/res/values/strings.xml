@@ -88,6 +88,7 @@
     <string name="registration_aml_button_back">Back</string>
     <string name="registration_aml_button_next">Next</string>
     <string name="registration_aml_new_user">New user</string>
+    <string name="registration_validation_message">Please fill all required fields</string>
 
     <!-- REGISTRATION AML Screen Step 1 -->
     <string name="registration_aml_title_step_1">Step 1</string>

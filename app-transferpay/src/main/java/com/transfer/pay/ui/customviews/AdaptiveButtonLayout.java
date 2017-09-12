@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.transfer.pay.R;
+import com.transfer.pay.utils.validation.registration.RegistrationValidationManager;
 
 /**
  * @author e.fetskovich on 6/29/17.
@@ -89,7 +90,15 @@ public class AdaptiveButtonLayout extends LinearLayout {
     private void switchButtonsToBackNext() {
         backButton.setVisibility(View.VISIBLE);
         nextButton.setVisibility(View.VISIBLE);
+
         backButton.setBackground(getResources().getDrawable(R.drawable.button_primary));
+
+        if(RegistrationValidationManager.getValidationModel().getCurrentValidationStep().size() == 0) {
+            nextButton.setBackground(getResources().getDrawable(R.drawable.button_primary));
+        } else {
+            nextButton.setBackground(getResources().getDrawable(R.drawable.button_primary_gray));
+        }
+
         backButton.setText(getResources().getString(R.string.registration_aml_button_back));
         nextButton.setText(getResources().getString(R.string.registration_aml_button_next));
     }
