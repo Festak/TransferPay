@@ -4,9 +4,10 @@ import android.widget.Toast;
 
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.R;
+import com.transfer.pay.UserManager;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.ui.activities.registration.RegistrationPresenter;
-import com.transfer.pay.utils.email.GMailSender;
+import com.transfer.pay.utils.thread.SendEmailAsyncTask;
 
 import java.util.Date;
 
@@ -21,35 +22,33 @@ public class RegistrationStepSixPresenter extends TransferPayBasePresenter<Empty
     @Override
     protected void onPresenterReady() {
         super.onPresenterReady();
-        sendEmail();
+        emailCode = String.valueOf(new Date().getTime()/400);
+        sendEmail(emailCode);
     }
 
     public void onVerifyButtonClick(){
-        // TODO: need to
-       // if(emailCode != null && getViewHelper().getEnteredCodeFromText().equals(emailCode)) {
+        if(emailCode != null && getViewHelper().getEnteredCodeFromText().equals(emailCode)) {
             RegistrationPresenter presenter = getViewHelper().getRegistrationPresenter();
             presenter.onConfirmButtonClick();
-     /*   } else {
+        } else {
             getViewHelper().showToast(R.string.registration_aml_wrong_send_code, Toast.LENGTH_SHORT);
-        }*/
+        }
     }
 
     public void onReSendButtonClick(){
-        sendEmail();
+        sendEmail(emailCode);
     }
 
-    private void sendEmail(){
-        try {
-            emailCode = String.valueOf(new Date().getTime()/400);
-            GMailSender sender = new GMailSender("rpbafiatskovich@gmail.com", "!Q@w3e4r5");
-            sender.sendMail("TransferPay code",
-                    "Your auth code: " + emailCode,
-                    "fiatskovich.w@gmail.com",
-                    "fiatskovich.w@gmail.com");
-            getViewHelper().showToast(R.string.registration_aml_code_send_successfully, Toast.LENGTH_SHORT);
-        } catch (Exception e) {
-            getViewHelper().showToast(R.string.registration_aml_code_send_failed, Toast.LENGTH_SHORT);
-        }
+    private void sendEmail(final String message){
+        final String userEmail = UserManager.getInstance().getUser().email.get();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                new SendEmailAsyncTask(message, userEmail).execute();
+            }
+        });
+        thread.start();
+        getViewHelper().showToast(R.string.registration_aml_code_send_successfully, Toast.LENGTH_SHORT);
     }
 
 }

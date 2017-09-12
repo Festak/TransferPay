@@ -45,6 +45,7 @@
                 android:layout_marginTop="@dimen/two_factor_auth_screen_top_margin">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/enteredCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/registration_aml_label_enter_code"

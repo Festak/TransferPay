@@ -38,4 +38,9 @@ public class TwoFactorAuthViewHelper extends ViewHelper<TwoFactorAuthPresenter, 
     protected int getLayoutId() {
         return R.layout.two_factor_auth;
     }
+
+    public String getEnteredCodeFromText(){
+        return getBinding().enteredCode.getText().toString();
+    }
+
 }

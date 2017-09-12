@@ -1,5 +1,7 @@
 package com.transfer.pay.utils.email;
 
+import android.util.Log;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,6 +19,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class GMailSender extends javax.mail.Authenticator {
+
+    private static final String TAG = "GMailSender";
+
     private String mailhost = "smtp.gmail.com";
     private String user;
     private String password;
@@ -61,7 +66,7 @@ public class GMailSender extends javax.mail.Authenticator {
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
             Transport.send(message);
         }catch(Exception e){
-
+            Log.e(TAG, "sendMail: "+e);
         }
     }
 
