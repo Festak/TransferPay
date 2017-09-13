@@ -32,6 +32,7 @@ public class ContainerId {
         public static final String TRANSACTION_OVERVIEW = "TransactionOverviewFragment";
         public static final String SETTINGS_TAB = "SettingsTabFragment";
         public static final String LOGO = "LogoFragment";
+        public static final String CHANGE_PASSWORD = "ChangePasswordFragment";
 
         public static class Registration {
             private Registration() {

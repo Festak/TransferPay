@@ -8,9 +8,12 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:contextClickable="true"
+        android:titleTextColor="@color/colorWhite"
         android:background="?attr/colorPrimary"
         android:contentInsetStartWithNavigation="0dp"
         app:contentInsetStartWithNavigation="0dp"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
+        app:theme="@style/TransferPay.White"
+        app:popupTheme="@style/TransferPay.White" />
 
 </android.support.design.widget.AppBarLayout>

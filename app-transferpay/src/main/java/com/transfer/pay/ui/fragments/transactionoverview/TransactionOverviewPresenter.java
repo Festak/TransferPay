@@ -9,7 +9,7 @@ import com.transfer.pay.models.BankAccountModel;
 import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.Transaction;
 import com.transfer.pay.ui.TransferPayBasePresenter;
-import com.transfer.pay.ui.fragments.RemittanceFragmentFactory;
+import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 import com.transfer.pay.ui.list.ListItemData;
 import com.transfer.pay.ui.list.ListItemType;
 
@@ -28,7 +28,7 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
             public void run() {
                 transaction.transactionDate.set(new Date().toString());
                 UserManager.getInstance().createTransaction(transaction);
-                getViewHelper().changeFragment(RemittanceFragmentFactory.ID_TRANSACTION_HISTORY);
+                getViewHelper().changeFragment(TransferPayFragmentFactory.ID_TRANSACTION_HISTORY);
             }
         });
     }

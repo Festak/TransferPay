@@ -5,7 +5,7 @@ import com.istatkevich.cmvp.core.router.Router;
 import com.transfer.pay.TransferPayRouter;
 import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.ui.activities.spafragmentactivity.SpaFragmentActivity;
-import com.transfer.pay.ui.fragments.RemittanceFragmentFactory;
+import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 /**
  * @author Created by i.statkevich on 16.01.2017.
  */
@@ -14,7 +14,7 @@ public class TransferPayFragmentActivity extends SpaFragmentActivity {
 
     @Override
     protected FragmentFactory createFragmentFactory() {
-        return new RemittanceFragmentFactory();
+        return new TransferPayFragmentFactory();
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.transfer.pay.ui.fragments.paymentoptions;
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.data.DataManager;
 import com.transfer.pay.ui.TransferPayBasePresenter;
-import com.transfer.pay.ui.fragments.RemittanceFragmentFactory;
+import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 
 /**
  * Created by e.fetskovich on 6/6/17.
@@ -17,7 +17,7 @@ public class PaymentOptionsPresenter extends TransferPayBasePresenter<EmptyViewM
     }
 
     public void onNewCreditCardClick() {
-        getViewHelper().openFragmentId(RemittanceFragmentFactory.ID_ADD_CARD);
+        getViewHelper().openFragmentId(TransferPayFragmentFactory.ID_ADD_CARD);
     }
 
     @Override

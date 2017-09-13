@@ -4,7 +4,7 @@ import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.data.DataManager;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 
-import static com.transfer.pay.ui.fragments.RemittanceFragmentFactory.ID_NEW_BENEFICIARY;
+import static com.transfer.pay.ui.fragments.TransferPayFragmentFactory.ID_NEW_BENEFICIARY;
 
 /**
  * Created by i.statkevich on 5/25/17.

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import com.istatkevich.cmvp.core.fragmentswitcher.FragmentFactory;
 import com.transfer.pay.ui.fragments.addcard.AddCardFragment;
 import com.transfer.pay.ui.fragments.beneficiaries.BeneficiariesFragment;
+import com.transfer.pay.ui.fragments.changepassword.ChangePasswordFragment;
 import com.transfer.pay.ui.fragments.logo.LogoFragment;
 import com.transfer.pay.ui.fragments.myprofile.MyProfileFragment;
 import com.transfer.pay.ui.fragments.newbeneficiary.NewBeneficiaryFragment;
@@ -21,7 +22,7 @@ import java.util.HashMap;
  * Created by i.statkevich on 5/25/17.
  */
 
-public class RemittanceFragmentFactory implements FragmentFactory {
+public class TransferPayFragmentFactory implements FragmentFactory {
     public static final int ID_BENEFICIARIES = 10;
     public static final int ID_NEW_BENEFICIARY = 13;
     public static final int ID_TRANSACTION_HISTORY = 20;
@@ -34,10 +35,11 @@ public class RemittanceFragmentFactory implements FragmentFactory {
     public static final int ID_ADD_CARD = 80;
     public static final int ID_SETTINGS_TAB = 100;
     public static final int ID_LOGO = 110;
+    public static final int ID_CHANGEPASS = 120;
 
     private HashMap<Integer, Class<? extends Fragment>> fragmentsList;
 
-    public RemittanceFragmentFactory() {
+    public TransferPayFragmentFactory() {
         fragmentsList = createFragmentsList();
     }
 
@@ -64,6 +66,7 @@ public class RemittanceFragmentFactory implements FragmentFactory {
         fragmentsList.put(ID_ADD_CARD, AddCardFragment.class);
         fragmentsList.put(ID_SETTINGS_TAB, SettingsTabFragment.class);
         fragmentsList.put(ID_LOGO, LogoFragment.class);
+        fragmentsList.put(ID_CHANGEPASS, ChangePasswordFragment.class);
         return fragmentsList;
     }
 

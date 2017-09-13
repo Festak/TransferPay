@@ -7,7 +7,7 @@ import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.databinding.BeneficiariesBinding;
 import com.transfer.pay.ui.UiConfigurator;
 import com.transfer.pay.ui.activities.home.HomePresenter;
-import com.transfer.pay.ui.fragments.RemittanceFragmentFactory;
+import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 import com.transfer.pay.ui.list.ListItemData;
 import com.transfer.pay.ui.list.adapter.MultiTypeRecyclerAdapter;
 import com.transfer.pay.ui.list.binder.ViewHolderBinderFactory;
@@ -31,7 +31,7 @@ public class BeneficiariesViewHelper extends ViewHelper<BeneficiariesPresenter, 
     }
 
     public void openTransactionScreen() {
-        changeFragment(RemittanceFragmentFactory.ID_TRANSACTION_OVERVIEW);
+        changeFragment(TransferPayFragmentFactory.ID_TRANSACTION_OVERVIEW);
     }
 
     @Override

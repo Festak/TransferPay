@@ -191,6 +191,12 @@
     <string name="transaction_type_pin">PIN</string>
     <string name="transaction_type_pin_tan">PIN+TAN</string>
 
+    <!-- Change password -->
+    <string name="change_password_title">Change password</string>
+    <string name="change_password_successfuly">Password changed successfully</string>
+    <string name="change_password_wrong">Passwords are not equals</string>
+    <string name="change_password_empty">Password field is empty!</string>
+
     <!-- Logo Screen -->
     <string name="logo_title">Logo</string>
     <string name="logo_choosed_item">You selected new logo</string>

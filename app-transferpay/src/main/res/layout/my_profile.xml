@@ -7,6 +7,11 @@
         <variable
             name="user"
             type="com.transfer.pay.models.User" />
+
+        <variable
+            name="presenter"
+            type="com.transfer.pay.ui.fragments.myprofile.MyProfilePresenter"/>
+
     </data>
 
     <RelativeLayout
@@ -25,15 +30,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonDisagree"
-                style="@style/ButtonPrimary"
-                android:layout_width="0dp"
-                android:layout_marginRight="@dimen/button_shift"
-                android:layout_weight="1"
-                android:text="@string/my_profile_change_pin"
-                android:textSize="16sp" />
-
-            <Button
+                android:onClick="@{()->presenter.onChangePasswordClick()}"
                 android:id="@+id/buttonAgree"
                 style="@style/ButtonPrimary"
                 android:layout_width="0dp"

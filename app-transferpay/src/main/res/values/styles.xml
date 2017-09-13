@@ -25,6 +25,12 @@
     <style name="TransferPay.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="TransferPay.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    <style name="TransferPay.White" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
 
     <!-- EditText -->
     <style name="App_EditTextStyle" parent="@android:style/Widget.EditText">

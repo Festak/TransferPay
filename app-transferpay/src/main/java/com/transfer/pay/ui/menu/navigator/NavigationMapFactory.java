@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.istatkevich.cmvp.core.router.ActivityDestinationParams;
 import com.transfer.pay.R;
 import com.transfer.pay.ui.activities.fragmentactivity.TransferPayFragmentActivity;
-import com.transfer.pay.ui.fragments.RemittanceFragmentFactory;
+import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 import com.transfer.pay.utils.fragment.params.SpaFragmentBundleFactory;
 import com.transfer.pay.utils.fragment.params.SpaFragmentParams;
 
@@ -30,59 +30,65 @@ public class NavigationMapFactory {
         Map<Integer, DestinationParams> map = new HashMap<>();
 
         map.put(
-                RemittanceFragmentFactory.ID_NEW_BENEFICIARY,
-                createDestinationFragmentActivity(RemittanceFragmentFactory.ID_NEW_BENEFICIARY,
+                TransferPayFragmentFactory.ID_NEW_BENEFICIARY,
+                createDestinationFragmentActivity(TransferPayFragmentFactory.ID_NEW_BENEFICIARY,
                         null,
                         R.string.beneficiary_new_title
                 )
         );
         map.put(
-                RemittanceFragmentFactory.ID_ADD_CARD,
-                createDestinationFragmentActivity(RemittanceFragmentFactory.ID_ADD_CARD,
+                TransferPayFragmentFactory.ID_ADD_CARD,
+                createDestinationFragmentActivity(TransferPayFragmentFactory.ID_ADD_CARD,
                         null,
                         R.string.add_card_screen_title
 
                 )
         );
         map.put(
-                RemittanceFragmentFactory.ID_TRANSACTION_OVERVIEW,
-                createDestinationFragment(RemittanceFragmentFactory.ID_TRANSACTION_OVERVIEW,
+                TransferPayFragmentFactory.ID_TRANSACTION_OVERVIEW,
+                createDestinationFragment(TransferPayFragmentFactory.ID_TRANSACTION_OVERVIEW,
                         null,
                         R.string.transaction_overview_title
                 )
         );
-        map.put(RemittanceFragmentFactory.ID_PAYMENT_OPTIONS,
-                createDestinationFragment(RemittanceFragmentFactory.ID_PAYMENT_OPTIONS,
+        map.put(TransferPayFragmentFactory.ID_PAYMENT_OPTIONS,
+                createDestinationFragment(TransferPayFragmentFactory.ID_PAYMENT_OPTIONS,
                         null,
                         R.string.settings_button_payment_option
                 )
         );
-        map.put(RemittanceFragmentFactory.ID_BENEFICIARIES,
-                createDestinationFragment(RemittanceFragmentFactory.ID_BENEFICIARIES,
+        map.put(TransferPayFragmentFactory.ID_BENEFICIARIES,
+                createDestinationFragment(TransferPayFragmentFactory.ID_BENEFICIARIES,
                         null,
                         R.string.beneficiaries_screen_title
                 )
         );
-        map.put(RemittanceFragmentFactory.ID_SETTINGS_TAB,
-                createDestinationFragment(RemittanceFragmentFactory.ID_SETTINGS_TAB,
+        map.put(TransferPayFragmentFactory.ID_SETTINGS_TAB,
+                createDestinationFragment(TransferPayFragmentFactory.ID_SETTINGS_TAB,
                         null,
                         R.string.settings_screen_title
                 )
         );
 
-        map.put(RemittanceFragmentFactory.ID_TRANSACTION_HISTORY,
-                createDestinationFragment(RemittanceFragmentFactory.ID_TRANSACTION_HISTORY,
+        map.put(TransferPayFragmentFactory.ID_TRANSACTION_HISTORY,
+                createDestinationFragment(TransferPayFragmentFactory.ID_TRANSACTION_HISTORY,
                         null,
                         R.string.transaction_history_title
                 )
         );
 
-        map.put(RemittanceFragmentFactory.ID_LOGO,
-                createDestinationFragmentActivity(RemittanceFragmentFactory.ID_LOGO,
+        map.put(TransferPayFragmentFactory.ID_LOGO,
+                createDestinationFragmentActivity(TransferPayFragmentFactory.ID_LOGO,
                         null,
                         R.string.logo_title
                 )
         );
+        map.put(TransferPayFragmentFactory.ID_CHANGEPASS,
+                createDestinationFragmentActivity(TransferPayFragmentFactory.ID_CHANGEPASS,
+                        null,
+                        R.string.change_password_title
+                        )
+                );
 
         return map;
     }
@@ -92,7 +98,7 @@ public class NavigationMapFactory {
         map.put(
                 R.id.nav_beneficiaries,
                 createDestinationFragment(
-                        RemittanceFragmentFactory.ID_BENEFICIARIES,
+                        TransferPayFragmentFactory.ID_BENEFICIARIES,
                         null,
                         R.string.beneficiaries_screen_title
                 )
@@ -100,7 +106,7 @@ public class NavigationMapFactory {
         map.put(
                 R.id.nav_transaction_history,
                 createDestinationFragment(
-                        RemittanceFragmentFactory.ID_TRANSACTION_HISTORY,
+                        TransferPayFragmentFactory.ID_TRANSACTION_HISTORY,
                         null,
                         R.string.transaction_history_title
                 )
@@ -108,14 +114,14 @@ public class NavigationMapFactory {
         map.put(
                 R.id.nav_wallet,
                 createDestinationFragment(
-                        RemittanceFragmentFactory.ID_WALLET,
+                        TransferPayFragmentFactory.ID_WALLET,
                         null,
                         R.string.wallet_title
                 )
         );
         map.put(R.id.nav_my_profile,
                 createDestinationFragment(
-                        RemittanceFragmentFactory.ID_MY_PROFILE,
+                        TransferPayFragmentFactory.ID_MY_PROFILE,
                         null,
                         R.string.my_profile_title
                 )
@@ -123,7 +129,7 @@ public class NavigationMapFactory {
         map.put(
                 R.id.nav_terms,
                 createDestinationFragment(
-                        RemittanceFragmentFactory.ID_TERMS,
+                        TransferPayFragmentFactory.ID_TERMS,
                         null,
                         R.string.terms_screen_title
                 )
@@ -131,7 +137,7 @@ public class NavigationMapFactory {
         map.put(
                 R.id.nav_settings,
                 createDestinationFragment(
-                        RemittanceFragmentFactory.ID_SETTINGS_TAB,
+                        TransferPayFragmentFactory.ID_SETTINGS_TAB,
                         null,
                         R.string.settings_screen_title
                 )

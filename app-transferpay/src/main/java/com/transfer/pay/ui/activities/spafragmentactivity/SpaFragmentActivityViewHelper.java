@@ -16,7 +16,7 @@ public class SpaFragmentActivityViewHelper extends ViewHelper<SpaFragmentActivit
     private Toolbar toolbar;
 
     public void setActionBarTitle(String title) {
-        if(toolbar == null || title == null) {
+        if (toolbar == null || title == null) {
             return;
         }
 
@@ -41,12 +41,11 @@ public class SpaFragmentActivityViewHelper extends ViewHelper<SpaFragmentActivit
     private void initActionBar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        if(toolbar == null) {
+        if (toolbar == null) {
             return;
         }
-
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getPresenter().onHomeButtonClick();

@@ -11,7 +11,7 @@ import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.R;
 import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.ui.TransferPayBaseActivity;
-import com.transfer.pay.ui.fragments.RemittanceFragmentFactory;
+import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 import com.transfer.pay.ui.menu.menudelegate.MainMenuDelegate;
 import com.transfer.pay.ui.menu.menudelegate.MenuDelegate;
 import com.transfer.pay.ui.menu.navigator.MainMenuNavigator;
@@ -29,7 +29,7 @@ public class HomeActivity extends TransferPayBaseActivity<EmptyViewModel, HomeVi
 
     @Override
     protected HomePresenter createPresenter() {
-        FragmentFactory fragmentFactory = new RemittanceFragmentFactory();
+        FragmentFactory fragmentFactory = new TransferPayFragmentFactory();
 
         FragmentSwitcher fragmentSwitcher = new FragmentSwitcher(getSupportFragmentManager(), fragmentFactory, R.id.fragment_container, getViewModel());
 

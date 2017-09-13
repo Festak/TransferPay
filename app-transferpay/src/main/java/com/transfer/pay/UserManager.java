@@ -69,6 +69,11 @@ public class UserManager {
         dataStorage.saveUser(user);
     }
 
+    public void changeUserPassword(String password){
+        user.password.set(password);
+        saveUser();
+    }
+
     private User loadUser() {
         User user = null;
         if (dataStorage.containsKey(Fields.Preferences.USER)) {
