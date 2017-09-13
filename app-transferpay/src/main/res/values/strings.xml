@@ -253,5 +253,8 @@
     <string name="identification_type_passport">Passport</string>
     <string name="identification_type_national_id">National ID</string>
 
+    <!-- Tooltip -->
+    <string name="need_help_additional_information">Additional Information</string>
+
 
 </resources>

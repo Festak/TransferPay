@@ -70,4 +70,13 @@
     <dimen name="logo_image_width">160dp</dimen>
     <dimen name="logo_vertical_padding">4dp</dimen>
 
+    <!-- Tooltip -->
+    <dimen name="tooltip_height_margin">16dp</dimen>
+    <dimen name="add_another_margin">32dp</dimen>
+    <dimen name="text_to_button_margin">8dp</dimen>
+    <dimen name="tooltip_height">140dp</dimen>
+    <dimen name="tooltip_text_height">100dp</dimen>
+    <dimen name="tooltip_link_height">40dp</dimen>
+
+
 </resources>

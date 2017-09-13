@@ -5,8 +5,10 @@ package com.transfer.pay.constants;
  */
 
 public class Constants {
-    public final static int PICK_IMAGE_ID = 234;
+    public static final int PICK_IMAGE_ID = 234;
 
+    public static final int TOOLTIP_TOUCH_AREA_PX = 30;
+    public static final String ADDITIONAL_INFO_URL = "https://www.bsuir.by/";
 
     private Constants() {
         // do nothing
