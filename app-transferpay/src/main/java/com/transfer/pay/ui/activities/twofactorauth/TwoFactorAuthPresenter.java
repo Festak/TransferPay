@@ -10,12 +10,11 @@ import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.utils.connection.ConnectionChecker;
 import com.transfer.pay.utils.thread.SendEmailAsyncTask;
 
-import java.util.Date;
-
 /**
  * Created by e.fetskovich on 6/7/17.
  */
 
+// TODO: To use sending email delete commentaries in this class
 public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewModel, TwoFactorAuthViewHelper> {
 
     private ConnectionChecker checker;
@@ -39,8 +38,8 @@ public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewMo
     @Override
     protected void onPresenterReady() {
         super.onPresenterReady();
-        emailCode = String.valueOf(new Date().getTime() / 400);
-        sendEmail(emailCode);
+    //    emailCode = String.valueOf(new Date().getTime() / 400);
+    //    sendEmail(emailCode);
     }
 
 
