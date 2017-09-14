@@ -38,12 +38,20 @@
 
         <ToggleButton
             android:id="@+id/toggleButton"
-            android:textOff="Card"
-            android:textOn="Bank"
+            android:textOff=""
+            android:textOn=""
             android:background="@drawable/toogle_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="@={beneficiaryType.isBankAccount}" />
+
+        <ImageView
+            android:onClick="@{presenter::onShowTooltipClick}"
+            android:id="@+id/showTooltip"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_tooltip_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:id="@+id/creditCardWrapper"

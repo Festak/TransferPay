@@ -6,9 +6,11 @@ import android.widget.Spinner;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.databinding.NewBeneficiaryBinding;
+import com.transfer.pay.factories.TooltipFactory;
 import com.transfer.pay.listeners.calendar.CalendarListener;
 import com.transfer.pay.listeners.calendar.DateListener;
 import com.transfer.pay.ui.UiConfigurator;
+import com.transfer.pay.ui.customviews.Tooltip;
 import com.transfer.pay.ui.watchers.CreditCardWatcher;
 
 /**
@@ -17,11 +19,14 @@ import com.transfer.pay.ui.watchers.CreditCardWatcher;
 
 public class NewBeneficiaryViewHelper extends ViewHelper<NewBeneficiaryPresenter, NewBeneficiaryBinding> {
 
+    private Tooltip tooltip;
+
     @Override
     protected void onInitView() {
         initEditText();
         initDatePickerForEditText();
         initSpinnerAdapter();
+        initTooltip();
     }
 
     @Override
@@ -32,6 +37,10 @@ public class NewBeneficiaryViewHelper extends ViewHelper<NewBeneficiaryPresenter
     @Override
     protected int getLayoutId() {
         return R.layout.new_beneficiary;
+    }
+
+    public void showTooltip(View view){
+        tooltip.show(view);
     }
 
     private void initEditText() {
@@ -48,6 +57,11 @@ public class NewBeneficiaryViewHelper extends ViewHelper<NewBeneficiaryPresenter
     private void initSpinnerAdapter() {
         Spinner spinner = getBinding().creditCardIncludeLayout.spinnerCardType;
         UiConfigurator.initSpinnerAdapterWithResourceData(spinner, R.array.card_types);
+    }
+
+    private void initTooltip(){
+        View showTooltip = getBinding().showTooltip;
+        tooltip = TooltipFactory.create(showTooltip, R.string.beneficiary_or_card);
     }
 
 

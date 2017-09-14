@@ -255,6 +255,7 @@
 
     <!-- Tooltip -->
     <string name="need_help_additional_information">Additional Information</string>
+    <string name="beneficiary_or_card">Choose in what type you want to send your money:\n Credit Card is a card. \n Bank Account is a bank account.</string>
 
 
 </resources>

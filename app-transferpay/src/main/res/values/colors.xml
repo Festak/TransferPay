@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Theme colors -->
-    <color name="colorPrimary">#0091ea</color>
+    <!-- Theme colors production -->
+<!--    <color name="colorPrimary">#0091ea</color>
     <color name="colorPrimaryDark">#0064b7</color>
     <color name="colorPrimaryLight">#64c1ff</color>
     <color name="colorAccent">#27d8ef</color>
     <color name="colorAccentDark">#00a6bc</color>
-    <color name="colorAccentLight">#74ffff</color>
+    <color name="colorAccentLight">#74ffff</color>-->
+
+    <!-- Theme Colors developing -->
+    <color name="colorPrimary">#00796B</color>
+    <color name="colorPrimaryDark">#004D40</color>
+    <color name="colorPrimaryLight">#4DB6AC</color>
+    <color name="colorAccent">#80CBC4</color>
+    <color name="colorAccentDark">#004D40</color>
+    <color name="colorAccentLight">#80CBC4</color>
 
     <!-- Base colors -->
     <color name="colorGray">#999999</color>

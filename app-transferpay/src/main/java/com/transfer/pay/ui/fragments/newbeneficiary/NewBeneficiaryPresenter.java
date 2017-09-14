@@ -1,5 +1,7 @@
 package com.transfer.pay.ui.fragments.newbeneficiary;
 
+import android.view.View;
+
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.data.DataManager;
 import com.transfer.pay.databinding.NewBeneficiaryBinding;
@@ -27,6 +29,10 @@ public class NewBeneficiaryPresenter extends TransferPayBasePresenter<EmptyViewM
                 getScreen().closeScreen();
             }
         });
+    }
+
+    public void onShowTooltipClick(View v){
+        getViewHelper().showTooltip(v);
     }
 
     public void bindVariables(NewBeneficiaryBinding binding) {
