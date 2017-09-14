@@ -6,19 +6,23 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
+import com.tbuonomo.materialsquareloading.MaterialSquareLoading;
 import com.transfer.pay.R;
 import com.transfer.pay.TransferPayRouter;
 import com.transfer.pay.UserManager;
 import com.transfer.pay.utils.FileUtils;
 
 public class BrandActivity extends AppCompatActivity {
-    private static final int DELAY_NEXT_ACTIVITY = 2000;
+    private static final int DELAY_NEXT_ACTIVITY = 4000;
     private Handler handler;
+    private MaterialSquareLoading materialSquareLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.brand);
+        materialSquareLoading = (MaterialSquareLoading) findViewById(R.id.material_square_loading_view);
+        materialSquareLoading.show();
         initApplicationLogo();
 
         postponeNextActivity();
