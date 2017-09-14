@@ -16,7 +16,7 @@ public class RegistrationStepSevenPresenter extends TransferPayBasePresenter<Emp
 
     public void bindVariables(RegistrationAmlStep7Binding binding){
         User user = UserManager.getInstance().getUser();
-        user.applicationPin.set(String.valueOf(new Date().getTime()));
+        user.setApplicationPin(String.valueOf(new Date().getTime()));
         binding.setUser(user);
         UserManager.getInstance().saveUser();
     }

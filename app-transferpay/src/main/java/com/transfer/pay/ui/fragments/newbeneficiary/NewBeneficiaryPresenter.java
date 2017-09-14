@@ -46,7 +46,7 @@ public class NewBeneficiaryPresenter extends TransferPayBasePresenter<EmptyViewM
         ListItemData itemData = new ListItemData();
         Object object = null;
 
-        if (getViewHelper().getBinding().getBeneficiaryType().isBankAccount.get()) {
+        if (getViewHelper().getBinding().getBeneficiaryType().getBankAccount()) {
             itemData.setType(ListItemType.BENEFICIARY_BANK_ACCOUNT);
             object = getViewHelper().getBinding().getBankAccountModel();
         } else {

@@ -10,13 +10,13 @@ public class UserNameCombiner {
 
     public static String combine(User user) {
         String name = "";
-        if (user.firstName.get() != null) {
-            name += user.firstName.get();
+        if (user.getFirstName() != null) {
+            name += user.getFirstName();
         }
-        if (user.lastName.get() != null) {
-            name += " " + user.lastName.get();
+        if (user.getLastName() != null) {
+            name += " " + user.getLastName();
         }
-        if (user.firstName.get() == null && user.lastName.get() == null) {
+        if (user.getFirstName() == null && user.getLastName() == null) {
             name = "No name";
         }
         return name;

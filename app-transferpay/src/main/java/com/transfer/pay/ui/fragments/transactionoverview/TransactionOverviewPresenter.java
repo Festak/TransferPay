@@ -26,7 +26,7 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
         performFakeAsyncOperation(new Runnable() {
             @Override
             public void run() {
-                transaction.transactionDate.set(new Date().toString());
+                transaction.setTransactionDate(new Date().toString());
                 UserManager.getInstance().createTransaction(transaction);
                 getViewHelper().changeFragment(TransferPayFragmentFactory.ID_TRANSACTION_HISTORY);
             }
@@ -34,14 +34,14 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
     }
 
     public Transaction initTransaction() {
-        Transaction transaction = new Transaction(DataManager.getInstance().getSettings().transactionParams.get());
+        Transaction transaction = new Transaction(DataManager.getInstance().getSettings().getTransactionParams());
         ListItemData model = DataStorage.getInstance().loadChoosedBeneficiary();
         Object object = model.getData();
 
         if (model.getType() == ListItemType.BENEFICIARY_BANK_ACCOUNT) {
-            transaction.bankAccount.set((BankAccountModel)object);
+            transaction.setBankAccount((BankAccountModel)object);
         } else if (model.getType() == ListItemType.BENEFICIARY_CREDIT_CARD) {
-            transaction.creditCard.set((CreditCardModel) object);
+            transaction.setCreditCard((CreditCardModel)object);
         }
         return transaction;
     }

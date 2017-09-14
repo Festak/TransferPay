@@ -52,7 +52,7 @@ public class RegistrationStepTwoViewHelper extends ViewHelper<RegistrationStepTw
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 RadioButton button = (RadioButton) radioGroup.findViewById(i);
                 if (button.isChecked()) {
-                    getBinding().getUser().sex.set(button.getText().toString());
+                    getBinding().getUser().setSex((button.getText().toString()));
                 }
             }
         });

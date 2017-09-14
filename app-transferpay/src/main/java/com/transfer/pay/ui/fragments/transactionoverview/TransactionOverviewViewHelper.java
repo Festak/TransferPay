@@ -48,7 +48,7 @@ public class TransactionOverviewViewHelper extends ViewHelper<TransactionOvervie
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 RadioButton checkedRadioButton = (RadioButton) radioGroup.findViewById(i);
                 if (checkedRadioButton.isChecked()) {
-                    getBinding().getTransaction().operationType.set(checkedRadioButton.getText().toString());
+                    getBinding().getTransaction().setOperationType(checkedRadioButton.getText().toString());
                 }
             }
         });

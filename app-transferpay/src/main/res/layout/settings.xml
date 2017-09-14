@@ -130,7 +130,7 @@
                             android:inputType="numberDecimal"
                             android:lines="1"
                             android:maxLines="1"
-                            android:text="@={Converter.toString(fieldExchangeRate, settings.transactionParams.get().exchangeRate)}" />
+                            android:text="@={Converter.toString(fieldExchangeRate, settings.transactionParams.exchangeRate)}" />
 
                     </android.support.design.widget.TextInputLayout>
                 </com.google.android.flexbox.FlexboxLayout>
@@ -153,7 +153,7 @@
                             android:inputType="numberDecimal"
                             android:lines="1"
                             android:maxLines="1"
-                            android:text="@={Converter.toString(fieldFeeMin, settings.transactionParams.get().feeMin)}" />
+                            android:text="@={Converter.toString(fieldFeeMin, settings.transactionParams.feeMin)}" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -170,7 +170,7 @@
                             android:inputType="numberDecimal"
                             android:lines="1"
                             android:maxLines="1"
-                            android:text="@={Converter.toString(fieldFeePercentage, settings.transactionParams.get().feePercent)}" />
+                            android:text="@={Converter.toString(fieldFeePercentage, settings.transactionParams.feePercent)}" />
 
                     </android.support.design.widget.TextInputLayout>
 

@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_toRightOf="@+id/bankAccountIcon"
-                    android:text="@{transaction.bankAccount.get().name}"
+                    android:text="@{transaction.bankAccount.name}"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:text="John Smith" />
@@ -76,7 +76,7 @@
                     android:layout_below="@+id/bankAccountName"
                     android:layout_toEndOf="@+id/bankAccountIcon"
                     android:layout_toRightOf="@+id/bankAccountIcon"
-                    android:text="@{transaction.bankAccount.get().accountNo}"
+                    android:text="@{transaction.bankAccount.accountNo}"
                     tools:text="XXXX-XXXX-XXXX-1234" />
 
             </RelativeLayout>
@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_toRightOf="@+id/creditCardIcon"
-                    android:text="@{transaction.creditCard.get().cardHolderName}"
+                    android:text="@{transaction.creditCard.cardHolderName}"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:text="John Smith" />
@@ -111,7 +111,7 @@
                     android:layout_below="@+id/creditCardHolder"
                     android:layout_toEndOf="@+id/creditCardIcon"
                     android:layout_toRightOf="@+id/creditCardIcon"
-                    android:text="@{transaction.creditCard.get().creditCardNumber}"
+                    android:text="@{transaction.creditCard.creditCardNumber}"
                     tools:text="XXXX-XXXX-XXXX-1234" />
 
             </RelativeLayout>
@@ -154,7 +154,7 @@
                     android:layout_alignParentRight="true"
                     android:gravity="end"
                     android:paddingLeft="100dp"
-                    android:text="@{transaction.paymentOption.get().toString()}"
+                    android:text="@{transaction.paymentOption.toString()}"
                     android:textAlignment="gravity"
                     tools:text="VISA XXXX-XXXX-XXXX-XXXX-1234" />
 

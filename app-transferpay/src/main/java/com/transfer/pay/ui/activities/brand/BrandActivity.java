@@ -21,6 +21,7 @@ public class BrandActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.brand);
+
         materialSquareLoading = (MaterialSquareLoading) findViewById(R.id.material_square_loading_view);
         materialSquareLoading.show();
         initApplicationLogo();

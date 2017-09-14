@@ -48,7 +48,7 @@ public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewMo
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsCode = String.valueOf((int) new Date().getTime() / 400);
-            String userNumber = UserManager.getInstance().getUser().mobileNumber.get();
+            String userNumber = UserManager.getInstance().getUser().getMobileNumber();
             smsManager.sendTextMessage(userNumber, null, smsCode, null, null);
             getViewHelper().showToast(R.string.registration_aml_two_factor_auth_sms_ok);
         } catch (Exception e) {

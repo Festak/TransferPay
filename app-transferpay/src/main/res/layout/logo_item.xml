@@ -34,7 +34,7 @@
             android:layout_height="@dimen/logo_image_height"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:background="@{currentUserLogoName.equals(logo.fileName.get()) ? @drawable/frame : null}"
+            android:background="@{currentUserLogoName.equals(logo.fileName) ? @drawable/frame : null}"
             android:onClick="@{listener.onClick}"
             bind:imageBitmap="@{logo.bitmap}" />
 

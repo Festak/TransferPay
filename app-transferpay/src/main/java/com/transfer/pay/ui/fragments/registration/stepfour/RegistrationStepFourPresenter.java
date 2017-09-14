@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.UserManager;
-import com.transfer.pay.databinding.RegistrationAmlStep3Binding;
 import com.transfer.pay.databinding.RegistrationAmlStep4Binding;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.utils.FileNameGenerator;
@@ -61,6 +60,6 @@ public class RegistrationStepFourPresenter extends TransferPayBasePresenter<Empt
     }
 
     private void setIdOfScanForUser(String fileName) {
-        getViewHelper().getBinding().getUser().idOfScan.set(fileName);
+        getViewHelper().getBinding().getUser().setIdOfScan(fileName);
     }
 }

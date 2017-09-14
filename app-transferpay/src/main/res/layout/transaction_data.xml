@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:text="@{Double.toString(transaction.youSend.get())}"
+                android:text="@{Double.toString(transaction.youSend)}"
                 tools:text="50" />
         </RelativeLayout>
 
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:text="@{Double.toString(transaction.transactionParams.get().exchangeRate.get())}"
+                android:text="@{Double.toString(transaction.transactionParams.exchangeRate)}"
                 tools:text="1.6" />
         </RelativeLayout>
 

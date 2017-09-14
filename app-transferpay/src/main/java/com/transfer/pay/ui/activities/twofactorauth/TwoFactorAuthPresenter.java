@@ -46,7 +46,7 @@ public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewMo
 
     private void sendEmail(final String message) {
         if(checker.check()) {
-            final String userEmail = UserManager.getInstance().getUser().email.get();
+            final String userEmail = UserManager.getInstance().getUser().getEmail();
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {

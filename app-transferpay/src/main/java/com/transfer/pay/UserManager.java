@@ -37,15 +37,15 @@ public class UserManager {
     }
 
     public Transaction getTransaction() {
-        return user.transaction.get();
+        return user.getTransaction();
     }
 
     public void setLogoName(String logoName) {
-        user.currentLogo.set(logoName);
+        user.setCurrentLogo(logoName);
     }
 
     public String getCurrentLogo() {
-        return user.currentLogo.get();
+        return user.getCurrentLogo();
     }
 
     public void performLogin() {
@@ -61,7 +61,7 @@ public class UserManager {
     }
 
     public void createTransaction(Transaction transaction) {
-        user.transaction.set(transaction);
+        user.setTransaction(transaction);
         saveUser();
     }
 
@@ -70,7 +70,7 @@ public class UserManager {
     }
 
     public void changeUserPassword(String password){
-        user.password.set(password);
+        user.setPassword(password);
         saveUser();
     }
 

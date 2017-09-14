@@ -67,7 +67,7 @@ public class LogoPresenter extends TransferPayBasePresenter<EmptyViewModel, Logo
     }
 
     public void setLogoToUser(Logo logo) {
-        UserManager.getInstance().setLogoName(logo.fileName.get());
+        UserManager.getInstance().setLogoName(logo.getFileName());
         UserManager.getInstance().saveUser();
     }
 
@@ -87,8 +87,8 @@ public class LogoPresenter extends TransferPayBasePresenter<EmptyViewModel, Logo
 
     private Logo initLogo(Bitmap bitmap, String fileName) {
         Logo logo = new Logo();
-        logo.bitmap.set(bitmap);
-        logo.fileName.set(fileName);
+        logo.setBitmap(bitmap);
+        logo.setFileName(fileName);
         return logo;
     }
 

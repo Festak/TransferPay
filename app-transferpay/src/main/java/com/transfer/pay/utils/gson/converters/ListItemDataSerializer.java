@@ -5,6 +5,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonPrimitive;
 import com.transfer.pay.models.BankAccountModel;
 import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.ui.list.ListItemData;
@@ -42,32 +43,27 @@ public class ListItemDataSerializer implements JsonDeserializer<ListItemData> {
     private BankAccountModel deserializeBankAccountModel(JsonObject data) {
         BankAccountModel model = new BankAccountModel();
 
-        model.accountNo.set(convertTypeToString(data.getAsJsonObject("accountNo")));
-        model.chooseBank.set(convertTypeToString(data.getAsJsonObject("chooseBank")));
-        model.country.set(convertTypeToString(data.getAsJsonObject("country")));
-        model.name.set(convertTypeToString(data.getAsJsonObject("name")));
+        model.setAccountNo(convertTypeToString(data.getAsJsonPrimitive("accountNo")));
+        model.setChooseBank(convertTypeToString(data.getAsJsonPrimitive("chooseBank")));
+        model.setCountry(convertTypeToString(data.getAsJsonPrimitive("country")));
+        model.setName(convertTypeToString(data.getAsJsonPrimitive("name")));
         return model;
     }
 
     private CreditCardModel deserializeCreditCardModel(JsonObject data) {
         CreditCardModel creditCardModel = new CreditCardModel();
 
-        creditCardModel.creditCardNumber.set(convertTypeToString(data.getAsJsonObject("creditCardNumber")));
-        creditCardModel.cardHolderName.set(convertTypeToString(data.getAsJsonObject("cardHolderName")));
-        creditCardModel.CVV.set(convertTypeToString(data.getAsJsonObject("CVV")));
-        creditCardModel.validDate.set(convertTypeToString(data.getAsJsonObject("validDate")));
-        creditCardModel.cardType.set(convertTypeToString(data.getAsJsonObject("cardType")));
+        creditCardModel.setCreditCardNumber(convertTypeToString(data.getAsJsonPrimitive("creditCardNumber")));
+        creditCardModel.setCardHolderName(convertTypeToString(data.getAsJsonPrimitive("cardHolderName")));
+        creditCardModel.setCVV(convertTypeToString(data.getAsJsonPrimitive("CVV")));
+        creditCardModel.setValidDate(convertTypeToString(data.getAsJsonPrimitive("validDate")));
+        creditCardModel.setCardType(convertTypeToString(data.getAsJsonPrimitive("cardType")));
 
         return creditCardModel;
     }
 
-    private String convertTypeToString(JsonObject observableField) {
-        String text = observableField.toString();
-        if (!text.equals(isNull)) {
-            return observableField.get("mValue").getAsString();
-        } else {
-            return null;
-        }
+    private String convertTypeToString(JsonPrimitive primitive) {
+        return primitive.getAsString();
     }
 
 }
