@@ -5,6 +5,7 @@ import com.transfer.pay.databinding.CreditCardItemBinding;
 import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.ui.list.listener.OnClickedItemListener;
 import com.transfer.pay.ui.list.listener.OnItemClickListener;
+import com.transfer.pay.ui.list.listener.OnLongItemClickListener;
 
 /**
  * Created by e.fetskovich on 6/7/17.
@@ -13,9 +14,11 @@ import com.transfer.pay.ui.list.listener.OnItemClickListener;
 public class CreditCardBinder implements ViewHolderBinder<CreditCardItemBinding, CreditCardModel> {
 
     private OnClickedItemListener listener;
+    private OnClickedItemListener longListener;
 
-    public CreditCardBinder(OnClickedItemListener listener) {
+    public CreditCardBinder(OnClickedItemListener listener, OnClickedItemListener longListener) {
         this.listener = listener;
+        this.longListener = longListener;
     }
 
     @Override
@@ -29,6 +32,10 @@ public class CreditCardBinder implements ViewHolderBinder<CreditCardItemBinding,
 
         OnItemClickListener itemClickedListener = new OnItemClickListener(listener, position);
         binding.setListener(itemClickedListener);
+
+        OnLongItemClickListener longItemClickListener = new OnLongItemClickListener(listener, position);
+        binding.setLongListener(longItemClickListener);
+
     }
 
 }

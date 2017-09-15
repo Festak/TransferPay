@@ -13,6 +13,10 @@
             name="listener"
             type="android.view.View.OnClickListener"/>
 
+        <variable
+            name="longListener"
+            type="android.view.View.OnClickListener"/>
+
     </data>
 
     <RelativeLayout
@@ -22,6 +26,7 @@
         <ImageView
             android:id="@+id/CreditCardIcon"
             android:layout_width="@dimen/home_icon_credit_card_size"
+            android:onClick="@{longListener.onClick}"
             android:layout_height="@dimen/home_icon_credit_card_size"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             app:srcCompat="@drawable/ic_credit_card_24dp" />

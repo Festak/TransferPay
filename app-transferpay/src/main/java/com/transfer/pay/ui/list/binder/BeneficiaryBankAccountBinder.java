@@ -5,6 +5,7 @@ import com.transfer.pay.databinding.BeneficiaryItemBankAccountBinding;
 import com.transfer.pay.models.BankAccountModel;
 import com.transfer.pay.ui.list.listener.OnClickedItemListener;
 import com.transfer.pay.ui.list.listener.OnItemClickListener;
+import com.transfer.pay.ui.list.listener.OnLongItemClickListener;
 
 /**
  * Created by i.statkevich on 6/2/17.
@@ -13,9 +14,11 @@ import com.transfer.pay.ui.list.listener.OnItemClickListener;
 public class BeneficiaryBankAccountBinder implements ViewHolderBinder<BeneficiaryItemBankAccountBinding, BankAccountModel> {
 
     private OnClickedItemListener listener;
+    private OnClickedItemListener onLongItemClickListener;
 
-    public BeneficiaryBankAccountBinder(OnClickedItemListener listener) {
+    public BeneficiaryBankAccountBinder(OnClickedItemListener listener, OnClickedItemListener longItemClickListener) {
         this.listener = listener;
+        this.onLongItemClickListener = longItemClickListener;
     }
 
     @Override
@@ -29,6 +32,9 @@ public class BeneficiaryBankAccountBinder implements ViewHolderBinder<Beneficiar
 
         OnItemClickListener itemClickedListener = new OnItemClickListener(listener, position);
         binding.setListener(itemClickedListener);
+
+        OnLongItemClickListener onLongItemClickListener = new OnLongItemClickListener(listener, position);
+        binding.setLongListener(onLongItemClickListener);
 
     }
 }

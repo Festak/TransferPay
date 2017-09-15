@@ -67,6 +67,11 @@ public class BeneficiariesViewHelper extends ViewHelper<BeneficiariesPresenter, 
                         openTransactionScreen();
 
                     }
+                }, new OnClickedItemListener() {
+                    @Override
+                    public void onClickedItem(int position) {
+                        // TODO: FINISH THIS
+                    }
                 }));
 
         UiConfigurator.initRecyclerView(adapter, getRoot(), R.id.beneficiariesList);

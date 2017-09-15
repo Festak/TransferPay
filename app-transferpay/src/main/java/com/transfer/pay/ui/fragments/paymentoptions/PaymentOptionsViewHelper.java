@@ -61,7 +61,14 @@ public class PaymentOptionsViewHelper extends ViewHelper<PaymentOptionsPresenter
                 adapter.deleteItemByPosition(position);
                 DataManager.getInstance().saveCreditCards();
             }
-        });
+        },
+                new OnClickedItemListener() {
+                    @Override
+                    public void onClickedItem(int position) {
+                        // TODO: FINISH EDIT LOGIC
+                    }
+                }
+        );
 
         adapter = UiConfigurator.initRecyclerAndGetAdapter(
                 new LinkedList<CreditCardModel>(),
