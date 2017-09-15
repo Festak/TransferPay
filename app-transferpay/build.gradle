@@ -49,5 +49,7 @@ dependencies {
     // Splash animation
     compile 'com.tbuonomo.andrui:materialsquareloading:1.0.1'
 
+    compile 'com.github.sharish:CreditCardView:v1.0.4'
+
     testCompile 'junit:junit:4.12'
 }

@@ -23,6 +23,7 @@ public class SettingsTabFragment extends Fragment {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    private ViewPagerAdapter viewPagerAdapter;
 
     @Nullable
     @Override
@@ -30,6 +31,10 @@ public class SettingsTabFragment extends Fragment {
         View view = inflater.inflate(R.layout.tab_fragment, container, false);
         initViewPager(view);
         return view;
+    }
+
+    public PaymentOptionsFragment getPaymentOptionsFragment(){
+        return (PaymentOptionsFragment)viewPagerAdapter.getItem(1);
     }
 
     private void initViewPager(View view) {
@@ -41,7 +46,7 @@ public class SettingsTabFragment extends Fragment {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
+        this.viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
 
         viewPagerAdapter.addFragment(new SettingsFragment(), getContext().getString(R.string.settings_default_title));
         viewPagerAdapter.addFragment(new PaymentOptionsFragment(), getContext().getString(R.string.settings_button_payment_option));
