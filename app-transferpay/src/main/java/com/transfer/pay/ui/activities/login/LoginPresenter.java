@@ -4,10 +4,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.istatkevich.cmvp.core.BackStackListener;
-import com.transfer.pay.data.DataStorage;
 import com.transfer.pay.R;
 import com.transfer.pay.UserManager;
+import com.transfer.pay.constants.Constants;
 import com.transfer.pay.constants.Fields;
+import com.transfer.pay.data.DataStorage;
 import com.transfer.pay.databinding.LoginBinding;
 import com.transfer.pay.models.User;
 import com.transfer.pay.ui.TransferPayBasePresenter;
@@ -20,7 +21,11 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_spa_settings:
+            case R.id.productionItem:
+                Constants.PRODUCTION = true;
+                return true;
+            case R.id.debugItem:
+                Constants.PRODUCTION = false;
                 return true;
             default:
                 return false;
@@ -49,7 +54,7 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
         performFakeAsyncOperation(new Runnable() {
             @Override
             public void run() {
-                if(compareUsers()) {
+                if (compareUsers()) {
                     UserManager.getInstance().performLogin();
                     getRemittanceRouter().openTwoFactorAuthActivity();
                 } else {
@@ -68,8 +73,8 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
         String savedUserPassword = savedUser.getPassword();
         String savedUserLogin = savedUser.getLogin();
 
-        if(currentUserLogin != null && currentUserLogin.equals(savedUserLogin)){
-            if (currentUserPassword != null && currentUserPassword.equals(savedUserPassword)){
+        if (currentUserLogin != null && currentUserLogin.equals(savedUserLogin)) {
+            if (currentUserPassword != null && currentUserPassword.equals(savedUserPassword)) {
                 return true;
             }
         }

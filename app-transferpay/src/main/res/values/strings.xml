@@ -8,6 +8,8 @@
     <string name="ok">OK</string>
     <string name="pick_image_source">Pick image source</string>
     <string name="internet_connection_not_found">Please, turn ON your internet</string>
+    <string name="production_type">Production</string>
+    <string name="debug_type">Debug</string>
 
     <!-- Two Factor Auth Screen-->
     <string name="two_factor_auth_title">Two Factor Authentication</string>
