@@ -6,6 +6,7 @@ import android.telephony.SmsManager;
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.R;
 import com.transfer.pay.UserManager;
+import com.transfer.pay.constants.Constants;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.ui.activities.registration.RegistrationPresenter;
 import com.transfer.pay.ui.customviews.AdaptiveButtonLayout;
@@ -23,7 +24,9 @@ public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewMo
     @Override
     protected void onPresenterReady() {
         super.onPresenterReady();
-        sendSms();
+        if (Constants.PRODUCTION) {
+            sendSms();
+        }
     }
 
     @Override
@@ -35,6 +38,14 @@ public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewMo
 
 
     public void onVerifyButtonClick() {
+        if (Constants.PRODUCTION) {
+            registerWithSms();
+        } else {
+            registerWithoutSms();
+        }
+    }
+
+    private void registerWithSms() {
         if (smsCode != null && smsCode.equals(getViewHelper().getTwoFactorEnteredNumber())) {
             RegistrationPresenter presenter = getViewHelper().getRegistrationPresenter();
             presenter.onConfirmButtonClick();
@@ -42,6 +53,12 @@ public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewMo
         } else {
             getViewHelper().showToast(R.string.registration_aml_two_factor_auth_sms_validation);
         }
+    }
+
+    private void registerWithoutSms() {
+        RegistrationPresenter presenter = getViewHelper().getRegistrationPresenter();
+        presenter.onConfirmButtonClick();
+        presenter.getViewData().putAdaptiveButtonType(AdaptiveButtonLayout.ONE_BUTTON);
     }
 
     private void sendSms() {

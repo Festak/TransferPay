@@ -6,9 +6,12 @@ import android.widget.Toast;
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.R;
 import com.transfer.pay.UserManager;
+import com.transfer.pay.constants.Constants;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.utils.connection.ConnectionChecker;
 import com.transfer.pay.utils.thread.SendEmailAsyncTask;
+
+import java.util.Date;
 
 /**
  * Created by e.fetskovich on 6/7/17.
@@ -19,13 +22,16 @@ public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewMo
 
     private ConnectionChecker checker;
 
-    public TwoFactorAuthPresenter(ConnectionChecker checker){
+    public TwoFactorAuthPresenter(ConnectionChecker checker) {
         this.checker = checker;
     }
 
     public void onVerifyButtonClick(View v) {
-        //loginWithSendEmail();
-        loginWithoutSendEmail();
+        if (Constants.PRODUCTION) {
+            loginWithSendEmail();
+        } else {
+            loginWithoutSendEmail();
+        }
     }
 
 
@@ -38,13 +44,15 @@ public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewMo
     @Override
     protected void onPresenterReady() {
         super.onPresenterReady();
-    //    emailCode = String.valueOf(new Date().getTime() / 400);
-    //    sendEmail(emailCode);
+        if (Constants.PRODUCTION) {
+            emailCode = String.valueOf(new Date().getTime() / 400);
+            sendEmail(emailCode);
+        }
     }
 
 
     private void sendEmail(final String message) {
-        if(checker.check()) {
+        if (checker.check()) {
             final String userEmail = UserManager.getInstance().getUser().getEmail();
             Thread thread = new Thread(new Runnable() {
                 @Override
@@ -54,7 +62,7 @@ public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewMo
             });
             thread.start();
             getViewHelper().showToast(R.string.registration_aml_code_send_successfully, Toast.LENGTH_SHORT);
-        } else{
+        } else {
             getViewHelper().showToast(R.string.internet_connection_not_found, Toast.LENGTH_SHORT);
         }
     }

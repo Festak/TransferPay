@@ -5,6 +5,7 @@ package com.transfer.pay.constants;
  */
 
 public class Constants {
+    public static final boolean PRODUCTION = false;
     public static final int PICK_IMAGE_ID = 234;
 
     public static final int TOOLTIP_TOUCH_AREA_PX = 30;

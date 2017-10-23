@@ -5,6 +5,7 @@ import android.widget.Toast;
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.R;
 import com.transfer.pay.UserManager;
+import com.transfer.pay.constants.Constants;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.ui.activities.registration.RegistrationPresenter;
 import com.transfer.pay.utils.connection.ConnectionChecker;
@@ -28,21 +29,36 @@ public class RegistrationStepSixPresenter extends TransferPayBasePresenter<Empty
     @Override
     protected void onPresenterReady() {
         super.onPresenterReady();
-        emailCode = String.valueOf(new Date().getTime() / 400);
-        sendEmail(emailCode);
+        if(Constants.PRODUCTION) {
+            emailCode = String.valueOf(new Date().getTime() / 400);
+            sendEmail(emailCode);
+        }
     }
 
     public void onVerifyButtonClick() {
+       if(Constants.PRODUCTION){
+           registerWithSendEmail();
+       } else{
+           registerWithoutEmail();
+       }
+    }
+
+    public void onReSendButtonClick() {
+        sendEmail(emailCode);
+    }
+
+    private void registerWithoutEmail(){
+        RegistrationPresenter presenter = getViewHelper().getRegistrationPresenter();
+        presenter.onConfirmButtonClick();
+    }
+
+    private void registerWithSendEmail(){
         if (emailCode != null && getViewHelper().getEnteredCodeFromText().equals(emailCode)) {
             RegistrationPresenter presenter = getViewHelper().getRegistrationPresenter();
             presenter.onConfirmButtonClick();
         } else {
             getViewHelper().showToast(R.string.registration_aml_wrong_send_code, Toast.LENGTH_SHORT);
         }
-    }
-
-    public void onReSendButtonClick() {
-        sendEmail(emailCode);
     }
 
     private void sendEmail(final String message) {
