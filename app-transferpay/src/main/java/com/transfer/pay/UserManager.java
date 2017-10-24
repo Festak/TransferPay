@@ -33,6 +33,12 @@ public class UserManager {
         return instance;
     }
 
+    public User updateUser() {
+        String login = user.getLogin();
+        setUser(getUserByName(login));
+        return user;
+    }
+
     public User getUserByName(String login) {
         User user = null;
         try {
@@ -43,7 +49,7 @@ public class UserManager {
         return user;
     }
 
-    public void insertBankAccount(BankAccountModel bankAccountModel){
+    public void insertBankAccount(BankAccountModel bankAccountModel) {
         bankAccountModel.setUser(user);
         try {
             ORMLiteFactcory.getHelper().getBankAccountModelDao().create(bankAccountModel);
@@ -52,7 +58,7 @@ public class UserManager {
         }
     }
 
-    public void insertCreditCardAccount(CreditCardAccountModel creditCardModel){
+    public void insertCreditCardAccount(CreditCardAccountModel creditCardModel) {
         creditCardModel.setUser(user);
         try {
             ORMLiteFactcory.getHelper().getCreditCardAccountDao().create(creditCardModel);
@@ -61,7 +67,7 @@ public class UserManager {
         }
     }
 
-    public void insertCreditCard(CreditCardModel creditCardModel){
+    public void insertCreditCard(CreditCardModel creditCardModel) {
         creditCardModel.setUser(user);
         try {
             ORMLiteFactcory.getHelper().getCreditCardDao().create(creditCardModel);

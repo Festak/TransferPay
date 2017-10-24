@@ -16,7 +16,7 @@
 
         <variable
             name="card"
-            type="com.transfer.pay.models.CreditCardModel" />
+            type="com.transfer.pay.models.CreditCardAccountModel" />
 
         <variable
             name="beneficiaryType"
@@ -63,7 +63,7 @@
 
             <include
                 android:id="@+id/creditCardIncludeLayout"
-                layout="@layout/add_credit_card"
+                layout="@layout/add_credit_account_card"
                 app:card="@{card}" />
         </LinearLayout>
 

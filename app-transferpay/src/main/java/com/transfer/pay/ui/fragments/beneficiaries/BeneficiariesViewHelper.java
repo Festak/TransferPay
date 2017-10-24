@@ -1,29 +1,31 @@
 package com.transfer.pay.ui.fragments.beneficiaries;
 
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
-import com.transfer.pay.data.DataStorage;
 import com.transfer.pay.R;
 import com.transfer.pay.constants.ContainerId;
+import com.transfer.pay.data.DataManager;
 import com.transfer.pay.databinding.BeneficiariesBinding;
+import com.transfer.pay.databinding.BeneficiaryItemBankAccountBinding;
+import com.transfer.pay.databinding.BeneficiaryItemCreditAccountCardBinding;
+import com.transfer.pay.factories.LayoutManagerFactory;
+import com.transfer.pay.models.BankAccountModel;
+import com.transfer.pay.models.CreditCardAccountModel;
 import com.transfer.pay.ui.UiConfigurator;
 import com.transfer.pay.ui.activities.home.HomePresenter;
 import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
-import com.transfer.pay.ui.list.ListItemData;
-import com.transfer.pay.ui.list.adapter.MultiTypeRecyclerAdapter;
-import com.transfer.pay.ui.list.binder.ViewHolderBinderFactory;
+import com.transfer.pay.ui.list.adapter.RecyclerAdapter;
+import com.transfer.pay.ui.list.binder.BeneficiaryBankAccountBinder;
+import com.transfer.pay.ui.list.binder.CreditCardAccountBinder;
+import com.transfer.pay.ui.list.binder.ViewHolderBinder;
 import com.transfer.pay.ui.list.listener.OnClickedItemListener;
 
+import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
-
-/**
- * Created by i.statkevich on 5/25/17.
- */
-
 
 public class BeneficiariesViewHelper extends ViewHelper<BeneficiariesPresenter, BeneficiariesBinding> {
 
-    private MultiTypeRecyclerAdapter adapter;
+    private RecyclerAdapter<BeneficiaryItemCreditAccountCardBinding, CreditCardAccountModel> cardsAdapter;
+    private RecyclerAdapter<BeneficiaryItemBankAccountBinding, BankAccountModel> accountsAdapter;
 
     public void changeFragment(int fragmentId) {
         HomePresenter homePresenter = (HomePresenter) getActivityContainer().getPresenter(ContainerId.Activity.HOME, HomePresenter.class);
@@ -49,32 +51,63 @@ public class BeneficiariesViewHelper extends ViewHelper<BeneficiariesPresenter, 
         binding.setPresenter(getPresenter());
     }
 
-    public void updateData(List<ListItemData> list) {
-        adapter.updateData(list);
+    public void updateCardsData(Collection<CreditCardAccountModel> list) {
+        cardsAdapter.updateData(list);
     }
 
-    public void notifyDataInRecyclerChanged(){
-        adapter.notifyDataSetChanged();
+    public void updateAccountsData(Collection<BankAccountModel> list){
+        accountsAdapter.updateData(list);
     }
 
     private void initRecyclerView() {
-        adapter = new MultiTypeRecyclerAdapter(new LinkedList<ListItemData>(),
-                new ViewHolderBinderFactory(new OnClickedItemListener() {
+        ViewHolderBinder<BeneficiaryItemCreditAccountCardBinding, CreditCardAccountModel> binder = new CreditCardAccountBinder(new OnClickedItemListener() {
+            @Override
+            public void onClickedItem(int position) {
+                cardsAdapter.deleteItemByPosition(position);
+                DataManager.getInstance().saveCreditCards();
+            }
+        },
+                new OnClickedItemListener() {
                     @Override
                     public void onClickedItem(int position) {
-                        ListItemData itemData = adapter.getItemByPosition(position);
-                        DataStorage.getInstance().saveBeneficiary(itemData);
-                        openTransactionScreen();
-
+                        // TODO: FINISH EDIT LOGIC
                     }
-                }, new OnClickedItemListener() {
+                }
+        );
+
+        cardsAdapter = UiConfigurator.initRecyclerAndGetAdapter(
+                new LinkedList<CreditCardAccountModel>(),
+                binder,
+                getRoot(),
+                LayoutManagerFactory.createLinearLayoutManager(getRoot().getContext()),
+                R.id.creditCardList
+        );
+
+        ViewHolderBinder<BeneficiaryItemBankAccountBinding, BankAccountModel> binderAccount = new BeneficiaryBankAccountBinder(new OnClickedItemListener() {
+            @Override
+            public void onClickedItem(int position) {
+                accountsAdapter.deleteItemByPosition(position);
+                DataManager.getInstance().saveCreditCards();
+            }
+        },
+                new OnClickedItemListener() {
                     @Override
                     public void onClickedItem(int position) {
-                        // TODO: FINISH THIS
+                        // TODO: FINISH EDIT LOGIC
                     }
-                }));
+                }
+        );
 
-        UiConfigurator.initRecyclerView(adapter, getRoot(), R.id.beneficiariesList);
+        accountsAdapter = UiConfigurator.initRecyclerAndGetAdapter(
+                new LinkedList<BankAccountModel>(),
+                binderAccount,
+                getRoot(),
+                LayoutManagerFactory.createLinearLayoutManager(getRoot().getContext()),
+                R.id.bankAccountList
+        );
+
+
+
     }
 
 }

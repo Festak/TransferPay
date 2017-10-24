@@ -3,15 +3,14 @@ package com.transfer.pay.ui.fragments.newbeneficiary;
 import android.view.View;
 
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
+import com.transfer.pay.UserManager;
 import com.transfer.pay.data.DataManager;
 import com.transfer.pay.databinding.NewBeneficiaryBinding;
 import com.transfer.pay.models.BankAccountModel;
-import com.transfer.pay.models.CreditCardModel;
+import com.transfer.pay.models.CreditCardAccountModel;
 import com.transfer.pay.models.NewBeneficiaryType;
 import com.transfer.pay.models.Settings;
 import com.transfer.pay.ui.TransferPayBasePresenter;
-import com.transfer.pay.ui.list.ListItemData;
-import com.transfer.pay.ui.list.ListItemType;
 
 /**
  * Created by e.fetskovich on 6/6/17.
@@ -23,39 +22,30 @@ public class NewBeneficiaryPresenter extends TransferPayBasePresenter<EmptyViewM
         performFakeAsyncOperation(new Runnable() {
             @Override
             public void run() {
-                ListItemData itemData = initListItemData();
-
-                DataManager.getInstance().insertBeneficiary(itemData);
+                insertDataToUser();
+                UserManager.getInstance().updateUser();
                 getScreen().closeScreen();
             }
         });
     }
 
-    public void onShowTooltipClick(View v){
+    public void onShowTooltipClick(View v) {
         getViewHelper().showTooltip(v);
     }
 
     public void bindVariables(NewBeneficiaryBinding binding) {
         binding.setPresenter(this);
         binding.setBankAccountModel(initBankAccountModel());
-        binding.setCard(new CreditCardModel());
+        binding.setCard(new CreditCardAccountModel());
         binding.setBeneficiaryType(new NewBeneficiaryType());
     }
 
-    private ListItemData initListItemData() {
-        ListItemData itemData = new ListItemData();
-        Object object = null;
-
+    private void insertDataToUser() {
         if (getViewHelper().getBinding().getBeneficiaryType().getBankAccount()) {
-            itemData.setType(ListItemType.BENEFICIARY_BANK_ACCOUNT);
-            object = getViewHelper().getBinding().getBankAccountModel();
+            UserManager.getInstance().insertBankAccount(getViewHelper().getBinding().getBankAccountModel());
         } else {
-            itemData.setType(ListItemType.BENEFICIARY_CREDIT_CARD);
-            object = getViewHelper().getBinding().getCard();
+            UserManager.getInstance().insertCreditCardAccount(getViewHelper().getBinding().getCard());
         }
-
-        itemData.setData(object);
-        return itemData;
     }
 
     private BankAccountModel initBankAccountModel() {

@@ -41,10 +41,6 @@ public class PaymentOptionsViewHelper extends ViewHelper<PaymentOptionsPresenter
         adapter.updateData(list);
     }
 
-    public void notifyDataInRecyclerChanged() {
-        adapter.notifyDataSetChanged();
-    }
-
     @Override
     protected void onInitView() {
         initRecyclerView();
