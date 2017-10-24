@@ -7,8 +7,12 @@ import android.util.Log;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import com.transfer.pay.models.BankAccountModel;
+import com.transfer.pay.models.CreditCardAccountModel;
 import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.User;
+import com.transfer.pay.ormlite.Dao.BankAccountModelDao;
+import com.transfer.pay.ormlite.Dao.CreditCardAccountDao;
 import com.transfer.pay.ormlite.Dao.CreditCardDao;
 import com.transfer.pay.ormlite.Dao.UserDao;
 
@@ -27,6 +31,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private UserDao userDao = null;
     private CreditCardDao creditCardDao = null;
+    private BankAccountModelDao bankAccountModelDao;
+    private CreditCardAccountDao creditCardAccountDao;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -37,6 +43,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             TableUtils.createTable(connectionSource, User.class);
             TableUtils.createTable(connectionSource, CreditCardModel.class);
+            TableUtils.createTable(connectionSource, BankAccountModel.class);
+            TableUtils.createTable(connectionSource, CreditCardAccountModel.class);
         } catch (SQLException e) {
             Log.e(TAG, "error creating DB " + DATABASE_NAME);
             throw new RuntimeException(e);
@@ -48,6 +56,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                           int newVer) {
         try {
             TableUtils.dropTable(connectionSource, CreditCardModel.class, true);
+            TableUtils.dropTable(connectionSource, BankAccountModel.class, true);
+            TableUtils.dropTable(connectionSource, CreditCardAccountModel.class, true);
             TableUtils.dropTable(connectionSource, User.class, true);
             onCreate(db, connectionSource);
         } catch (SQLException e) {
@@ -78,10 +88,34 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return creditCardDao;
     }
 
+    public BankAccountModelDao getBankAccountModelDao(){
+        if(bankAccountModelDao == null){
+            try {
+                bankAccountModelDao = new BankAccountModelDao(getConnectionSource(), BankAccountModel.class);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return bankAccountModelDao;
+    }
+
+    public CreditCardAccountDao getCreditCardAccountDao(){
+        if(creditCardAccountDao == null){
+            try {
+                creditCardAccountDao = new CreditCardAccountDao(getConnectionSource(), CreditCardAccountModel.class);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return creditCardAccountDao;
+    }
+
     @Override
     public void close() {
         super.close();
         userDao = null;
         creditCardDao = null;
+        creditCardAccountDao = null;
+        bankAccountModelDao = null;
     }
 }

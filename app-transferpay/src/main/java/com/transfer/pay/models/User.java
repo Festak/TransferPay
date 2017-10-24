@@ -10,8 +10,6 @@ import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.transfer.pay.BR;
 
-import java.util.List;
-
 /**
  * Created by e.fetskovich on 6/6/17.
  */
@@ -98,7 +96,11 @@ public class User extends BaseObservable {
     @ForeignCollectionField(eager = true)
     private ForeignCollection<CreditCardModel> creditCards;
 
-    private List<BankAccountModel> bankAccountModels;
+    @ForeignCollectionField(eager = true)
+    private ForeignCollection<CreditCardAccountModel> creditCardsAccount;
+
+    @ForeignCollectionField(eager = true)
+    private ForeignCollection<BankAccountModel> bankAccountModels;
 
     private Transaction transaction;
 
@@ -310,5 +312,25 @@ public class User extends BaseObservable {
     public void setTransaction(Transaction transaction) {
         this.transaction = transaction;
         notifyPropertyChanged(BR.transaction);
+    }
+
+    @Bindable
+    public ForeignCollection<CreditCardAccountModel> getCreditCardsAccount() {
+        return creditCardsAccount;
+    }
+
+    public void setCreditCardsAccount(ForeignCollection<CreditCardAccountModel> creditCardsAccount) {
+        this.creditCardsAccount = creditCardsAccount;
+        notifyPropertyChanged(BR.creditCardsAccount);
+    }
+
+    @Bindable
+    public ForeignCollection<BankAccountModel> getBankAccountModels() {
+        return bankAccountModels;
+    }
+
+    public void setBankAccountModels(ForeignCollection<BankAccountModel> bankAccountModels) {
+        this.bankAccountModels = bankAccountModels;
+        notifyPropertyChanged(BR.bankAccountModels);
     }
 }

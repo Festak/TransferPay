@@ -2,6 +2,8 @@ package com.transfer.pay;
 
 import com.transfer.pay.constants.Fields;
 import com.transfer.pay.data.DataStorage;
+import com.transfer.pay.models.BankAccountModel;
+import com.transfer.pay.models.CreditCardAccountModel;
 import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.Transaction;
 import com.transfer.pay.models.User;
@@ -39,6 +41,24 @@ public class UserManager {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public void insertBankAccount(BankAccountModel bankAccountModel){
+        bankAccountModel.setUser(user);
+        try {
+            ORMLiteFactcory.getHelper().getBankAccountModelDao().create(bankAccountModel);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertCreditCardAccount(CreditCardAccountModel creditCardModel){
+        creditCardModel.setUser(user);
+        try {
+            ORMLiteFactcory.getHelper().getCreditCardAccountDao().create(creditCardModel);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void insertCreditCard(CreditCardModel creditCardModel){
