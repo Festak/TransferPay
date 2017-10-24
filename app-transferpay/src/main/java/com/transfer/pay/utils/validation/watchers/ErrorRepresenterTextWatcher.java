@@ -5,7 +5,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-import com.transfer.pay.utils.validation.SingleValidator;
 import com.transfer.pay.utils.validation.Validator;
 import com.transfer.pay.utils.validation.registration.RegistrationValidationModel;
 
@@ -43,7 +42,7 @@ public class ErrorRepresenterTextWatcher implements TextWatcher {
         if (validator.validate(s)) {
             map.remove(viewId);
         } else {
-            map.put(viewId, ((SingleValidator) validator).getRule().toString());
+            map.put(viewId, viewId);
         }
     }
 }

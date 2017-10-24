@@ -4,9 +4,9 @@ import android.Manifest;
 import android.graphics.Bitmap;
 
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
-import com.transfer.pay.UserManager;
 import com.transfer.pay.databinding.RegistrationAmlStep4Binding;
 import com.transfer.pay.ui.TransferPayBasePresenter;
+import com.transfer.pay.ui.fragments.registration.RegistrationUserManager;
 import com.transfer.pay.utils.FileNameGenerator;
 import com.transfer.pay.utils.FileUtils;
 import com.transfer.pay.utils.validation.registration.RegistrationValidationManager;
@@ -19,7 +19,7 @@ import com.transfer.pay.utils.validation.registration.RegistrationValidationMode
 public class RegistrationStepFourPresenter extends TransferPayBasePresenter<EmptyViewModel, RegistrationStepFourViewHelper> {
 
     public void bindVariables(RegistrationAmlStep4Binding binding) {
-        binding.setUser(UserManager.getInstance().getUser());
+        binding.setUser(RegistrationUserManager.getRegistrationUserManager().getUser());
         binding.setPresenter(this);
         bindValidationModel(binding);
     }

@@ -66,18 +66,17 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
 
     private boolean compareUsers() {
         User currentUser = getViewHelper().getBinding().getUser();
-        User savedUser = UserManager.getInstance().getUser();
-        String currentUserPassword = currentUser.getPassword();
-        String currentUserLogin = currentUser.getLogin();
+        User savedUser = UserManager.getInstance().getUserByName(currentUser.getLogin());
 
-        String savedUserPassword = savedUser.getPassword();
-        String savedUserLogin = savedUser.getLogin();
+        if (savedUser != null) {
+            String currentUserPassword = currentUser.getPassword();
+            String savedUserPassword = savedUser.getPassword();
 
-        if (currentUserLogin != null && currentUserLogin.equals(savedUserLogin)) {
             if (currentUserPassword != null && currentUserPassword.equals(savedUserPassword)) {
                 return true;
             }
         }
+
         return false;
     }
 

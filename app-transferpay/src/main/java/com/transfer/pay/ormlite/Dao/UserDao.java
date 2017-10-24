@@ -15,7 +15,7 @@ import java.util.List;
 
 public class UserDao extends BaseDaoImpl<User, String> {
     public UserDao(ConnectionSource connectionSource,
-                     Class<User> dataClass) throws SQLException {
+                   Class<User> dataClass) throws SQLException {
         super(connectionSource, dataClass);
     }
 
@@ -23,12 +23,16 @@ public class UserDao extends BaseDaoImpl<User, String> {
         return this.queryForAll();
     }
 
-    public List<User> getUser(String login)  throws SQLException{
+    public User getUser(String login) throws SQLException {
         QueryBuilder<User, String> queryBuilder = queryBuilder();
         queryBuilder.where().eq(User.loginField, login);
         PreparedQuery<User> preparedQuery = queryBuilder.prepare();
-        List<User> users =query(preparedQuery);
-        return users;
+        List<User> users = query(preparedQuery);
+        if (users != null && users.size() != 0) {
+            return users.get(0);
+        } else {
+            return null;
+        }
     }
 
 }

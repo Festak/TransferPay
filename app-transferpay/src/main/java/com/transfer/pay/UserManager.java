@@ -4,6 +4,9 @@ import com.transfer.pay.constants.Fields;
 import com.transfer.pay.data.DataStorage;
 import com.transfer.pay.models.Transaction;
 import com.transfer.pay.models.User;
+import com.transfer.pay.ormlite.ORMLiteFactcory;
+
+import java.sql.SQLException;
 
 /**
  * Created by e.fetskovich on 6/8/17.
@@ -25,6 +28,16 @@ public class UserManager {
         }
 
         return instance;
+    }
+
+    public User getUserByName(String login){
+        User user = null;
+        try {
+            user = ORMLiteFactcory.getHelper().getUserDao().getUser(login);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
     public User getUser() {

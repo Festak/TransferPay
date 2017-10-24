@@ -47,7 +47,7 @@
                         android:maxLines="1"
                         android:text="@={user.login}"
                         app:validationModel="@{validationModel}"
-                        app:validator="@{ValidationFactory.getEmptyRuleValidation()}"/>
+                        app:validator="@{ValidationFactory.getSameLoginValidator()}"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <TextView
