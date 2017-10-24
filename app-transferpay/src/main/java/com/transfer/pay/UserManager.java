@@ -67,6 +67,15 @@ public class UserManager {
         }
     }
 
+    public void insertTransaction(Transaction transaction){
+        transaction.setUser(user);
+        try {
+            ORMLiteFactcory.getHelper().getTransactionDao().create(transaction);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void insertCreditCard(CreditCardModel creditCardModel) {
         creditCardModel.setUser(user);
         try {

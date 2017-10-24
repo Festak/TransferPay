@@ -102,6 +102,10 @@ public class User extends BaseObservable {
     @ForeignCollectionField(eager = true)
     private ForeignCollection<BankAccountModel> bankAccountModels;
 
+    @ForeignCollectionField(eager = true)
+    private ForeignCollection<Transaction> transactions;
+
+
     private Transaction transaction;
 
     @Bindable
@@ -332,5 +336,15 @@ public class User extends BaseObservable {
     public void setBankAccountModels(ForeignCollection<BankAccountModel> bankAccountModels) {
         this.bankAccountModels = bankAccountModels;
         notifyPropertyChanged(BR.bankAccountModels);
+    }
+
+    @Bindable
+    public ForeignCollection<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(ForeignCollection<Transaction> transactions) {
+        this.transactions = transactions;
+        notifyPropertyChanged(BR.transactions);
     }
 }

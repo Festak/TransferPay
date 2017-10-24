@@ -10,10 +10,12 @@ import com.j256.ormlite.table.TableUtils;
 import com.transfer.pay.models.BankAccountModel;
 import com.transfer.pay.models.CreditCardAccountModel;
 import com.transfer.pay.models.CreditCardModel;
+import com.transfer.pay.models.Transaction;
 import com.transfer.pay.models.User;
 import com.transfer.pay.ormlite.Dao.BankAccountModelDao;
 import com.transfer.pay.ormlite.Dao.CreditCardAccountDao;
 import com.transfer.pay.ormlite.Dao.CreditCardDao;
+import com.transfer.pay.ormlite.Dao.TransactionDao;
 import com.transfer.pay.ormlite.Dao.UserDao;
 
 import java.sql.SQLException;
@@ -27,12 +29,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "transferPay.db";
 
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 7;
 
     private UserDao userDao = null;
     private CreditCardDao creditCardDao = null;
     private BankAccountModelDao bankAccountModelDao;
     private CreditCardAccountDao creditCardAccountDao;
+    private TransactionDao transactionDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -45,6 +48,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, CreditCardModel.class);
             TableUtils.createTable(connectionSource, BankAccountModel.class);
             TableUtils.createTable(connectionSource, CreditCardAccountModel.class);
+            TableUtils.createTable(connectionSource, Transaction.class);
         } catch (SQLException e) {
             Log.e(TAG, "error creating DB " + DATABASE_NAME);
             throw new RuntimeException(e);
@@ -58,6 +62,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, CreditCardModel.class, true);
             TableUtils.dropTable(connectionSource, BankAccountModel.class, true);
             TableUtils.dropTable(connectionSource, CreditCardAccountModel.class, true);
+            TableUtils.dropTable(connectionSource, Transaction.class, true);
             TableUtils.dropTable(connectionSource, User.class, true);
             onCreate(db, connectionSource);
         } catch (SQLException e) {
@@ -88,8 +93,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return creditCardDao;
     }
 
-    public BankAccountModelDao getBankAccountModelDao(){
-        if(bankAccountModelDao == null){
+    public BankAccountModelDao getBankAccountModelDao() {
+        if (bankAccountModelDao == null) {
             try {
                 bankAccountModelDao = new BankAccountModelDao(getConnectionSource(), BankAccountModel.class);
             } catch (SQLException e) {
@@ -99,8 +104,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return bankAccountModelDao;
     }
 
-    public CreditCardAccountDao getCreditCardAccountDao(){
-        if(creditCardAccountDao == null){
+    public CreditCardAccountDao getCreditCardAccountDao() {
+        if (creditCardAccountDao == null) {
             try {
                 creditCardAccountDao = new CreditCardAccountDao(getConnectionSource(), CreditCardAccountModel.class);
             } catch (SQLException e) {
@@ -110,6 +115,17 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return creditCardAccountDao;
     }
 
+    public TransactionDao getTransactionDao() {
+        if (transactionDao == null) {
+            try {
+                transactionDao = new TransactionDao(getConnectionSource(), Transaction.class);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return transactionDao;
+    }
+
     @Override
     public void close() {
         super.close();
@@ -117,5 +133,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         creditCardDao = null;
         creditCardAccountDao = null;
         bankAccountModelDao = null;
+        transactionDao = null;
     }
 }

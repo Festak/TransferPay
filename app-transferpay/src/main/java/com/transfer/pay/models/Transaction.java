@@ -4,6 +4,9 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.util.Log;
 
+import com.j256.ormlite.field.DataType;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 import com.transfer.pay.BR;
 import com.transfer.pay.constants.Formats;
 import com.transfer.pay.utils.calculator.FeeCalculator;
@@ -14,21 +17,56 @@ import java.util.Locale;
  * Created by e.fetskovich on 6/7/17.
  */
 
+@DatabaseTable(tableName = "transaction")
 public class Transaction extends BaseObservable {
 
-    private Double youSend;
+    public static final String transactionIdField = "transaction_id";
+    @DatabaseField(columnName = transactionIdField, generatedId = true)
+    private int transactionId;
+
+    public static final String youSendField = "you_send";
+    @DatabaseField(columnName = youSendField, dataType = DataType.DOUBLE)
+    private double youSend;
+
+    public static final String theyReceiveField = "they_receive";
+    @DatabaseField(columnName = theyReceiveField, dataType = DataType.STRING)
     private String theyReceive;
-    // Without Fee, just (fetchAndSend money * exchange rate)
+
+    public static final String exchangeAmountField = "exchange_amount";
+    @DatabaseField(columnName = exchangeAmountField, dataType = DataType.STRING)
     private String exchangeAmount;
+
+    public static final String estimatedAmountReceivedField = "estimated_amount_received";
+    @DatabaseField(columnName = estimatedAmountReceivedField, dataType = DataType.STRING)
     private String estimatedAmountReceived;
+
+    public static final String transferFeeField = "transfer_fee";
+    @DatabaseField(columnName = transferFeeField, dataType = DataType.STRING)
     private String transferFee;
-    private TransactionParams transactionParams;
-    private CreditCardModel paymentOption;
+
+
+    public static final String transactionDateField = "transaction_date";
+    @DatabaseField(columnName = transactionDateField, dataType = DataType.STRING)
     private String transactionDate;
+
+    public static final String operationTypeField = "operation_type";
+    @DatabaseField(columnName = operationTypeField, dataType = DataType.STRING)
     private String operationType;
+
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    private User user;
+
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    private CreditCardModel paymentOption;
+
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private CreditCardAccountModel creditCard;
+
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private BankAccountModel bankAccount;
 
+
+    private TransactionParams transactionParams;
     public Transaction() {
         // do nothing
     }
@@ -148,6 +186,26 @@ public class Transaction extends BaseObservable {
     public void setBankAccount(BankAccountModel bankAccount) {
         this.bankAccount = bankAccount;
         notifyPropertyChanged(BR.bankAccount);
+    }
+
+    @Bindable
+    public int getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
+        notifyPropertyChanged(BR.transactionId);
+    }
+
+    @Bindable
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+        notifyPropertyChanged(BR.user);
     }
 
     private void calculateAmount(Double send) {

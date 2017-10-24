@@ -13,6 +13,10 @@ import java.io.Serializable;
 @DatabaseTable(tableName = "bank_account")
 public class BankAccountModel extends BaseObservable implements Serializable {
 
+    public static final String bankAccountIdField = "bank_account_id";
+    @DatabaseField(columnName = bankAccountIdField, generatedId = true)
+    private int bankAccountId;
+
     public static final String nameField = "name";
     @DatabaseField(columnName = nameField, dataType = DataType.STRING)
     private String name;
@@ -89,5 +93,15 @@ public class BankAccountModel extends BaseObservable implements Serializable {
     public void setUser(User user) {
         this.user = user;
         notifyPropertyChanged(BR.user);
+    }
+
+    @Bindable
+    public int getBankAccountId() {
+        return bankAccountId;
+    }
+
+    public void setBankAccountId(int bankAccountId) {
+        this.bankAccountId = bankAccountId;
+        notifyPropertyChanged(BR.bankAccountId);
     }
 }
