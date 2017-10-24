@@ -1,19 +1,18 @@
 package com.transfer.pay.ui.fragments.transactionoverview;
 
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
-import com.transfer.pay.data.DataManager;
-import com.transfer.pay.data.DataStorage;
+import com.transfer.pay.TempDataManager;
 import com.transfer.pay.UserManager;
+import com.transfer.pay.data.DataManager;
 import com.transfer.pay.databinding.TransactionOverviewBinding;
-import com.transfer.pay.models.BankAccountModel;
 import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.Transaction;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
-import com.transfer.pay.ui.list.ListItemData;
-import com.transfer.pay.ui.list.ListItemType;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -35,14 +34,10 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
 
     public Transaction initTransaction() {
         Transaction transaction = new Transaction(DataManager.getInstance().getSettings().getTransactionParams());
-        ListItemData model = DataStorage.getInstance().loadChoosedBeneficiary();
-        Object object = model.getData();
 
-        if (model.getType() == ListItemType.BENEFICIARY_BANK_ACCOUNT) {
-            transaction.setBankAccount((BankAccountModel)object);
-        } else if (model.getType() == ListItemType.BENEFICIARY_CREDIT_CARD) {
-            transaction.setCreditCard((CreditCardModel)object);
-        }
+        transaction.setBankAccount(TempDataManager.getDataManager().getBankAccountModel());
+        transaction.setCreditCard(TempDataManager.getDataManager().getCreditCardAccountModel());
+        TempDataManager.getDataManager().deleteAllData();
         return transaction;
     }
 
@@ -52,7 +47,12 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
     }
 
     public List<CreditCardModel> getPaymentOptions() {
-        return DataManager.getInstance().getCreditCardModels();
+        Collection<CreditCardModel> cards = UserManager.getInstance().getUser().getCreditCards();
+        List<CreditCardModel> creditCardModels = new LinkedList<>();
+        for (CreditCardModel model : cards) {
+            creditCardModels.add(model);
+        }
+        return creditCardModels;
     }
 
 }

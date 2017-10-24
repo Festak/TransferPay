@@ -2,8 +2,8 @@ package com.transfer.pay.ui.fragments.beneficiaries;
 
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
+import com.transfer.pay.TempDataManager;
 import com.transfer.pay.constants.ContainerId;
-import com.transfer.pay.data.DataManager;
 import com.transfer.pay.databinding.BeneficiariesBinding;
 import com.transfer.pay.databinding.BeneficiaryItemBankAccountBinding;
 import com.transfer.pay.databinding.BeneficiaryItemCreditAccountCardBinding;
@@ -63,8 +63,9 @@ public class BeneficiariesViewHelper extends ViewHelper<BeneficiariesPresenter, 
         ViewHolderBinder<BeneficiaryItemCreditAccountCardBinding, CreditCardAccountModel> binder = new CreditCardAccountBinder(new OnClickedItemListener() {
             @Override
             public void onClickedItem(int position) {
-                cardsAdapter.deleteItemByPosition(position);
-                DataManager.getInstance().saveCreditCards();
+                CreditCardAccountModel model = cardsAdapter.getItemByPosition(position);
+                TempDataManager.getDataManager().setCreditCardAccountModel(model);
+                openTransactionScreen();
             }
         },
                 new OnClickedItemListener() {
@@ -86,8 +87,9 @@ public class BeneficiariesViewHelper extends ViewHelper<BeneficiariesPresenter, 
         ViewHolderBinder<BeneficiaryItemBankAccountBinding, BankAccountModel> binderAccount = new BeneficiaryBankAccountBinder(new OnClickedItemListener() {
             @Override
             public void onClickedItem(int position) {
-                accountsAdapter.deleteItemByPosition(position);
-                DataManager.getInstance().saveCreditCards();
+                BankAccountModel model = accountsAdapter.getItemByPosition(position);
+                TempDataManager.getDataManager().setBankAccountModel(model);
+                openTransactionScreen();
             }
         },
                 new OnClickedItemListener() {

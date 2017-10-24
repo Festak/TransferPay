@@ -26,7 +26,7 @@ public class Transaction extends BaseObservable {
     private CreditCardModel paymentOption;
     private String transactionDate;
     private String operationType;
-    private CreditCardModel creditCard;
+    private CreditCardAccountModel creditCard;
     private BankAccountModel bankAccount;
 
     public Transaction() {
@@ -131,11 +131,11 @@ public class Transaction extends BaseObservable {
     }
 
     @Bindable
-    public CreditCardModel getCreditCard() {
+    public CreditCardAccountModel getCreditCard() {
         return creditCard;
     }
 
-    public void setCreditCard(CreditCardModel creditCard) {
+    public void setCreditCard(CreditCardAccountModel creditCard) {
         this.creditCard = creditCard;
         notifyPropertyChanged(BR.creditCard);
     }
