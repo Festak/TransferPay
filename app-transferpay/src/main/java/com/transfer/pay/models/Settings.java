@@ -12,9 +12,13 @@ import com.transfer.pay.BR;
 public class Settings extends BaseObservable{
 
     private String defaultCountry;
+
     private String defaultBankName;
+
     private String myCurrency;
+
     private String beneficiaryCurrency;
+
     private TransactionParams transactionParams;
 
     public Settings(){

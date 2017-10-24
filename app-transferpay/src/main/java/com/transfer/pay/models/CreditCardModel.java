@@ -7,16 +7,27 @@ import com.transfer.pay.BR;
 
 import java.io.Serializable;
 
-/**
- * Created by i.statkevich on 6/2/17.
- */
 
 public class CreditCardModel extends BaseObservable implements Serializable {
 
+    public static final String cardHolderNameField = "card_holder_name";
+
     private String cardHolderName;
+
+    public static final String creditCardNumberField = "credit_card_number";
+
     private String creditCardNumber;
+
+    public static final String validDateField = "valid_date";
+
     private String validDate;
+
+    public static final String CVVField = "cvv";
+
     private String CVV;
+
+    public static final String cardTypeField = "card_type";
+
     private String cardType;
 
     public CreditCardModel() {

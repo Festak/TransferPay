@@ -1,6 +1,7 @@
 package com.transfer.pay.ui.fragments.registration.stepfour;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
@@ -42,6 +43,10 @@ public class RegistrationStepFourViewHelper extends ViewHelper<RegistrationStepF
     public void pickImage(){
         Intent chooseImageIntent = ImagePicker.getPickImageIntent(getRoot().getContext());
         startIntent(chooseImageIntent, Constants.PICK_IMAGE_ID);
+    }
+
+    public void setScanPhotoBitmap(Bitmap bitmap){
+        getBinding().scanPhoto.setImageBitmap(bitmap);
     }
 
     private void changeActionBarText(int stringId) {

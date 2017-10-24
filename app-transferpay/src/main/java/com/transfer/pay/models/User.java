@@ -3,35 +3,98 @@ package com.transfer.pay.models;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import com.j256.ormlite.field.DataType;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 import com.transfer.pay.BR;
+
+import java.util.List;
 
 /**
  * Created by e.fetskovich on 6/6/17.
  */
 
-public class User extends BaseObservable{
+@DatabaseTable(tableName = "user")
+public class User extends BaseObservable {
+
+    public static final String countryField = "country";
+    @DatabaseField(columnName = countryField, dataType = DataType.STRING)
     private String country;
+
+    public static final String emailField = "email";
+    @DatabaseField(columnName = emailField, dataType = DataType.STRING)
     private String email;
+
+    public static final String passwordField = "password";
+    @DatabaseField(columnName = passwordField, dataType = DataType.STRING)
     private String password;
+
+    public static final String loginField = "login";
+    @DatabaseField(columnName = loginField, dataType = DataType.STRING)
     private String login;
+
+    public static final String firstNameField = "first_name";
+    @DatabaseField(columnName = firstNameField, dataType = DataType.STRING)
     private String firstName;
+
+    public static final String lastNameField = "last_name";
+    @DatabaseField(columnName = lastNameField, dataType = DataType.STRING)
     private String lastName;
+
+    public static final String nationalityField = "nationality";
+    @DatabaseField(columnName = nationalityField, dataType = DataType.STRING)
     private String nationality;
+
+    public static final String dateOfBirthField = "dateOfBirth";
+    @DatabaseField(columnName = dateOfBirthField, dataType = DataType.STRING)
     private String dateOfBirth;
+
+    public static final String sexField = "sex";
+    @DatabaseField(columnName = sexField, dataType = DataType.STRING)
     private String sex;
+
+    public static final String addressOneField = "address_one";
+    @DatabaseField(columnName = addressOneField, dataType = DataType.STRING)
     private String addressLineOne;
+
+    public static final String addressTwoField = "address_two";
+    @DatabaseField(columnName = addressTwoField, dataType = DataType.STRING)
     private String addressLineTwo;
+
+    public static final String cityField = "city";
+    @DatabaseField(columnName = cityField, dataType = DataType.STRING)
     private String city;
+
+    public static final String zipOrPostalField = "zip_postal_code";
+    @DatabaseField(columnName = zipOrPostalField, dataType = DataType.STRING)
     private String zipOrPostalCode;
+
+    public static final String stateField = "state";
+    @DatabaseField(columnName = stateField, dataType = DataType.STRING)
     private String state;
+
+    public static final String mobileNumberField = "mobile_number";
+    @DatabaseField(columnName = mobileNumberField, dataType = DataType.STRING)
     private String mobileNumber;
-    private String identificationType;
-    private String idExpiryDate;
+
+    public static final String idOfScanField = "id_scan";
+    @DatabaseField(columnName = idOfScanField, dataType = DataType.STRING)
     private String idOfScan;
-    private String idOfDetails;
+
+    public static final String appPinField = "application_pin";
+    @DatabaseField(columnName = appPinField, dataType = DataType.STRING)
     private String applicationPin;
+
+    public static final String currentLogoField = "current_logo";
+    @DatabaseField(columnName = currentLogoField, dataType = DataType.STRING)
     private String currentLogo;
+
+    private List<CreditCardModel> creditCards;
+
+    private List<BankAccountModel> bankAccountModels;
+
     private Transaction transaction;
+
 
     @Bindable
     public String getCountry() {
@@ -191,16 +254,6 @@ public class User extends BaseObservable{
     public void setIdOfScan(String idOfScan) {
         this.idOfScan = idOfScan;
         notifyPropertyChanged(BR.idOfScan);
-    }
-
-    @Bindable
-    public String getIdOfDetails() {
-        return idOfDetails;
-    }
-
-    public void setIdOfDetails(String idOfDetails) {
-        this.idOfDetails = idOfDetails;
-        notifyPropertyChanged(BR.idOfDetails);
     }
 
     @Bindable

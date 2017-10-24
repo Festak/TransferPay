@@ -51,6 +51,7 @@ public class RegistrationStepFourPresenter extends TransferPayBasePresenter<Empt
 
     public void onImagePickedResult(Bitmap photo){
         String fileName = generateFileName();
+        getViewHelper().setScanPhotoBitmap(photo);
         FileUtils.writeBitmapToFile(FileUtils.SCAN_PATH, fileName, photo);
         setIdOfScanForUser(fileName);
     }

@@ -1,6 +1,8 @@
 package com.transfer.pay.ormlite.Dao;
 
 import com.j256.ormlite.dao.BaseDaoImpl;
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.transfer.pay.models.User;
 
@@ -17,7 +19,16 @@ public class UserDao extends BaseDaoImpl<User, String> {
         super(connectionSource, dataClass);
     }
 
-    public List<User> getAllRoles() throws SQLException {
+    public List<User> getAllUsers() throws SQLException {
         return this.queryForAll();
     }
+
+    public List<User> getUser(String login)  throws SQLException{
+        QueryBuilder<User, String> queryBuilder = queryBuilder();
+        queryBuilder.where().eq(User.loginField, login);
+        PreparedQuery<User> preparedQuery = queryBuilder.prepare();
+        List<User> users =query(preparedQuery);
+        return users;
+    }
+
 }

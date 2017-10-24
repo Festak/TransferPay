@@ -3,15 +3,28 @@ package com.transfer.pay.models;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import com.j256.ormlite.table.DatabaseTable;
 import com.transfer.pay.BR;
 
 import java.io.Serializable;
 
+@DatabaseTable(tableName = "bank_account")
 public class BankAccountModel extends BaseObservable implements Serializable {
 
+    public static final String nameField = "name";
+
     private String name;
+
+    public static final String countryField = "country";
+
     private String country;
+
+    public static final String chooseBankField = "choose_bank";
+
     private String chooseBank;
+
+    public static final String accountNumberField = "account_number";
+
     private String accountNo;
 
     public BankAccountModel() {
