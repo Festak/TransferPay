@@ -43,13 +43,13 @@ dependencies {
     compile "com.android.support:design:$support_version"
 
     compile project(path: ':cmvp-core')
+    compile project(path: ':creditcarddesign')
 
     compile 'com.google.android:flexbox:0.2.6'
     compile 'com.google.code.gson:gson:2.8.0'
     // Splash animation
     compile 'com.tbuonomo.andrui:materialsquareloading:1.0.1'
 
-    compile 'com.github.sharish:CreditCardView:v1.0.4'
 
     testCompile 'junit:junit:4.12'
 }

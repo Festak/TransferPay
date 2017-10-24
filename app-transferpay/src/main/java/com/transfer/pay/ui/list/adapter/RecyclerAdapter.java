@@ -9,12 +9,13 @@ import android.view.ViewGroup;
 
 import com.transfer.pay.ui.list.binder.ViewHolderBinder;
 
+import java.util.Collection;
 import java.util.List;
 
 public class RecyclerAdapter<B extends ViewDataBinding, I>
         extends RecyclerView.Adapter<RecyclerHolder<B>> {
 
-    private List<I> list;
+    private Collection<I> list;
     private ViewHolderBinder<B, I> binder;
 
     public RecyclerAdapter(List<I> list, ViewHolderBinder<B, I> binder) {
@@ -36,7 +37,7 @@ public class RecyclerAdapter<B extends ViewDataBinding, I>
 
     @Override
     public void onBindViewHolder(RecyclerHolder<B> holder, int position) {
-        I item = list.get(position);
+        I item = getItemByPosition(position);
         binder.bindHolder(
                 holder.getBinding(),
                 item,
@@ -50,10 +51,10 @@ public class RecyclerAdapter<B extends ViewDataBinding, I>
     }
 
     public I getItemByPosition(int position) {
-        return list.get(position);
+        return (I)list.toArray()[position];
     }
 
-    public void updateData(List<I> items) {
+    public void updateData(Collection<I> items) {
         this.list = items;
         notifyDataSetChanged();
     }

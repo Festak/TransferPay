@@ -73,6 +73,7 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
             String savedUserPassword = savedUser.getPassword();
 
             if (currentUserPassword != null && currentUserPassword.equals(savedUserPassword)) {
+                UserManager.getInstance().setUser(savedUser);
                 return true;
             }
         }

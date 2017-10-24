@@ -2,6 +2,7 @@ package com.transfer.pay;
 
 import com.transfer.pay.constants.Fields;
 import com.transfer.pay.data.DataStorage;
+import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.Transaction;
 import com.transfer.pay.models.User;
 import com.transfer.pay.ormlite.ORMLiteFactcory;
@@ -30,7 +31,7 @@ public class UserManager {
         return instance;
     }
 
-    public User getUserByName(String login){
+    public User getUserByName(String login) {
         User user = null;
         try {
             user = ORMLiteFactcory.getHelper().getUserDao().getUser(login);
@@ -38,6 +39,19 @@ public class UserManager {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public void insertCreditCard(CreditCardModel creditCardModel){
+        creditCardModel.setUser(user);
+        try {
+            ORMLiteFactcory.getHelper().getCreditCardDao().create(creditCardModel);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public User getUser() {
@@ -82,7 +96,7 @@ public class UserManager {
         dataStorage.saveUser(user);
     }
 
-    public void changeUserPassword(String password){
+    public void changeUserPassword(String password) {
         user.setPassword(password);
         saveUser();
     }

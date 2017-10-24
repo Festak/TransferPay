@@ -5,8 +5,9 @@ import android.content.Intent;
 import com.cooltechworks.creditcarddesign.CreditCardUtils;
 import com.cooltechworks.creditcarddesign.CreditCardView;
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
-import com.transfer.pay.data.DataManager;
+import com.transfer.pay.UserManager;
 import com.transfer.pay.models.CreditCardModel;
+import com.transfer.pay.models.User;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 
 /**
@@ -17,15 +18,15 @@ public class PaymentOptionsPresenter extends TransferPayBasePresenter<EmptyViewM
 
     @Override
     protected void onPresenterReady() {
-        getViewHelper().updateData(DataManager.getInstance().getCreditCardModels());
+        getViewHelper().updateData(UserManager.getInstance().getUser().getCreditCards());
     }
 
     public void onNewCreditCardClick() {
-       // getViewHelper().openFragmentId(TransferPayFragmentFactory.ID_ADD_CARD);
+        // getViewHelper().openFragmentId(TransferPayFragmentFactory.ID_ADD_CARD);
         getViewHelper().addCreditCardIntent();
     }
 
-    public void onActivityResultFromFragment(Intent data, int requestCode){
+    public void onActivityResultFromFragment(Intent data, int requestCode) {
         String name = data.getStringExtra(CreditCardUtils.EXTRA_CARD_HOLDER_NAME);
         String cardNumber = data.getStringExtra(CreditCardUtils.EXTRA_CARD_NUMBER);
         String expiry = data.getStringExtra(CreditCardUtils.EXTRA_CARD_EXPIRY);
@@ -40,19 +41,32 @@ public class PaymentOptionsPresenter extends TransferPayBasePresenter<EmptyViewM
             creditCardView.setCardExpiry(expiry);
             creditCardView.setCardNumber(cardNumber);
 
-            DataManager.getInstance().insertCreditCard(initCreditCardModel(creditCardView));
-            getViewHelper().notifyDataInRecyclerChanged();
+            setCardForUser(creditCardView);
 
         }
     }
 
-    private CreditCardModel initCreditCardModel(CreditCardView cardView){
+    private void setCardForUser(CreditCardView creditCardView) {
+        UserManager manager = UserManager.getInstance();
+
+        manager.insertCreditCard(initCreditCardModel(creditCardView));
+        String userLogin = manager.getUser().getLogin();
+
+        User newUser = manager.getUserByName(userLogin);
+        manager.setUser(newUser);
+
+        getViewHelper().updateData(newUser.getCreditCards());
+    }
+
+    private CreditCardModel initCreditCardModel(CreditCardView cardView) {
         CreditCardModel creditCardModel = new CreditCardModel();
         creditCardModel.setValidDate(cardView.getExpiry());
         creditCardModel.setCVV(cardView.getCVV());
         creditCardModel.setCardHolderName(cardView.getCardHolderName());
         creditCardModel.setCreditCardNumber(cardView.getCardNumber());
-        creditCardModel.setCardType(creditCardModel.getCardType());
+        creditCardModel.setCardType(cardView.getCardType().name());
+
+
         return creditCardModel;
     }
 

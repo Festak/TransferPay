@@ -3,8 +3,10 @@ package com.transfer.pay.models;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.transfer.pay.BR;
 
@@ -16,6 +18,10 @@ import java.util.List;
 
 @DatabaseTable(tableName = "user")
 public class User extends BaseObservable {
+
+    public static final String userIdField = "user_id";
+    @DatabaseField(generatedId = true, columnName = userIdField)
+    private int userId;
 
     public static final String countryField = "country";
     @DatabaseField(columnName = countryField, dataType = DataType.STRING)
@@ -89,12 +95,22 @@ public class User extends BaseObservable {
     @DatabaseField(columnName = currentLogoField, dataType = DataType.STRING)
     private String currentLogo;
 
-    private List<CreditCardModel> creditCards;
+    @ForeignCollectionField(eager = true)
+    private ForeignCollection<CreditCardModel> creditCards;
 
     private List<BankAccountModel> bankAccountModels;
 
     private Transaction transaction;
 
+    @Bindable
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+        notifyPropertyChanged(BR.userId);
+    }
 
     @Bindable
     public String getCountry() {
@@ -274,6 +290,16 @@ public class User extends BaseObservable {
     public void setCurrentLogo(String currentLogo) {
         this.currentLogo = currentLogo;
         notifyPropertyChanged(BR.currentLogo);
+    }
+
+    @Bindable
+    public ForeignCollection<CreditCardModel> getCreditCards() {
+        return creditCards;
+    }
+
+    public void setCreditCards(ForeignCollection<CreditCardModel> creditCards) {
+        this.creditCards = creditCards;
+        notifyPropertyChanged(BR.creditCards);
     }
 
     @Bindable

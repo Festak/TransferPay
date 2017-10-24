@@ -1,7 +1,6 @@
 package com.transfer.pay.ui.fragments.paymentoptions;
 
 import android.content.Intent;
-import android.widget.LinearLayout;
 
 import com.cooltechworks.creditcarddesign.CardEditActivity;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
@@ -20,8 +19,8 @@ import com.transfer.pay.ui.list.binder.CreditCardBinder;
 import com.transfer.pay.ui.list.binder.ViewHolderBinder;
 import com.transfer.pay.ui.list.listener.OnClickedItemListener;
 
+import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by e.fetskovich on 6/6/17.
@@ -31,7 +30,6 @@ public class PaymentOptionsViewHelper extends ViewHelper<PaymentOptionsPresenter
 
     public static final int CREATE_NEW_CARD = 0;
 
-    private LinearLayout cardContainer;
     private RecyclerAdapter<CreditCardItemBinding, CreditCardModel> adapter;
 
     @Override
@@ -39,7 +37,7 @@ public class PaymentOptionsViewHelper extends ViewHelper<PaymentOptionsPresenter
         binding.setPresenter(getPresenter());
     }
 
-    public void updateData(List<CreditCardModel> list) {
+    public void updateData(Collection<CreditCardModel> list) {
         adapter.updateData(list);
     }
 
@@ -50,7 +48,6 @@ public class PaymentOptionsViewHelper extends ViewHelper<PaymentOptionsPresenter
     @Override
     protected void onInitView() {
         initRecyclerView();
-        cardContainer = (LinearLayout)findViewById(R.id.card_container);
     }
 
     @Override
