@@ -1,17 +1,12 @@
 package com.transfer.pay.ui.fragments.registration.stepfour;
 
 import android.content.Intent;
-import android.view.View;
-import android.widget.Spinner;
 
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.constants.Constants;
 import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.databinding.RegistrationAmlStep4Binding;
-import com.transfer.pay.listeners.calendar.CalendarListener;
-import com.transfer.pay.listeners.calendar.DateListener;
-import com.transfer.pay.ui.UiConfigurator;
 import com.transfer.pay.ui.activities.registration.RegistrationPresenter;
 import com.transfer.pay.utils.ImagePicker;
 
@@ -23,8 +18,6 @@ public class RegistrationStepFourViewHelper extends ViewHelper<RegistrationStepF
 
     @Override
     protected void onInitView() {
-        initExpiryDateListener();
-        initSpinnerAdapter();
         changeActionBarText(R.string.registration_aml_new_user);
     }
 
@@ -49,16 +42,6 @@ public class RegistrationStepFourViewHelper extends ViewHelper<RegistrationStepF
     public void pickImage(){
         Intent chooseImageIntent = ImagePicker.getPickImageIntent(getRoot().getContext());
         startIntent(chooseImageIntent, Constants.PICK_IMAGE_ID);
-    }
-
-    private void initExpiryDateListener() {
-        View view = getBinding().expiryDate;
-        view.setOnFocusChangeListener(new DateListener(new CalendarListener(view)));
-    }
-
-    private void initSpinnerAdapter() {
-        Spinner spinner = getBinding().spinnerIdentificationType;
-        UiConfigurator.initSpinnerAdapterWithResourceData(spinner, R.array.identification_types);
     }
 
     private void changeActionBarText(int stringId) {

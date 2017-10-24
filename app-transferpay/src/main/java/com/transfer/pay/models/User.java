@@ -184,26 +184,6 @@ public class User extends BaseObservable{
     }
 
     @Bindable
-    public String getIdentificationType() {
-        return identificationType;
-    }
-
-    public void setIdentificationType(String identificationType) {
-        this.identificationType = identificationType;
-        notifyPropertyChanged(BR.identificationType);
-    }
-
-    @Bindable
-    public String getIdExpiryDate() {
-        return idExpiryDate;
-    }
-
-    public void setIdExpiryDate(String idExpiryDate) {
-        this.idExpiryDate = idExpiryDate;
-        notifyPropertyChanged(BR.idExpiryDate);
-    }
-
-    @Bindable
     public String getIdOfScan() {
         return idOfScan;
     }

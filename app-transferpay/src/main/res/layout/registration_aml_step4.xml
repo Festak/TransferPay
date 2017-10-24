@@ -37,55 +37,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    style="@style/SpinnerLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/registration_aml_label_identification_type"/>
-
-                <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/spinnerIdentificationType"
-                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    bind:selectedValue="@={user.identificationType}"/>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/fieldIdDetails"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/registration_aml_label_id_details"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:text="@={user.idOfDetails}"
-                        app:validationModel="@{validationModel}"
-                        app:validator="@{ValidationFactory.getEmptyRuleValidation()}"/>
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/fieldsExpiryDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/expiryDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_calendar"
-                        android:hint="@string/registration_aml_label_id_expiry"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:text="@={user.idExpiryDate}"
-                        app:validationModel="@{validationModel}"
-                        app:validator="@{ValidationFactory.getEmptyRuleValidation()}"/>
-
-                </android.support.design.widget.TextInputLayout>
-
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/fieldState"
                     android:layout_width="match_parent"
