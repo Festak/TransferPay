@@ -105,9 +105,6 @@ public class User extends BaseObservable {
     @ForeignCollectionField(eager = true)
     private ForeignCollection<Transaction> transactions;
 
-
-    private Transaction transaction;
-
     @Bindable
     public int getUserId() {
         return userId;
@@ -306,16 +303,6 @@ public class User extends BaseObservable {
     public void setCreditCards(ForeignCollection<CreditCardModel> creditCards) {
         this.creditCards = creditCards;
         notifyPropertyChanged(BR.creditCards);
-    }
-
-    @Bindable
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-        notifyPropertyChanged(BR.transaction);
     }
 
     @Bindable

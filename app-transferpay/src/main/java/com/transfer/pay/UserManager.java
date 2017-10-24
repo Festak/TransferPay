@@ -98,10 +98,6 @@ public class UserManager {
         dataStorage.removeKey(Fields.Preferences.USER);
     }
 
-    public Transaction getTransaction() {
-        return user.getTransaction();
-    }
-
     public void setLogoName(String logoName) {
         user.setCurrentLogo(logoName);
     }
@@ -122,10 +118,6 @@ public class UserManager {
         return dataStorage.loadLoginStatus();
     }
 
-    public void createTransaction(Transaction transaction) {
-        user.setTransaction(transaction);
-        saveUser();
-    }
 
     public void saveUser() {
         dataStorage.saveUser(user);
