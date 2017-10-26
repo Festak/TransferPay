@@ -39,8 +39,8 @@
     <string name="menu_action_settings">Settings</string>
     <string name="menu_action_history">History</string>
     <string name="menu_action_beneficiaries">Beneficiaries</string>
-    <string name="menu_action_transactions_history">Last Transaction Details</string>
-    <string name="menu_action_wallet">Transactions List</string>
+    <string name="menu_action_transactions_history">Transactions History</string>
+    <string name="menu_action_wallet">NOTHING NOW</string>
     <string name="menu_action_my_profile">My Profile</string>
     <string name="menu_action_terms_and_conditions">Terms and Conditions</string>
     <string name="menu_action_setting">Setting</string>
