@@ -3,6 +3,7 @@ package com.transfer.pay.models;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.transfer.pay.BR;
@@ -22,7 +23,7 @@ public class CreditCardData extends BaseObservable{
     private Currency currency;
 
     public static final String MONEY = "money";
-    @DatabaseField(foreign = true, columnName = MONEY)
+    @DatabaseField(columnName = MONEY, dataType = DataType.DOUBLE)
     private double money;
 
     public int getCardDataId() {

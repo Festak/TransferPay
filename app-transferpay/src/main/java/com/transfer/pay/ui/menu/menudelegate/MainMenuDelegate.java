@@ -12,10 +12,6 @@ import android.view.MenuItem;
 import com.transfer.pay.R;
 import com.transfer.pay.ui.menu.navigator.Navigator;
 
-/**
- * Created by i.statkevich on 5/30/17.
- */
-
 public class MainMenuDelegate implements MenuDelegate {
     private DrawerLayout drawer;
     private Navigator navigator;

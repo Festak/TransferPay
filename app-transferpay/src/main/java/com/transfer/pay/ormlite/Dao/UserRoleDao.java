@@ -23,7 +23,7 @@ public class UserRoleDao extends BaseDaoImpl<UserRole, String> {
         super(connectionSource, dataClass);
     }
 
-    public List<UserRole> getAllCreditCards() throws SQLException {
+    public List<UserRole> getAllUserRoles() throws SQLException {
         return this.queryForAll();
     }
 

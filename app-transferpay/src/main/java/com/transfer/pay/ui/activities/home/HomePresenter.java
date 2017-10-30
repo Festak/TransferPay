@@ -61,15 +61,10 @@ public class HomePresenter extends TransferPayBasePresenter<EmptyViewModel, Home
     }
 
     public void changeApplicationLogo() {
-        performFakeAsyncOperation(new Runnable() {
-            @Override
-            public void run() {
-                ImageView imageView = (ImageView) getViewHelper().getBinding().navView.getHeaderView(0).findViewById(R.id.userLogo);
-                String fileName = UserManager.getInstance().getCurrentLogo();
-                Bitmap bitmap = loadBitmap(fileName);
-                imageView.setImageBitmap(bitmap);
-            }
-        });
+        ImageView imageView = (ImageView) getViewHelper().getBinding().navView.getHeaderView(0).findViewById(R.id.userLogo);
+        String fileName = UserManager.getInstance().getCurrentLogo();
+        Bitmap bitmap = loadBitmap(fileName);
+        imageView.setImageBitmap(bitmap);
     }
 
     private Bitmap loadBitmap(String fileName) {

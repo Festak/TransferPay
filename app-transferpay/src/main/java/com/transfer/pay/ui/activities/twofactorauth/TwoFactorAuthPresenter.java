@@ -17,7 +17,6 @@ import java.util.Date;
  * Created by e.fetskovich on 6/7/17.
  */
 
-// TODO: To use sending email delete commentaries in this class
 public class TwoFactorAuthPresenter extends TransferPayBasePresenter<EmptyViewModel, TwoFactorAuthViewHelper> {
 
     private ConnectionChecker checker;

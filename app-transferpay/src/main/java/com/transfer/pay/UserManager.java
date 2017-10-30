@@ -5,6 +5,7 @@ import com.transfer.pay.data.DataStorage;
 import com.transfer.pay.models.BankAccountModel;
 import com.transfer.pay.models.CreditCardAccountModel;
 import com.transfer.pay.models.CreditCardModel;
+import com.transfer.pay.models.Role;
 import com.transfer.pay.models.Transaction;
 import com.transfer.pay.models.User;
 import com.transfer.pay.ormlite.ORMLiteFactcory;
@@ -49,6 +50,16 @@ public class UserManager {
         return user;
     }
 
+    public Role getRoleByName(String name) {
+        Role role = null;
+        try {
+            role = ORMLiteFactcory.getHelper().getRolesDao().getRole(name);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return role;
+    }
+
     public void insertBankAccount(BankAccountModel bankAccountModel) {
         bankAccountModel.setUser(user);
         try {
@@ -67,7 +78,7 @@ public class UserManager {
         }
     }
 
-    public void insertTransaction(Transaction transaction){
+    public void insertTransaction(Transaction transaction) {
         transaction.setUser(user);
         try {
             ORMLiteFactcory.getHelper().getTransactionDao().create(transaction);
