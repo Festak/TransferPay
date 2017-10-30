@@ -40,6 +40,9 @@ public class CreditCardModel extends BaseObservable implements Serializable {
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private User user;
 
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    private CreditCardData creditCardData;
+
     public CreditCardModel() {
         // do nothing
     }
@@ -112,6 +115,14 @@ public class CreditCardModel extends BaseObservable implements Serializable {
     public void setUser(User user) {
         this.user = user;
         notifyPropertyChanged(BR.user);
+    }
+
+    public CreditCardData getCreditCardData() {
+        return creditCardData;
+    }
+
+    public void setCreditCardData(CreditCardData creditCardData) {
+        this.creditCardData = creditCardData;
     }
 
     @Override

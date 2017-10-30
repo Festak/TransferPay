@@ -105,6 +105,9 @@ public class User extends BaseObservable {
     @ForeignCollectionField(eager = true)
     private ForeignCollection<Transaction> transactions;
 
+    @ForeignCollectionField(eager = true)
+    private ForeignCollection<Role> roles;
+
     @Bindable
     public int getUserId() {
         return userId;
@@ -333,5 +336,13 @@ public class User extends BaseObservable {
     public void setTransactions(ForeignCollection<Transaction> transactions) {
         this.transactions = transactions;
         notifyPropertyChanged(BR.transactions);
+    }
+
+    public ForeignCollection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(ForeignCollection<Role> roles) {
+        this.roles = roles;
     }
 }
