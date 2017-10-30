@@ -15,6 +15,7 @@ import com.transfer.pay.models.Currency;
 import com.transfer.pay.models.Role;
 import com.transfer.pay.models.Transaction;
 import com.transfer.pay.models.User;
+import com.transfer.pay.models.UserRole;
 import com.transfer.pay.ormlite.Dao.BankAccountModelDao;
 import com.transfer.pay.ormlite.Dao.CreditCardAccountDao;
 import com.transfer.pay.ormlite.Dao.CreditCardDao;
@@ -23,6 +24,8 @@ import com.transfer.pay.ormlite.Dao.CurrencyDao;
 import com.transfer.pay.ormlite.Dao.RolesDao;
 import com.transfer.pay.ormlite.Dao.TransactionDao;
 import com.transfer.pay.ormlite.Dao.UserDao;
+import com.transfer.pay.ormlite.Dao.UserRoleDao;
+import com.transfer.pay.utils.FirstStart;
 
 import java.sql.SQLException;
 
@@ -45,6 +48,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private CreditCardDataDao creditCardDataDao = null;
     private CurrencyDao currencyDao = null;
     private RolesDao rolesDao = null;
+    private UserRoleDao userRoleDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -53,14 +57,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
-            TableUtils.createTable(connectionSource, User.class);
-            TableUtils.createTable(connectionSource, CreditCardModel.class);
-            TableUtils.createTable(connectionSource, BankAccountModel.class);
-            TableUtils.createTable(connectionSource, CreditCardAccountModel.class);
-            TableUtils.createTable(connectionSource, Transaction.class);
-            TableUtils.createTable(connectionSource, Role.class);
-            TableUtils.createTable(connectionSource, Currency.class);
-            TableUtils.createTable(connectionSource, CreditCardData.class);
+            createTables(connectionSource);
+            FirstStart.firstStart();
         } catch (SQLException e) {
             Log.e(TAG, "error creating DB " + DATABASE_NAME);
             throw new RuntimeException(e);
@@ -71,14 +69,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVer,
                           int newVer) {
         try {
-            TableUtils.dropTable(connectionSource, Currency.class, true);
-            TableUtils.dropTable(connectionSource, Role.class, true);
-            TableUtils.dropTable(connectionSource, CreditCardData.class, true);
-            TableUtils.dropTable(connectionSource, CreditCardModel.class, true);
-            TableUtils.dropTable(connectionSource, BankAccountModel.class, true);
-            TableUtils.dropTable(connectionSource, CreditCardAccountModel.class, true);
-            TableUtils.dropTable(connectionSource, Transaction.class, true);
-            TableUtils.dropTable(connectionSource, User.class, true);
+            dropTables(connectionSource);
             onCreate(db, connectionSource);
         } catch (SQLException e) {
             Log.e(TAG, "error upgrading db " + DATABASE_NAME + "from ver " + oldVer);
@@ -141,8 +132,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return transactionDao;
     }
 
-    public CreditCardDataDao getCreditCardDataDao(){
-        if(creditCardDataDao == null){
+    public CreditCardDataDao getCreditCardDataDao() {
+        if (creditCardDataDao == null) {
             try {
                 creditCardDataDao = new CreditCardDataDao(getConnectionSource(), CreditCardData.class);
             } catch (SQLException e) {
@@ -152,8 +143,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return creditCardDataDao;
     }
 
-    public RolesDao getRolesDao(){
-        if(rolesDao == null){
+    public RolesDao getRolesDao() {
+        if (rolesDao == null) {
             try {
                 rolesDao = new RolesDao(getConnectionSource(), Role.class);
             } catch (SQLException e) {
@@ -163,8 +154,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return rolesDao;
     }
 
-    public CurrencyDao getCurrencyDao(){
-        if(currencyDao == null){
+    public CurrencyDao getCurrencyDao() {
+        if (currencyDao == null) {
             try {
                 currencyDao = new CurrencyDao(getConnectionSource(), Currency.class);
             } catch (SQLException e) {
@@ -174,9 +165,48 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return currencyDao;
     }
 
+    public UserRoleDao getUserRoleDao() {
+        if (userRoleDao == null) {
+            try {
+                userRoleDao = new UserRoleDao(getConnectionSource(), UserRole.class);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return userRoleDao;
+    }
+
     @Override
     public void close() {
         super.close();
+        destroyObjects();
+    }
+
+    private void createTables(ConnectionSource connectionSource) throws SQLException {
+        TableUtils.createTable(connectionSource, User.class);
+        TableUtils.createTable(connectionSource, CreditCardModel.class);
+        TableUtils.createTable(connectionSource, BankAccountModel.class);
+        TableUtils.createTable(connectionSource, CreditCardAccountModel.class);
+        TableUtils.createTable(connectionSource, Transaction.class);
+        TableUtils.createTable(connectionSource, Role.class);
+        TableUtils.createTable(connectionSource, Currency.class);
+        TableUtils.createTable(connectionSource, CreditCardData.class);
+        TableUtils.createTable(connectionSource, UserRole.class);
+    }
+
+    private void dropTables(ConnectionSource connectionSource) throws SQLException {
+        TableUtils.dropTable(connectionSource, UserRole.class, true);
+        TableUtils.dropTable(connectionSource, Currency.class, true);
+        TableUtils.dropTable(connectionSource, Role.class, true);
+        TableUtils.dropTable(connectionSource, CreditCardData.class, true);
+        TableUtils.dropTable(connectionSource, CreditCardModel.class, true);
+        TableUtils.dropTable(connectionSource, BankAccountModel.class, true);
+        TableUtils.dropTable(connectionSource, CreditCardAccountModel.class, true);
+        TableUtils.dropTable(connectionSource, Transaction.class, true);
+        TableUtils.dropTable(connectionSource, User.class, true);
+    }
+
+    private void destroyObjects() {
         userDao = null;
         creditCardDao = null;
         creditCardAccountDao = null;
@@ -185,5 +215,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         creditCardDataDao = null;
         rolesDao = null;
         currencyDao = null;
+        userRoleDao = null;
     }
+
+
 }

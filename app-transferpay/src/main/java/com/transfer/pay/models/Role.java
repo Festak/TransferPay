@@ -19,9 +19,6 @@ public class Role {
     @DatabaseField(columnName = nameField, dataType = DataType.STRING)
     private String name;
 
-    @DatabaseField(foreign = true, foreignAutoRefresh = true)
-    private User user;
-
     public Role(){
         // do nothing
     }
@@ -42,11 +39,4 @@ public class Role {
         this.name = name;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

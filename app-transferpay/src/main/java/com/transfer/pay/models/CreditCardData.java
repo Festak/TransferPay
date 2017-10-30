@@ -17,7 +17,8 @@ public class CreditCardData extends BaseObservable{
     @DatabaseField(generatedId = true, columnName = CARD_DATA_FIELD)
     private int cardDataId;
 
-    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    public static final String CURRENCY_ID = "currency_id";
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = CURRENCY_ID)
     private Currency currency;
 
     public static final String MONEY = "money";
