@@ -46,6 +46,11 @@ public class PaymentOptionsPresenter extends TransferPayBasePresenter<EmptyViewM
         }
     }
 
+    public void removeUserCard(CreditCardModel creditCardModel){
+        User user = UserManager.getInstance().removeCreditCard(creditCardModel);
+        getViewHelper().updateData(user.getCreditCards());
+    }
+
     private void setCardForUser(CreditCardView creditCardView) {
         UserManager manager = UserManager.getInstance();
 

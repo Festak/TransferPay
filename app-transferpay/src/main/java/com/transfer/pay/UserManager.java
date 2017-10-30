@@ -40,6 +40,17 @@ public class UserManager {
         return user;
     }
 
+    public User removeCreditCard(CreditCardModel creditCardModel) {
+        user.getCreditCards().remove(creditCardModel);
+        try {
+            ORMLiteFactcory.getHelper().getCreditCardDao().delete(creditCardModel);
+            ORMLiteFactcory.getHelper().getUserDao().refresh(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return updateUser();
+    }
+
     public User getUserByName(String login) {
         User user = null;
         try {

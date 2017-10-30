@@ -6,7 +6,6 @@ import com.cooltechworks.creditcarddesign.CardEditActivity;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.constants.ContainerId;
-import com.transfer.pay.data.DataManager;
 import com.transfer.pay.databinding.CreditCardItemBinding;
 import com.transfer.pay.databinding.PaymentOptionsBinding;
 import com.transfer.pay.factories.LayoutManagerFactory;
@@ -56,12 +55,12 @@ public class PaymentOptionsViewHelper extends ViewHelper<PaymentOptionsPresenter
         homePresenter.changeContainerFragment(fragmentId);
     }
 
-    public void addCreditCardIntent(){
+    public void addCreditCardIntent() {
         SettingsTabFragment fragment = (SettingsTabFragment) getActivityContainer().
                 getSupportFragmentManager().
                 findFragmentByTag(ContainerId.Fragment.SETTINGS_TAB);
         PaymentOptionsFragment fragment1 = fragment.getPaymentOptionsFragment();
-        Intent intent = new Intent(fragment1.getContext() ,CardEditActivity.class);
+        Intent intent = new Intent(fragment1.getContext(), CardEditActivity.class);
         fragment1.startActivityForResult(intent, CREATE_NEW_CARD);
     }
 
@@ -70,7 +69,8 @@ public class PaymentOptionsViewHelper extends ViewHelper<PaymentOptionsPresenter
             @Override
             public void onClickedItem(int position) {
                 adapter.deleteItemByPosition(position);
-                DataManager.getInstance().saveCreditCards();
+                CreditCardModel model = adapter.getItemByPosition(position);
+                getPresenter().removeUserCard(model);
             }
         },
                 new OnClickedItemListener() {
