@@ -20,6 +20,10 @@ public class CreditCardData extends BaseObservable{
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private Currency currency;
 
+    public static final String MONEY = "money";
+    @DatabaseField(foreign = true, columnName = MONEY)
+    private double money;
+
     public int getCardDataId() {
         return cardDataId;
     }
@@ -36,5 +40,15 @@ public class CreditCardData extends BaseObservable{
     public void setCurrency(Currency currency) {
         this.currency = currency;
         notifyPropertyChanged(BR.currency);
+    }
+
+    @Bindable
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+        notifyPropertyChanged(BR.money);
     }
 }

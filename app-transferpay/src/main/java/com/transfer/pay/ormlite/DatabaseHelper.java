@@ -9,12 +9,18 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.transfer.pay.models.BankAccountModel;
 import com.transfer.pay.models.CreditCardAccountModel;
+import com.transfer.pay.models.CreditCardData;
 import com.transfer.pay.models.CreditCardModel;
+import com.transfer.pay.models.Currency;
+import com.transfer.pay.models.Role;
 import com.transfer.pay.models.Transaction;
 import com.transfer.pay.models.User;
 import com.transfer.pay.ormlite.Dao.BankAccountModelDao;
 import com.transfer.pay.ormlite.Dao.CreditCardAccountDao;
 import com.transfer.pay.ormlite.Dao.CreditCardDao;
+import com.transfer.pay.ormlite.Dao.CreditCardDataDao;
+import com.transfer.pay.ormlite.Dao.CurrencyDao;
+import com.transfer.pay.ormlite.Dao.RolesDao;
 import com.transfer.pay.ormlite.Dao.TransactionDao;
 import com.transfer.pay.ormlite.Dao.UserDao;
 
@@ -36,6 +42,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private BankAccountModelDao bankAccountModelDao;
     private CreditCardAccountDao creditCardAccountDao;
     private TransactionDao transactionDao = null;
+    private CreditCardDataDao creditCardDataDao = null;
+    private CurrencyDao currencyDao = null;
+    private RolesDao rolesDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -49,6 +58,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, BankAccountModel.class);
             TableUtils.createTable(connectionSource, CreditCardAccountModel.class);
             TableUtils.createTable(connectionSource, Transaction.class);
+            TableUtils.createTable(connectionSource, Role.class);
+            TableUtils.createTable(connectionSource, Currency.class);
+            TableUtils.createTable(connectionSource, CreditCardData.class);
         } catch (SQLException e) {
             Log.e(TAG, "error creating DB " + DATABASE_NAME);
             throw new RuntimeException(e);
@@ -59,6 +71,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVer,
                           int newVer) {
         try {
+            TableUtils.dropTable(connectionSource, Currency.class, true);
+            TableUtils.dropTable(connectionSource, Role.class, true);
+            TableUtils.dropTable(connectionSource, CreditCardData.class, true);
             TableUtils.dropTable(connectionSource, CreditCardModel.class, true);
             TableUtils.dropTable(connectionSource, BankAccountModel.class, true);
             TableUtils.dropTable(connectionSource, CreditCardAccountModel.class, true);
@@ -126,6 +141,39 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return transactionDao;
     }
 
+    public CreditCardDataDao getCreditCardDataDao(){
+        if(creditCardDataDao == null){
+            try {
+                creditCardDataDao = new CreditCardDataDao(getConnectionSource(), CreditCardData.class);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return creditCardDataDao;
+    }
+
+    public RolesDao getRolesDao(){
+        if(rolesDao == null){
+            try {
+                rolesDao = new RolesDao(getConnectionSource(), Role.class);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return rolesDao;
+    }
+
+    public CurrencyDao getCurrencyDao(){
+        if(currencyDao == null){
+            try {
+                currencyDao = new CurrencyDao(getConnectionSource(), Currency.class);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return currencyDao;
+    }
+
     @Override
     public void close() {
         super.close();
@@ -134,5 +182,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         creditCardAccountDao = null;
         bankAccountModelDao = null;
         transactionDao = null;
+        creditCardDataDao = null;
+        rolesDao = null;
+        currencyDao = null;
     }
 }
