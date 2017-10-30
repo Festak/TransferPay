@@ -1,8 +1,14 @@
 package com.transfer.pay.ormlite.Dao;
 
 import com.j256.ormlite.dao.BaseDaoImpl;
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.SelectArg;
 import com.j256.ormlite.support.ConnectionSource;
+import com.transfer.pay.models.Role;
+import com.transfer.pay.models.User;
 import com.transfer.pay.models.UserRole;
+import com.transfer.pay.ormlite.ORMLiteFactcory;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -13,11 +19,39 @@ import java.util.List;
 
 public class UserRoleDao extends BaseDaoImpl<UserRole, String> {
     public UserRoleDao(ConnectionSource connectionSource,
-                    Class<UserRole> dataClass) throws SQLException {
+                       Class<UserRole> dataClass) throws SQLException {
         super(connectionSource, dataClass);
     }
 
     public List<UserRole> getAllCreditCards() throws SQLException {
         return this.queryForAll();
     }
+
+    private PreparedQuery<Role> rolesForUserQuery = null;
+
+    public List<Role> lookupPostsForUser(User user) throws SQLException {
+        if (rolesForUserQuery == null) {
+            rolesForUserQuery = makeRolesForUserQuery();
+        }
+        RolesDao rolesDao = ORMLiteFactcory.getHelper().getRolesDao();
+        rolesForUserQuery.setArgumentHolderValue(0, user);
+        return rolesDao.query(rolesForUserQuery);
+    }
+
+    /**
+     * Build our query for Post objects that match a User.
+     */
+    private PreparedQuery<Role> makeRolesForUserQuery() throws SQLException {
+        QueryBuilder<UserRole, String> userRoleQb = this.queryBuilder();
+        userRoleQb.selectColumns(UserRole.ROLE_ID_FIELD);
+        SelectArg userSelectArg = new SelectArg();
+        userRoleQb.where().eq(UserRole.USER_ID_FIELD, userSelectArg);
+
+        RolesDao rolesDao = ORMLiteFactcory.getHelper().getRolesDao();
+        QueryBuilder<Role, String> postQb = rolesDao.queryBuilder();
+        postQb.where().in(Role.roleIdField, userRoleQb);
+        return postQb.prepare();
+    }
+
+
 }
