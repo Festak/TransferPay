@@ -29,7 +29,7 @@ public class UserRoleDao extends BaseDaoImpl<UserRole, String> {
 
     private PreparedQuery<Role> rolesForUserQuery = null;
 
-    public List<Role> lookupPostsForUser(User user) throws SQLException {
+    public List<Role> lookupRolesForUser(User user) throws SQLException {
         if (rolesForUserQuery == null) {
             rolesForUserQuery = makeRolesForUserQuery();
         }
