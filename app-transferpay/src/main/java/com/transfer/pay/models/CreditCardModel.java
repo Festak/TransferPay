@@ -42,6 +42,7 @@ public class CreditCardModel extends BaseObservable implements Serializable {
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private User user;
 
+    // It's 1:1 dependency (without collection it's doesn't want to works great)
     @ForeignCollectionField(eager = true)
     private ForeignCollection<CreditCardData> creditCardData;
 
