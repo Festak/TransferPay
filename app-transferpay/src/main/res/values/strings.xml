@@ -237,6 +237,7 @@
     <string name="country_ap_vietman">Vietnam</string>
 
     <!-- Spinner currency -->
+    <string name="money">Money</string>
     <string name="currency_usd">USD</string>
     <string name="currency_eur">EUR</string>
     <string name="currency_blr_rub">BLR</string>

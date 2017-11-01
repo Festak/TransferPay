@@ -54,4 +54,9 @@ public class Currency extends BaseObservable{
     public void setFormatToUsd(Double formatToUsd) {
         this.formatToUsd = formatToUsd;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

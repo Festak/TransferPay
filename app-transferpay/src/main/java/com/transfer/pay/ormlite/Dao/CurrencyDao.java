@@ -17,7 +17,7 @@ public class CurrencyDao extends BaseDaoImpl<Currency, String> {
         super(connectionSource, dataClass);
     }
 
-    public List<Currency> getAllCreditCards() throws SQLException {
+    public List<Currency> getCurrencies() throws SQLException {
         return this.queryForAll();
     }
 
