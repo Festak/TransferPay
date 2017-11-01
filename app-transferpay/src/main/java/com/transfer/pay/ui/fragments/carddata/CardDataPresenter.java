@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.TempDataManager;
+import com.transfer.pay.UserManager;
 import com.transfer.pay.databinding.CardDataBinding;
 import com.transfer.pay.models.CreditCardData;
 import com.transfer.pay.models.CreditCardModel;
@@ -63,7 +64,8 @@ public class CardDataPresenter extends TransferPayBasePresenter<EmptyViewModel, 
     }
 
     private void addCardDataToCardModel(Currency currency, double money) {
-        CreditCardModel model = TempDataManager.getDataManager().getCreditCardModel();
+        CreditCardModel model1 = TempDataManager.getDataManager().getCreditCardModel();
+        CreditCardModel model = UserManager.getInstance().getCreditCardById(model1.getCreditCardId());
         if (model != null) {
             CreditCardData cardData = model.getCreditCardData();
             if (cardData == null) {
@@ -79,16 +81,16 @@ public class CardDataPresenter extends TransferPayBasePresenter<EmptyViewModel, 
             cardData.setMoney(totalMoney);
             getViewHelper().getBinding().totalMoney.setText(String.valueOf(totalMoney));
 
+            model.setCreditCardData(cardData);
+
             try {
                 ORMLiteFactcory.getHelper().getCreditCardDataDao().createOrUpdate(cardData);
-                CreditCardModel creditCardModel = ORMLiteFactcory.getHelper().getCreditCardDao().getCreditCardModel(model.getCreditCardNumber());
-                creditCardModel.setCreditCardData(cardData);
                 ORMLiteFactcory.getHelper().getCreditCardDao().refresh(model);
+                ORMLiteFactcory.getHelper().getUserDao().refresh(UserManager.getInstance().getUser());
             } catch (SQLException e) {
                 e.printStackTrace();
             }
 
-            model.setCreditCardData(cardData);
         }
     }
 
