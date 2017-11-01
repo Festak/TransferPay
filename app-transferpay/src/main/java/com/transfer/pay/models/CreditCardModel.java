@@ -3,8 +3,10 @@ package com.transfer.pay.models;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.transfer.pay.BR;
 
@@ -40,8 +42,8 @@ public class CreditCardModel extends BaseObservable implements Serializable {
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private User user;
 
-    @DatabaseField(foreign = true, foreignAutoRefresh = true)
-    private CreditCardData creditCardData;
+    @ForeignCollectionField(eager = true)
+    private ForeignCollection<CreditCardData> creditCardData;
 
     public CreditCardModel() {
         // do nothing
@@ -117,16 +119,25 @@ public class CreditCardModel extends BaseObservable implements Serializable {
         notifyPropertyChanged(BR.user);
     }
 
-    public CreditCardData getCreditCardData() {
+
+    public CreditCardData getCreditCardDataOne() {
+        if (creditCardData != null && creditCardData.size() == 1) {
+            return (CreditCardData) creditCardData.toArray()[0];
+        } else {
+            return null;
+        }
+    }
+
+    public ForeignCollection<CreditCardData> getCreditCardData() {
         return creditCardData;
     }
 
-    public void setCreditCardData(CreditCardData creditCardData) {
+    public void setCreditCardData(ForeignCollection<CreditCardData> creditCardData) {
         this.creditCardData = creditCardData;
     }
 
     @Override
     public String toString() {
-        return cardType+" "+creditCardNumber;
+        return cardType + " " + creditCardNumber;
     }
 }

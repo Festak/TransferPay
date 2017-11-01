@@ -50,15 +50,15 @@ public class CardDataPresenter extends TransferPayBasePresenter<EmptyViewModel, 
     public void initCardDataFields(CardDataBinding cardDataBinding) {
         CreditCardModel model = TempDataManager.getDataManager().getCreditCardModel();
 
-        if (model.getCreditCardData() == null || model.getCreditCardData().getCurrency() == null) {
+        if (model.getCreditCardDataOne() == null || model.getCreditCardDataOne().getCurrency() == null) {
             cardDataBinding.userCurrency.setVisibility(View.GONE);
             cardDataBinding.currenciesToChose.setVisibility(View.VISIBLE);
             cardDataBinding.totalMoney.setText("0");
         } else {
             cardDataBinding.currenciesToChose.setVisibility(View.GONE);
             cardDataBinding.userCurrency.setVisibility(View.VISIBLE);
-            cardDataBinding.userCurrency.setText(String.valueOf(model.getCreditCardData().getCurrency().getName()));
-            cardDataBinding.totalMoney.setText(String.valueOf(model.getCreditCardData().getMoney()));
+            cardDataBinding.userCurrency.setText(String.valueOf(model.getCreditCardDataOne().getCurrency().getName()));
+            cardDataBinding.totalMoney.setText(String.valueOf(model.getCreditCardDataOne().getMoney()));
         }
 
     }
@@ -67,7 +67,7 @@ public class CardDataPresenter extends TransferPayBasePresenter<EmptyViewModel, 
         CreditCardModel model1 = TempDataManager.getDataManager().getCreditCardModel();
         CreditCardModel model = UserManager.getInstance().getCreditCardById(model1.getCreditCardId());
         if (model != null) {
-            CreditCardData cardData = model.getCreditCardData();
+            CreditCardData cardData = model.getCreditCardDataOne();
             if (cardData == null) {
                 cardData = new CreditCardData();
             }
@@ -81,7 +81,9 @@ public class CardDataPresenter extends TransferPayBasePresenter<EmptyViewModel, 
             cardData.setMoney(totalMoney);
             getViewHelper().getBinding().totalMoney.setText(String.valueOf(totalMoney));
 
-            model.setCreditCardData(cardData);
+            if(model.getCreditCardData().size() == 0) {
+                model.getCreditCardData().add(cardData);
+            }
 
             try {
                 ORMLiteFactcory.getHelper().getCreditCardDataDao().createOrUpdate(cardData);

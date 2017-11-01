@@ -26,6 +26,9 @@ public class CreditCardData extends BaseObservable{
     @DatabaseField(columnName = MONEY, dataType = DataType.DOUBLE)
     private double money;
 
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    private CreditCardModel creditCardModel;
+
     public int getCardDataId() {
         return cardDataId;
     }
@@ -42,6 +45,14 @@ public class CreditCardData extends BaseObservable{
     public void setCurrency(Currency currency) {
         this.currency = currency;
         notifyPropertyChanged(BR.currency);
+    }
+
+    public CreditCardModel getCreditCardModel() {
+        return creditCardModel;
+    }
+
+    public void setCreditCardModel(CreditCardModel creditCardModel) {
+        this.creditCardModel = creditCardModel;
     }
 
     @Bindable
