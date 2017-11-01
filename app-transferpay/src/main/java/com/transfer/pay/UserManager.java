@@ -51,6 +51,16 @@ public class UserManager {
         return updateUser();
     }
 
+    public CreditCardModel getCreditCardById(int id){
+        CreditCardModel model = null;
+        for(CreditCardModel creditCardModel: user.getCreditCards()){
+            if(creditCardModel.getCreditCardId() == id){
+                model = creditCardModel;
+            }
+        }
+        return model;
+    }
+
     public User getUserByName(String login) {
         User user = null;
         try {

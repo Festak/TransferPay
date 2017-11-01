@@ -29,13 +29,5 @@
             app:card="@{card}" />
 
 
-        <Button
-            android:id="@+id/buttonSave"
-            style="@style/ButtonPrimary"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="@{()->presenter.onSaveButtonClick(card)}"
-            android:text="@string/add_card_label_button_save" />
-
     </RelativeLayout>
 </layout>

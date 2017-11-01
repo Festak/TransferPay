@@ -1,9 +1,8 @@
 package com.transfer.pay.ui.fragments.addcard;
 
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
-import com.transfer.pay.data.DataManager;
+import com.transfer.pay.TempDataManager;
 import com.transfer.pay.databinding.AddCardBinding;
-import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 
 /**
@@ -17,20 +16,10 @@ public class AddCardPresenter extends TransferPayBasePresenter<EmptyViewModel, A
         super.onPresenterReady();
     }
 
-    public void onSaveButtonClick(final CreditCardModel card) {
-        performFakeAsyncOperation(new Runnable() {
-            @Override
-            public void run() {
-                DataManager.getInstance().insertCreditCard(card);
-                getScreen().closeScreen();
-            }
-        });
-
-    }
-
     public void bindVariables(AddCardBinding binding) {
         binding.setPresenter(this);
-        binding.setCard(new CreditCardModel());
+        binding.setCard(TempDataManager.getDataManager().getCreditCardModel());
     }
+
 
 }

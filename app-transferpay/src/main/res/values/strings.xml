@@ -243,9 +243,9 @@
     <string name="currency_russian_rub">RUS</string>
 
     <!-- Spinner card type -->
-    <string name="card_type_visa">Visa</string>
-    <string name="card_type_amex">AMEX</string>
-    <string name="card_type_master_card">MasterCard</string>
+    <string name="card_type_visa">VISA_CARD</string>
+    <string name="card_type_amex">AMEX_CARD</string>
+    <string name="card_type_master_card">MASTER_CARD</string>
 
     <!-- Spinner delivery option -->
     <string name="delivery_option_bank_account">Bank Account</string>

@@ -1,6 +1,7 @@
 package com.transfer.pay.ui.fragments.addcard;
 
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
+import com.transfer.pay.TempDataManager;
 import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.ui.TransferPayBaseFragment;
 
@@ -27,5 +28,11 @@ public class AddCardFragment extends TransferPayBaseFragment<EmptyViewModel, Add
     @Override
     public String getContainerId() {
         return ContainerId.Fragment.ADD_CARD;
+    }
+
+    @Override
+    public void onDestroy() {
+        TempDataManager.getDataManager().getCreditCardModel();
+        super.onDestroy();
     }
 }

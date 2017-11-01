@@ -41,4 +41,10 @@ public class PaymentOptionsFragment extends TransferPayBaseFragment<EmptyViewMod
     public String getContainerId() {
         return ContainerId.Fragment.PAYMENT_OPTIONS;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getPresenter().onPresenterReady();
+    }
 }

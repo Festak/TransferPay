@@ -8,8 +8,8 @@ import android.view.View;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.databinding.PaymentOptionTabBinding;
+import com.transfer.pay.ui.fragments.addcard.AddCardFragment;
 import com.transfer.pay.ui.fragments.carddata.CardDataFragment;
-import com.transfer.pay.ui.fragments.newbeneficiary.NewBeneficiaryFragment;
 import com.transfer.pay.ui.viewpager.ViewPagerAdapter;
 
 /**
@@ -52,7 +52,7 @@ public class PaymentOptionTabViewHelper extends ViewHelper<PaymentOptionTabPrese
     private void setupViewPager(ViewPager viewPager) {
         this.viewPagerAdapter = new ViewPagerAdapter(getActivityContainer().getSupportFragmentManager());
 
-        viewPagerAdapter.addFragment(new NewBeneficiaryFragment(), getActivityContainer().getString(R.string.card_edit));
+        viewPagerAdapter.addFragment(new AddCardFragment(), getActivityContainer().getString(R.string.card_edit));
         viewPagerAdapter.addFragment(new CardDataFragment(), getActivityContainer().getString(R.string.card_data_screen_title));
 
         viewPager.setAdapter(viewPagerAdapter);
