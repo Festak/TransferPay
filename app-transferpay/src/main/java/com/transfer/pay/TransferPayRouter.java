@@ -5,14 +5,12 @@ import android.content.Context;
 import com.istatkevich.cmvp.core.router.Router;
 import com.transfer.pay.ui.activities.home.HomeActivity;
 import com.transfer.pay.ui.activities.login.LoginActivity;
+import com.transfer.pay.ui.activities.paymentoptiontab.PaymentOptionTabActivity;
 import com.transfer.pay.ui.activities.registration.RegistrationActivity;
 import com.transfer.pay.ui.activities.twofactorauth.TwoFactorAuthActivity;
 import com.transfer.pay.ui.fragments.RegistrationFragmentFactory;
 import com.transfer.pay.utils.fragment.params.SpaFragmentBundleFactory;
 
-/**
- * Created by i.statkevich on 5/25/17.
- */
 
 public class TransferPayRouter extends Router {
     public TransferPayRouter(Context context) {
@@ -35,6 +33,10 @@ public class TransferPayRouter extends Router {
 
     public void openTwoFactorAuthActivity() {
         openActivity(TwoFactorAuthActivity.class, null, -1, true, true, -1);
+    }
+
+    public void openPaymentOptionTabActivity() {
+        openActivity(PaymentOptionTabActivity.class, null, -1, false, false, -1);
     }
 
 }

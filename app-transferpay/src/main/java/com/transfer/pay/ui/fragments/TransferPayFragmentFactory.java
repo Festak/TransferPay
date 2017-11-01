@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import com.istatkevich.cmvp.core.fragmentswitcher.FragmentFactory;
 import com.transfer.pay.ui.fragments.addcard.AddCardFragment;
 import com.transfer.pay.ui.fragments.beneficiaries.BeneficiariesFragment;
+import com.transfer.pay.ui.fragments.carddata.CardDataFragment;
 import com.transfer.pay.ui.fragments.changepassword.ChangePasswordFragment;
 import com.transfer.pay.ui.fragments.logo.LogoFragment;
 import com.transfer.pay.ui.fragments.myprofile.MyProfileFragment;
@@ -36,6 +37,7 @@ public class TransferPayFragmentFactory implements FragmentFactory {
     public static final int ID_SETTINGS_TAB = 100;
     public static final int ID_LOGO = 110;
     public static final int ID_CHANGEPASS = 120;
+    public static final int ID_CARD_DATA = 130;
 
     private HashMap<Integer, Class<? extends Fragment>> fragmentsList;
 
@@ -67,6 +69,7 @@ public class TransferPayFragmentFactory implements FragmentFactory {
         fragmentsList.put(ID_SETTINGS_TAB, SettingsTabFragment.class);
         fragmentsList.put(ID_LOGO, LogoFragment.class);
         fragmentsList.put(ID_CHANGEPASS, ChangePasswordFragment.class);
+        fragmentsList.put(ID_CARD_DATA, CardDataFragment.class);
         return fragmentsList;
     }
 

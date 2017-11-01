@@ -209,6 +209,12 @@
     <!-- Terms Screen -->
     <string name="terms_screen_title">Terms and conditions</string>
 
+    <!-- Card Data Screen -->
+    <string name="card_data_screen_title">Card Data</string>
+
+    <!-- Edit Card-->
+    <string name="card_edit">Edit Card</string>
+
     <!-- Spinner countries -->
     <string name="country_belarus">Belarus</string>
     <string name="country_usa">USA</string>
@@ -258,6 +264,7 @@
     <!-- Tooltip -->
     <string name="need_help_additional_information">Additional Information</string>
     <string name="beneficiary_or_card">Choose in what type you want to send your money:\n Credit Card is a card. \n Bank Account is a bank account.</string>
+
 
 
 </resources>

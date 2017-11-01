@@ -33,7 +33,7 @@ public class CreditCardBinder implements ViewHolderBinder<CreditCardItemBinding,
         OnItemClickListener itemClickedListener = new OnItemClickListener(listener, position);
         binding.setListener(itemClickedListener);
 
-        OnLongItemClickListener longItemClickListener = new OnLongItemClickListener(listener, position);
+        OnLongItemClickListener longItemClickListener = new OnLongItemClickListener(longListener, position);
         binding.setLongListener(longItemClickListener);
 
     }

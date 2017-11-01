@@ -11,6 +11,7 @@ public class ContainerId {
         public static final String FRAGMENT_ACTIVITY = "SpaFragmentActivity";
         public static final String REGISTRATION = "RegistrationActivity";
         public static final String TWO_FACTOR_AUTH = "TwoFactorAuthActivity";
+        public static final String PAYMENT_OPTION_TAB_ACTIVITY = "PaymentOptionTabActivity";
 
         private Activity() {
             // do nothing
@@ -33,6 +34,7 @@ public class ContainerId {
         public static final String SETTINGS_TAB = "SettingsTabFragment";
         public static final String LOGO = "LogoFragment";
         public static final String CHANGE_PASSWORD = "ChangePasswordFragment";
+        public static final String CARD_DATA = "CardDataFragment";
 
         public static class Registration {
             private Registration() {

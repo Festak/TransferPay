@@ -50,6 +50,11 @@
             android:theme="@style/TransferPayTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
+            android:name="com.transfer.pay.ui.activities.paymentoptiontab.PaymentOptionTabActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransferPayTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name="com.transfer.pay.ui.activities.registration.RegistrationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TransferPayTheme.NoActionBar"

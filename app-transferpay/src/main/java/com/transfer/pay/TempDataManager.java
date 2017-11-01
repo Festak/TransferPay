@@ -2,6 +2,7 @@ package com.transfer.pay;
 
 import com.transfer.pay.models.BankAccountModel;
 import com.transfer.pay.models.CreditCardAccountModel;
+import com.transfer.pay.models.CreditCardModel;
 
 /**
  * @author e.fetskovich on 10/24/17.
@@ -13,6 +14,8 @@ public class TempDataManager {
 
     private BankAccountModel bankAccountModel;
     private CreditCardAccountModel creditCardAccountModel;
+
+    private CreditCardModel creditCardModel;
 
     private TempDataManager() {
         // do nothing
@@ -42,9 +45,18 @@ public class TempDataManager {
         this.creditCardAccountModel = creditCardAccountModel;
     }
 
+    public CreditCardModel getCreditCardModel() {
+        return creditCardModel;
+    }
+
+    public void setCreditCardModel(CreditCardModel creditCardModel) {
+        this.creditCardModel = creditCardModel;
+    }
+
     public void deleteAllData() {
         bankAccountModel = null;
         creditCardAccountModel = null;
+        creditCardModel = null;
     }
 
 }

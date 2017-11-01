@@ -5,6 +5,7 @@ import android.content.Intent;
 import com.cooltechworks.creditcarddesign.CardEditActivity;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
+import com.transfer.pay.TempDataManager;
 import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.databinding.CreditCardItemBinding;
 import com.transfer.pay.databinding.PaymentOptionsBinding;
@@ -76,7 +77,9 @@ public class PaymentOptionsViewHelper extends ViewHelper<PaymentOptionsPresenter
                 new OnClickedItemListener() {
                     @Override
                     public void onClickedItem(int position) {
-                        // TODO: FINISH EDIT LOGIC
+                        CreditCardModel model = adapter.getItemByPosition(position);
+                        TempDataManager.getDataManager().setCreditCardModel(model);
+                        getPresenter().getRemittanceRouter().openPaymentOptionTabActivity();
                     }
                 }
         );
