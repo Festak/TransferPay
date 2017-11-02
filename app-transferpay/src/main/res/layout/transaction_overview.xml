@@ -19,6 +19,10 @@
             name="v"
             type="android.view.View"/>
 
+        <variable
+            name="hasPaymentOptions"
+            type="Boolean"/>
+
     </data>
 
     <RelativeLayout
@@ -30,32 +34,39 @@
         android:paddingRight="@dimen/activity_horizontal_margin">
 
         <TextView
-            style="@style/SpinnerLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_link_margin_top"
-            android:text="@string/settings_button_payment_option"/>
-
-        <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/spinnerPaymentOptions"
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_link_margin_top"
-            bind:selectedValue="@={transaction.paymentOption}"/>
+            android:layout_centerInParent="true"
+            android:text="@string/validation_zero_payment_options"
+            android:textSize="18sp"
+            android:visibility="@{!hasPaymentOptions ? v.VISIBLE : v.GONE}"/>
 
         <ScrollView
-            android:layout_below="@id/spinnerPaymentOptions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/buttonSave"
-            android:visibility="@{transaction.paymentOption == null ? v.GONE : v.VISIBLE}">
+            android:layout_alignParentTop="true"
+            android:visibility="@{hasPaymentOptions ? v.VISIBLE : v.GONE}">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <TextView
+                    style="@style/SpinnerLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_link_margin_top"
+                    android:text="@string/settings_button_payment_option"/>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinnerPaymentOptions"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_link_margin_top"
+                    bind:selectedValue="@={transaction.paymentOption}"/>
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/fieldYouSend"
@@ -129,7 +140,8 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:onClick="@{()->presenter.onPayNowClick(transaction)}"
-            android:text="@string/transaction_overview_pay_now"/>
+            android:text="@string/transaction_overview_pay_now"
+            android:visibility="@{hasPaymentOptions ? v.VISIBLE : v.GONE}"/>
 
     </RelativeLayout>
 </layout>

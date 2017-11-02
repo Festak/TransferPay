@@ -153,8 +153,13 @@ public class Transaction extends BaseObservable {
     public void setPaymentOption(CreditCardModel paymentOption) {
         this.paymentOption = paymentOption;
         if (paymentOption != null) {
-            setExchangeRate(paymentOption.getCreditCardDataOne().getCurrency().getFormatToUsd());
-            setCurrency(paymentOption.getCreditCardDataOne().getCurrency().getName());
+            if (paymentOption.getCreditCardDataOne() != null) {
+                setExchangeRate(paymentOption.getCreditCardDataOne().getCurrency().getFormatToUsd());
+                setCurrency(paymentOption.getCreditCardDataOne().getCurrency().getName());
+            } else {
+                setExchangeRate(1.0);
+                setCurrency("Undefined");
+            }
         }
         notifyPropertyChanged(BR.paymentOption);
     }

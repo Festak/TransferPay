@@ -11,6 +11,7 @@ import com.transfer.pay.databinding.TransactionOverviewBinding;
 import com.transfer.pay.models.CreditCardData;
 import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.Transaction;
+import com.transfer.pay.models.User;
 import com.transfer.pay.ormlite.ORMLiteFactcory;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
@@ -70,6 +71,7 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
     public void bindVariables(TransactionOverviewBinding binding) {
         binding.setPresenter(this);
         binding.setTransaction(initTransaction());
+        binding.setHasPaymentOptions(isUserHasPaymentOptions());
     }
 
     public List<CreditCardModel> getPaymentOptions() {
@@ -94,6 +96,11 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
             e.printStackTrace();
         }
 
+    }
+
+    private boolean isUserHasPaymentOptions() {
+        User user = UserManager.getInstance().getUser();
+        return user.getCreditCards() != null && user.getCreditCards().size() > 0;
     }
 
 }
