@@ -1,15 +1,21 @@
 package com.transfer.pay.ui.fragments.transactionoverview;
 
+import android.widget.Toast;
+
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
+import com.transfer.pay.R;
 import com.transfer.pay.TempDataManager;
 import com.transfer.pay.UserManager;
 import com.transfer.pay.data.DataManager;
 import com.transfer.pay.databinding.TransactionOverviewBinding;
+import com.transfer.pay.models.CreditCardData;
 import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.Transaction;
+import com.transfer.pay.ormlite.ORMLiteFactcory;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedList;
@@ -25,19 +31,29 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
         performFakeAsyncOperation(new Runnable() {
             @Override
             public void run() {
-                if (transaction.
-                        getPaymentOption().
-                        getCreditCardDataOne().
-                        getMoney() / transaction.getExchangeRate() > com.transfer.pay.utils.Converter
-                        .convertStringToDouble(transaction.getExchangeAmount())) {
-                    transaction.setTransactionDate(new Date().toString());
-                    UserManager.getInstance().insertTransaction(transaction);
-                    UserManager.getInstance().updateUser();
-                    getViewHelper().changeFragment(TransferPayFragmentFactory.ID_TRANSACTION_HISTORY);
-                } else {
-                    getViewHelper().showNotEnoughMoneyMessage();
-                }
+                if (transaction.getPaymentOption().getCreditCardDataOne() != null) {
+                    if (transaction.getYouSend() / transaction.getExchangeRate() > 10) {
+                        if (transaction.
+                                getPaymentOption().
+                                getCreditCardDataOne().
+                                getMoney() / transaction.getExchangeRate() > com.transfer.pay.utils.Converter
+                                .convertStringToDouble(transaction.getExchangeAmount())) {
 
+                            transaction.setTransactionDate(new Date().toString());
+                            UserManager.getInstance().insertTransaction(transaction);
+                            calculateNewUserMoney(transaction);
+                            UserManager.getInstance().updateUser();
+
+                            getViewHelper().changeFragment(TransferPayFragmentFactory.ID_TRANSACTION_HISTORY);
+                        } else {
+                            getViewHelper().showNotEnoughMoneyMessage();
+                        }
+                    } else {
+                        getViewHelper().showMinimumSendMessage();
+                    }
+                } else {
+                    getViewHelper().showToast(R.string.validation_card_data, Toast.LENGTH_LONG);
+                }
             }
         });
     }
@@ -63,6 +79,21 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
             creditCardModels.add(model);
         }
         return creditCardModels;
+    }
+
+    private void calculateNewUserMoney(final Transaction transaction) {
+        CreditCardModel creditCardModel = UserManager.getInstance().getCreditCardById(transaction.getPaymentOption().getCreditCardId());
+        CreditCardData creditCardData = creditCardModel.getCreditCardDataOne();
+        creditCardData.setMoney(creditCardData.getMoney() - transaction.getYouSend());
+
+        try {
+            ORMLiteFactcory.getHelper().getCreditCardDataDao().createOrUpdate(creditCardData);
+            ORMLiteFactcory.getHelper().getCreditCardDao().refresh(creditCardModel);
+            ORMLiteFactcory.getHelper().getUserDao().refresh(UserManager.getInstance().getUser());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

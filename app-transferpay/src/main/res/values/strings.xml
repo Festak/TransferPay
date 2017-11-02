@@ -193,6 +193,8 @@
     <string name="transaction_type_pin">PIN</string>
     <string name="transaction_type_pin_tan">PIN+TAN</string>
     <string name="validation_not_enough_money">Not enough money on your card!</string>
+    <string name="validation_minimum_transaction">Min to send is 10 USD</string>
+    <string name="validation_card_data">Add information about your card in card options</string>
 
     <!-- Change password -->
     <string name="change_password_title">Change password</string>

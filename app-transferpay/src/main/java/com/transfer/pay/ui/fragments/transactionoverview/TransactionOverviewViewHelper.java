@@ -39,8 +39,12 @@ public class TransactionOverviewViewHelper extends ViewHelper<TransactionOvervie
         homePresenter.changeContainerFragment(fragmentId);
     }
 
-    public void showNotEnoughMoneyMessage(){
+    public void showNotEnoughMoneyMessage() {
         showToast(R.string.validation_not_enough_money, Toast.LENGTH_SHORT);
+    }
+
+    public void showMinimumSendMessage() {
+        showToast(R.string.validation_minimum_transaction, Toast.LENGTH_SHORT);
     }
 
     private void initSpinnerAdapter() {
