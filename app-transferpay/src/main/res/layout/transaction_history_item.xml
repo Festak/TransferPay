@@ -4,21 +4,22 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="v"
-            type="android.view.View" />
+            type="android.view.View"/>
 
         <variable
             name="transaction"
-            type="com.transfer.pay.models.Transaction" />
+            type="com.transfer.pay.models.Transaction"/>
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin">
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,17 +36,17 @@
                 android:gravity="center_horizontal"
                 android:text="@{transaction.transactionDate}"
                 android:textStyle="bold"
-                tools:text="Fri Jun 09 10:24:36 2017" />
+                tools:text="Fri Jun 09 10:24:36 2017"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/text" />
+                android:background="@color/text"/>
 
             <RelativeLayout
-                android:visibility="@{transaction.bankAccount == null ? v.GONE : v.VISIBLE}"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/home_icon_credit_card_size">
+                android:layout_height="@dimen/home_icon_credit_card_size"
+                android:visibility="@{transaction.bankAccount == null ? v.GONE : v.VISIBLE}">
 
                 <ImageView
                     android:id="@+id/bankAccountIcon"
@@ -63,7 +64,7 @@
                     android:text="@{transaction.bankAccount.name}"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    tools:text="John Smith" />
+                    tools:text="John Smith"/>
 
                 <TextView
                     android:id="@+id/bankAccountNumber"
@@ -73,14 +74,14 @@
                     android:layout_toEndOf="@+id/bankAccountIcon"
                     android:layout_toRightOf="@+id/bankAccountIcon"
                     android:text="@{transaction.bankAccount.accountNo}"
-                    tools:text="XXXX-XXXX-XXXX-1234" />
+                    tools:text="XXXX-XXXX-XXXX-1234"/>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:visibility="@{transaction.creditCard == null ? v.GONE : v.VISIBLE}"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/home_icon_credit_card_size">
+                android:layout_height="@dimen/home_icon_credit_card_size"
+                android:visibility="@{transaction.creditCard == null ? v.GONE : v.VISIBLE}">
 
                 <ImageView
                     android:id="@+id/creditCardIcon"
@@ -98,7 +99,7 @@
                     android:text="@{transaction.creditCard.cardHolderName}"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    tools:text="John Smith" />
+                    tools:text="John Smith"/>
 
                 <TextView
                     android:id="@+id/creditCardNumber"
@@ -108,28 +109,29 @@
                     android:layout_toEndOf="@+id/creditCardIcon"
                     android:layout_toRightOf="@+id/creditCardIcon"
                     android:text="@{transaction.creditCard.creditCardNumber}"
-                    tools:text="XXXX-XXXX-XXXX-1234" />
+                    tools:text="XXXX-XXXX-XXXX-1234"/>
 
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/text" />
+                android:background="@color/text"/>
 
             <include
                 layout="@layout/transaction_data"
-                app:transaction="@{transaction}" />
+                app:transaction="@{transaction}"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="@dimen/text_link_margin_top"
-                android:background="@color/text" />
+                android:background="@color/text"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="@{transaction.paymentOption == null ? v.GONE : v.VISIBLE}">
 
                 <TextView
                     android:id="@+id/paymentOptionText"
@@ -139,7 +141,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:text="@string/transaction_history_payment_option"
-                    android:textColor="@color/colorGray" />
+                    android:textColor="@color/colorGray"/>
 
                 <TextView
                     android:id="@+id/paymentOptionData"
@@ -152,7 +154,7 @@
                     android:paddingLeft="100dp"
                     android:text="@{transaction.paymentOption.toString()}"
                     android:textAlignment="gravity"
-                    tools:text="VISA XXXX-XXXX-XXXX-XXXX-1234" />
+                    tools:text="VISA XXXX-XXXX-XXXX-XXXX-1234"/>
 
             </RelativeLayout>
 
@@ -169,7 +171,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:text="@string/transaction_history_verification_scenario"
-                    android:textColor="@color/colorGray" />
+                    android:textColor="@color/colorGray"/>
 
                 <TextView
                     android:id="@+id/verificationScenarioData"
@@ -179,7 +181,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:text="@{transaction.operationType}"
-                    tools:text="PIN+TAN" />
+                    tools:text="PIN+TAN"/>
 
             </RelativeLayout>
 
