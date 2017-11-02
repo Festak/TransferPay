@@ -186,9 +186,9 @@
     <string name="transaction_overview_they_receive">They Receive</string>
     <string name="transaction_overview_you_send_caps">YOU SEND</string>
     <string name="transaction_overview_currency_exchange_rate">CURRENCY EXCHANGE RATE</string>
-    <string name="transaction_overview_exchange_amount">EXCHANGE AMOUT</string>
+    <string name="transaction_overview_exchange_amount">EXCHANGE AMOUNT</string>
     <string name="transaction_overview_transfer_fee">TRANSFER FEE</string>
-    <string name="transaction_overview_estimated_amount_received">ESTIMATED AMOUNT RECEIVED</string>
+    <string name="transaction_overview_estimated_amount_received">ESTIMATED AMOUNT\n RECEIVED</string>
     <string name="transaction_type_ok">OK</string>
     <string name="transaction_type_pin">PIN</string>
     <string name="transaction_type_pin_tan">PIN+TAN</string>

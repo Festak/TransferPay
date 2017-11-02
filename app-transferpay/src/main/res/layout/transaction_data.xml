@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="transaction"
-            type="com.transfer.pay.models.Transaction" />
+            type="com.transfer.pay.models.Transaction"/>
 
     </data>
 
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:text="@string/transaction_overview_you_send_caps" />
+                android:text="@string/transaction_overview_you_send_caps"/>
 
             <TextView
                 android:id="@+id/youSendData"
@@ -36,8 +36,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/youSendText"
+                android:gravity="right"
                 android:text="@{Double.toString(transaction.youSend)}"
-                tools:text="50" />
+                tools:text="50"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -51,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:text="@string/transaction_overview_currency_exchange_rate" />
+                android:text="@string/transaction_overview_currency_exchange_rate"/>
 
             <TextView
                 android:id="@+id/currencyExchangeData"
@@ -61,7 +63,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:text="@{Double.toString(transaction.exchangeRate)}"
-                tools:text="1.6" />
+                tools:text="1.6"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -75,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:text="@string/transaction_overview_exchange_amount" />
+                android:text="@string/transaction_overview_exchange_amount"/>
 
             <TextView
                 android:id="@+id/exchangeAmountData"
@@ -84,8 +86,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/exchangeAmount"
+                android:gravity="right"
                 android:text="@{transaction.exchangeAmount}"
-                tools:text="20" />
+                tools:text="20"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -99,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:text="@string/transaction_overview_transfer_fee" />
+                android:text="@string/transaction_overview_transfer_fee"/>
 
             <TextView
                 android:id="@+id/transferFeeData"
@@ -108,8 +112,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/transferFeeText"
+                android:gravity="right"
                 android:text="@{transaction.transferFee}"
-                tools:text="1.5" />
+                tools:text="1.5"/>
 
         </RelativeLayout>
 
@@ -124,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:text="@string/transaction_overview_estimated_amount_received" />
+                android:text="@string/transaction_overview_estimated_amount_received"/>
 
             <TextView
                 android:id="@+id/estimatedAmountReceivedData"
@@ -133,8 +139,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/estimatedAmountReceivedText"
+                android:gravity="right"
                 android:text="@{transaction.estimatedAmountReceived}"
-                tools:text="0.4" />
+                tools:text="0.4"/>
 
         </RelativeLayout>
 
