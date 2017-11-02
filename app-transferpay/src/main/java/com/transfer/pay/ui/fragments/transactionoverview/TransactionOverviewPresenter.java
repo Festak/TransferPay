@@ -28,8 +28,8 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
                 if (transaction.
                         getPaymentOption().
                         getCreditCardDataOne().
-                        getMoney() > com.transfer.pay.utils.Converter
-                        .convertStringToDouble(transaction.getTheyReceive())) {
+                        getMoney() / transaction.getExchangeRate() > com.transfer.pay.utils.Converter
+                        .convertStringToDouble(transaction.getExchangeAmount())) {
                     transaction.setTransactionDate(new Date().toString());
                     UserManager.getInstance().insertTransaction(transaction);
                     UserManager.getInstance().updateUser();
