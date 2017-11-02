@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="presenter"
-            type="com.transfer.pay.ui.fragments.settings.SettingsPresenter" />
+            type="com.transfer.pay.ui.fragments.settings.SettingsPresenter"/>
 
         <variable
             name="settings"
-            type="com.transfer.pay.models.Settings" />
+            type="com.transfer.pay.models.Settings"/>
 
-        <import type="com.transfer.pay.ui.binding.Converter" />
+        <import type="com.transfer.pay.ui.binding.Converter"/>
 
     </data>
 
@@ -46,15 +46,15 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/settings_label_branding_logo" />
+                        android:text="@string/settings_label_branding_logo"/>
 
                     <ImageView
                         android:id="@+id/loadLogo"
-                        android:onClick="@{()->presenter.onLoadLogoClick()}"
                         android:layout_width="@dimen/settings_load_logo_size"
                         android:layout_height="@dimen/settings_load_logo_size"
                         android:layout_gravity="right"
-                        app:srcCompat="@drawable/ic_download" />
+                        android:onClick="@{()->presenter.onLoadLogoClick()}"
+                        app:srcCompat="@drawable/ic_download"/>
 
                 </LinearLayout>
 
@@ -62,14 +62,14 @@
                     style="@style/SpinnerLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/settings_label_default_country" />
+                    android:text="@string/settings_label_default_country"/>
 
                 <android.support.v7.widget.AppCompatSpinner
                     android:id="@+id/spinnerDefaultCountry"
                     style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    bind:selectedValue="@={settings.defaultCountry}" />
+                    bind:selectedValue="@={settings.defaultCountry}"/>
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/fieldDefaultBankName"
@@ -82,57 +82,15 @@
                         android:hint="@string/settings_label_default_bank_name"
                         android:lines="1"
                         android:maxLines="1"
-                        android:text="@={settings.defaultBankName}" />
+                        android:text="@={settings.defaultBankName}"/>
 
                 </android.support.design.widget.TextInputLayout>
-
-                <TextView
-                    style="@style/SpinnerLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/settings_label_my_currency" />
-
-                <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/spinnerMyCurrency"
-                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    bind:selectedValue="@={settings.myCurrency}" />
-
-                <TextView
-                    style="@style/SpinnerLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/settings_label_beneficiary_currency" />
-
-                <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/spinnerBeneficiaryCurrency"
-                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    bind:selectedValue="@={settings.beneficiaryCurrency}" />
 
                 <com.google.android.flexbox.FlexboxLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:flexWrap="wrap">
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_flexBasisPercent="50%">
-
-                        <android.support.design.widget.TextInputEditText
-                            android:id="@+id/fieldExchangeRate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/settings_label_exchange_rate"
-                            android:inputType="numberDecimal"
-                            android:lines="1"
-                            android:maxLines="1"
-                            android:text="@={Converter.toString(fieldExchangeRate, settings.transactionParams.exchangeRate)}" />
-
-                    </android.support.design.widget.TextInputLayout>
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <com.google.android.flexbox.FlexboxLayout
@@ -147,13 +105,14 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/fieldFeeMin"
+                            style="@style/NoTouchableText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/settings_label_fee_min"
                             android:inputType="numberDecimal"
                             android:lines="1"
                             android:maxLines="1"
-                            android:text="@={Converter.toString(fieldFeeMin, settings.transactionParams.feeMin)}" />
+                            android:text="@={Converter.toString(fieldFeeMin, settings.transactionParams.feeMin)}"/>
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -164,13 +123,14 @@
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/fieldFeePercentage"
+                            style="@style/NoTouchableText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/settings_label_fee_percentage"
                             android:inputType="numberDecimal"
                             android:lines="1"
                             android:maxLines="1"
-                            android:text="@={Converter.toString(fieldFeePercentage, settings.transactionParams.feePercent)}" />
+                            android:text="@={Converter.toString(fieldFeePercentage, settings.transactionParams.feePercent)}"/>
 
                     </android.support.design.widget.TextInputLayout>
 

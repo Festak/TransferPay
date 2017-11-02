@@ -3,6 +3,7 @@ package com.transfer.pay.ui.fragments.transactionoverview;
 import android.support.annotation.IdRes;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
@@ -36,6 +37,10 @@ public class TransactionOverviewViewHelper extends ViewHelper<TransactionOvervie
     public void changeFragment(int fragmentId) {
         HomePresenter homePresenter = (HomePresenter) getActivityContainer().getPresenter(ContainerId.Activity.HOME, HomePresenter.class);
         homePresenter.changeContainerFragment(fragmentId);
+    }
+
+    public void showNotEnoughMoneyMessage(){
+        showToast(R.string.validation_not_enough_money, Toast.LENGTH_SHORT);
     }
 
     private void initSpinnerAdapter() {

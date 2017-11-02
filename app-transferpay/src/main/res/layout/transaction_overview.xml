@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="presenter"
-            type="com.transfer.pay.ui.fragments.transactionoverview.TransactionOverviewPresenter" />
+            type="com.transfer.pay.ui.fragments.transactionoverview.TransactionOverviewPresenter"/>
 
         <variable
             name="transaction"
-            type="com.transfer.pay.models.Transaction" />
+            type="com.transfer.pay.models.Transaction"/>
 
-        <import type="com.transfer.pay.ui.binding.Converter" />
+        <import type="com.transfer.pay.ui.binding.Converter"/>
+
+        <variable
+            name="v"
+            type="android.view.View"/>
 
     </data>
 
@@ -25,12 +29,27 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin">
 
+        <TextView
+            style="@style/SpinnerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_link_margin_top"
+            android:text="@string/settings_button_payment_option"/>
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spinnerPaymentOptions"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_link_margin_top"
+            bind:selectedValue="@={transaction.paymentOption}"/>
+
         <ScrollView
+            android:layout_below="@id/spinnerPaymentOptions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/buttonSave"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin">
+            android:visibility="@{transaction.paymentOption == null ? v.GONE : v.VISIBLE}">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,7 +70,7 @@
                         android:inputType="numberDecimal"
                         android:lines="1"
                         android:maxLines="1"
-                        android:text="@={Converter.toString(youSendTextField, transaction.youSend)}" />
+                        android:text="@={Converter.toString(youSendTextField, transaction.youSend)}"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -66,27 +85,12 @@
                         android:hint="@string/transaction_overview_they_receive"
                         android:lines="1"
                         android:maxLines="1"
-                        android:text="@={transaction.theyReceive}" />
+                        android:text="@={transaction.theyReceive}"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <include
                     layout="@layout/transaction_data"
-                    app:transaction="@{transaction}" />
-
-                <TextView
-                    style="@style/SpinnerLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/text_link_margin_top"
-                    android:text="@string/settings_button_payment_option" />
-
-                <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/spinnerPaymentOptions"
-                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/text_link_margin_top"
-                    bind:selectedValue="@={transaction.paymentOption}" />
+                    app:transaction="@{transaction}"/>
 
                 <RadioGroup
                     android:id="@+id/operationType"
@@ -99,19 +103,19 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/transaction_type_ok" />
+                        android:text="@string/transaction_type_ok"/>
 
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/transaction_type_pin" />
+                        android:text="@string/transaction_type_pin"/>
 
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/transaction_type_pin_tan" />
+                        android:text="@string/transaction_type_pin_tan"/>
 
                 </RadioGroup>
 
@@ -125,7 +129,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:onClick="@{()->presenter.onPayNowClick(transaction)}"
-            android:text="@string/transaction_overview_pay_now" />
+            android:text="@string/transaction_overview_pay_now"/>
 
     </RelativeLayout>
 </layout>

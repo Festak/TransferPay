@@ -7,7 +7,6 @@ import com.transfer.pay.data.DataManager;
 import com.transfer.pay.databinding.TransactionOverviewBinding;
 import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.Transaction;
-import com.transfer.pay.models.User;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 
@@ -26,11 +25,18 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
         performFakeAsyncOperation(new Runnable() {
             @Override
             public void run() {
-                transaction.setTransactionDate(new Date().toString());
-                UserManager.getInstance().insertTransaction(transaction);
-                UserManager.getInstance().updateUser();
-                User user = UserManager.getInstance().getUser();
-                getViewHelper().changeFragment(TransferPayFragmentFactory.ID_TRANSACTION_HISTORY);
+                if (transaction.
+                        getPaymentOption().
+                        getCreditCardDataOne().
+                        getMoney() > com.transfer.pay.utils.Converter
+                        .convertStringToDouble(transaction.getTheyReceive())) {
+                    transaction.setTransactionDate(new Date().toString());
+                    UserManager.getInstance().insertTransaction(transaction);
+                    UserManager.getInstance().updateUser();
+                    getViewHelper().changeFragment(TransferPayFragmentFactory.ID_TRANSACTION_HISTORY);
+                } else {
+                    getViewHelper().showNotEnoughMoneyMessage();
+                }
 
             }
         });

@@ -34,9 +34,7 @@ public class SettingsViewHelper extends ViewHelper<SettingsPresenter, SettingsBi
     }
 
     private void configureSpinners() {
-        UiConfigurator.initSpinnerAdapterWithResourceData(getBinding().spinnerBeneficiaryCurrency, R.array.currencies);
         UiConfigurator.initSpinnerAdapterWithResourceData(getBinding().spinnerDefaultCountry, R.array.countries);
-        UiConfigurator.initSpinnerAdapterWithResourceData(getBinding().spinnerMyCurrency, R.array.currencies);
     }
 
 }

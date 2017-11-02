@@ -44,7 +44,6 @@ public class Transaction extends BaseObservable {
     @DatabaseField(columnName = transferFeeField, dataType = DataType.STRING)
     private String transferFee;
 
-
     public static final String transactionDateField = "transaction_date";
     @DatabaseField(columnName = transactionDateField, dataType = DataType.STRING)
     private String transactionDate;
@@ -65,8 +64,16 @@ public class Transaction extends BaseObservable {
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private BankAccountModel bankAccount;
 
+    public static final String EXCHANGE_RATE_FIELD = "exchange_rate_field";
+    @DatabaseField(columnName = EXCHANGE_RATE_FIELD, dataType = DataType.DOUBLE_OBJ)
+    private Double exchangeRate;
+
+    public static final String CURRENCY_FIELD = "currency";
+    @DatabaseField(columnName = CURRENCY_FIELD, dataType = DataType.STRING)
+    private String currency;
 
     private TransactionParams transactionParams;
+
     public Transaction() {
         // do nothing
     }
@@ -145,6 +152,10 @@ public class Transaction extends BaseObservable {
 
     public void setPaymentOption(CreditCardModel paymentOption) {
         this.paymentOption = paymentOption;
+        if (paymentOption != null) {
+            setExchangeRate(paymentOption.getCreditCardDataOne().getCurrency().getFormatToUsd());
+            setCurrency(paymentOption.getCreditCardDataOne().getCurrency().getName());
+        }
         notifyPropertyChanged(BR.paymentOption);
     }
 
@@ -208,10 +219,30 @@ public class Transaction extends BaseObservable {
         notifyPropertyChanged(BR.user);
     }
 
+    @Bindable
+    public Double getExchangeRate() {
+        return exchangeRate;
+    }
+
+    public void setExchangeRate(Double exchangeRate) {
+        this.exchangeRate = exchangeRate;
+        notifyPropertyChanged(BR.exchangeRate);
+    }
+
+    @Bindable
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+        notifyPropertyChanged(BR.currency);
+    }
+
     private void calculateAmount(Double send) {
         try {
-            double currencyRate = transactionParams.getExchangeRate();
-            double amount = send * currencyRate;
+            double currencyRate = getExchangeRate();
+            double amount = send / currencyRate;
             double fee = FeeCalculator.calculateFee(
                     send,
                     currencyRate,
@@ -221,8 +252,8 @@ public class Transaction extends BaseObservable {
 
             setTransferFee(String.valueOf(fee));
             setExchangeAmount(returnFormatedByLocaleString(amount));
-            setTheyReceive(returnFormatedByLocaleString(amount + fee));
-            setEstimatedAmountReceived(returnFormatedByLocaleString(amount + fee));
+            setTheyReceive(returnFormatedByLocaleString(amount - fee));
+            setEstimatedAmountReceived(returnFormatedByLocaleString(amount - fee));
 
         } catch (Exception e) {
             Log.v("MyTag", "Parsing exception in Transaction class");

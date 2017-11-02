@@ -8,7 +8,7 @@ public class FeeCalculator {
 
     public static double calculateFee(double send, double currencyRate, double minFee, double feePercent){
         double fee;
-        double amount = send * currencyRate;
+        double amount = send / currencyRate;
 
         fee = amount * feePercent / 100;
 

@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:text="@{Double.toString(transaction.transactionParams.exchangeRate)}"
+                android:text="@{Double.toString(transaction.exchangeRate)}"
                 tools:text="1.6" />
         </RelativeLayout>
 

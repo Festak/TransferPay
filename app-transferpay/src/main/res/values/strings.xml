@@ -192,6 +192,7 @@
     <string name="transaction_type_ok">OK</string>
     <string name="transaction_type_pin">PIN</string>
     <string name="transaction_type_pin_tan">PIN+TAN</string>
+    <string name="validation_not_enough_money">Not enough money on your card!</string>
 
     <!-- Change password -->
     <string name="change_password_title">Change password</string>
