@@ -22,13 +22,6 @@
             android:text="@{currency.name}"
             tools:text="USD"/>
 
-        <TextView
-            android:id="@+id/formatToUsd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{String.valueOf(currency.formatToUsd)}"
-            tools:text="0.6"/>
-
     </LinearLayout>
 
 </layout>

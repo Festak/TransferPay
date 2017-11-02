@@ -81,7 +81,7 @@ public class CardDataPresenter extends TransferPayBasePresenter<EmptyViewModel, 
             cardData.setMoney(totalMoney);
             getViewHelper().getBinding().totalMoney.setText(String.valueOf(totalMoney));
 
-            if(model.getCreditCardData().size() == 0) {
+            if (model.getCreditCardData().size() == 0) {
                 model.getCreditCardData().add(cardData);
             }
 
@@ -92,8 +92,8 @@ public class CardDataPresenter extends TransferPayBasePresenter<EmptyViewModel, 
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
+        getViewHelper().animateMoneyViewIcon();
     }
 
     private void initCurrencies() {

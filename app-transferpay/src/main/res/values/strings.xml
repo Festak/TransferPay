@@ -237,11 +237,16 @@
     <string name="country_ap_vietman">Vietnam</string>
 
     <!-- Spinner currency -->
+    <string name="currency_title">Currency: </string>
     <string name="money">Money</string>
     <string name="currency_usd">USD</string>
     <string name="currency_eur">EUR</string>
     <string name="currency_blr_rub">BLR</string>
     <string name="currency_russian_rub">RUS</string>
+
+    <!-- Card data-->
+    <string name="total_money_on_card">Money on card: </string>
+
 
     <!-- Spinner card type -->
     <string name="card_type_visa">VISA_CARD</string>

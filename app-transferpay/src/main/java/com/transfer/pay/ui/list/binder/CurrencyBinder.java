@@ -16,6 +16,8 @@ public class CurrencyBinder implements ViewHolderBinder<CurrencyItemBinding, Cur
 
     @Override
     public void bindHolder(CurrencyItemBinding binding, Currency item, int position) {
+        String totalName = item.getFormatToUsd() * 100 + " " + item.getName() + " = 100.0 USD " + "(" + item.getFormatToUsd() + ")";
+        item.setName(totalName);
         binding.setCurrency(item);
     }
 }

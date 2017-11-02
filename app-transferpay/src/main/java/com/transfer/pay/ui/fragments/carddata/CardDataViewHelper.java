@@ -1,5 +1,6 @@
 package com.transfer.pay.ui.fragments.carddata;
 
+import com.easyandroidanimations.library.BounceAnimation;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.databinding.CardDataBinding;
@@ -49,6 +50,13 @@ public class CardDataViewHelper extends ViewHelper<CardDataPresenter, CardDataBi
         UiConfigurator.initSpinnerAdapterWithObjects(getBinding().currenciesToChose, list);
     }
 
+    public void animateMoneyViewIcon() {
+        new BounceAnimation(getBinding().moneyIcon)
+                .setBounceDistance(25)
+                .setNumOfBounces(5)
+                .setDuration(500)
+                .animate();
+    }
 
     private void initRecyclerView() {
         ViewHolderBinder<CurrencyItemBinding, Currency> binder = new CurrencyBinder();
