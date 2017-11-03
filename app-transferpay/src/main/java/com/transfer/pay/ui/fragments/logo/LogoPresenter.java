@@ -8,12 +8,15 @@ import android.os.Message;
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.UserManager;
 import com.transfer.pay.models.Logo;
+import com.transfer.pay.models.User;
+import com.transfer.pay.ormlite.ORMLiteFactcory;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.utils.FileNameGenerator;
 import com.transfer.pay.utils.FileUtils;
 import com.transfer.pay.utils.thread.HandlerThreadExecutor;
 
 import java.io.File;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -67,8 +70,15 @@ public class LogoPresenter extends TransferPayBasePresenter<EmptyViewModel, Logo
     }
 
     public void setLogoToUser(Logo logo) {
-        UserManager.getInstance().setLogoName(logo.getFileName());
-        UserManager.getInstance().saveUser();
+        User user = UserManager.getInstance().getUser();
+        try {
+            User userObj = ORMLiteFactcory.getHelper().getUserDao().getUser(user.getLogin());
+            userObj.setCurrentLogo(logo.getFileName());
+            ORMLiteFactcory.getHelper().getUserDao().update(userObj);
+            UserManager.getInstance().updateUser();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void loadLogosFromFile() {

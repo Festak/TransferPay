@@ -39,7 +39,7 @@ public class LogoViewHelper extends ViewHelper<LogoPresenter, LogoBinding> {
         adapter.updateData(list);
     }
 
-    public void notifyDataChanged(){
+    public void notifyDataChanged() {
         adapter.notifyDataSetChanged();
     }
 
@@ -74,12 +74,13 @@ public class LogoViewHelper extends ViewHelper<LogoPresenter, LogoBinding> {
         final ViewHolderBinder<LogoItemBinding, Logo> binder = new LogoBinder(new OnClickedItemListener() {
             @Override
             public void onClickedItem(final int position) {
-                getPresenter().setLogoToUser(adapter.getItemByPosition(position));
+                Logo logo = adapter.getItemByPosition(position);
+                getPresenter().setLogoToUser(logo);
                 adapter.notifyDataSetChanged();
                 getPresenter().performFakeAsyncOperation(new Runnable() {
                     @Override
                     public void run() {
-                      // loading imitation
+
                     }
                 }, 500);
             }
