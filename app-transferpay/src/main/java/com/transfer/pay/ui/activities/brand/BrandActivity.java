@@ -9,8 +9,9 @@ import android.widget.ImageView;
 import com.tbuonomo.materialsquareloading.MaterialSquareLoading;
 import com.transfer.pay.R;
 import com.transfer.pay.TransferPayRouter;
-import com.transfer.pay.UserManager;
+import com.transfer.pay.constants.SharedPreferenceConstants;
 import com.transfer.pay.utils.FileUtils;
+import com.transfer.pay.utils.SharedPreferenceHelper;
 
 public class BrandActivity extends AppCompatActivity {
     private static final int DELAY_NEXT_ACTIVITY = 4000;
@@ -38,7 +39,7 @@ public class BrandActivity extends AppCompatActivity {
     }
 
     private void initApplicationLogo() {
-        String fileName = UserManager.getInstance().getCurrentLogo();
+        String fileName = SharedPreferenceHelper.readPreference(this, SharedPreferenceConstants.LOGO_IMAGE, null);
         ImageView imageView = (ImageView) findViewById(R.id.applicationLogo);
 
         if (fileName != null) {

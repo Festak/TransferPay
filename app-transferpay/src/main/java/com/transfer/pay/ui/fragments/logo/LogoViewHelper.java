@@ -6,6 +6,7 @@ import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.constants.Constants;
 import com.transfer.pay.constants.ContainerId;
+import com.transfer.pay.constants.SharedPreferenceConstants;
 import com.transfer.pay.databinding.LogoBinding;
 import com.transfer.pay.databinding.LogoItemBinding;
 import com.transfer.pay.factories.LayoutManagerFactory;
@@ -16,6 +17,7 @@ import com.transfer.pay.ui.list.binder.LogoBinder;
 import com.transfer.pay.ui.list.binder.ViewHolderBinder;
 import com.transfer.pay.ui.list.listener.OnClickedItemListener;
 import com.transfer.pay.utils.ImagePicker;
+import com.transfer.pay.utils.SharedPreferenceHelper;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -76,6 +78,7 @@ public class LogoViewHelper extends ViewHelper<LogoPresenter, LogoBinding> {
             public void onClickedItem(final int position) {
                 Logo logo = adapter.getItemByPosition(position);
                 getPresenter().setLogoToUser(logo);
+                SharedPreferenceHelper.writePreference(getRoot().getContext(), SharedPreferenceConstants.LOGO_IMAGE, logo.getFileName());
                 adapter.notifyDataSetChanged();
                 getPresenter().performFakeAsyncOperation(new Runnable() {
                     @Override
