@@ -1,7 +1,6 @@
 package com.transfer.pay.ui.activities.spafragmentactivity;
 
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
@@ -30,7 +29,7 @@ public class SpaFragmentActivityViewHelper extends ViewHelper<SpaFragmentActivit
 
     @Override
     protected void onInitView() {
-        initActionBar();
+      //  initActionBar();
     }
 
     @Override
@@ -44,12 +43,30 @@ public class SpaFragmentActivityViewHelper extends ViewHelper<SpaFragmentActivit
         if (toolbar == null) {
             return;
         }
+/*
+
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white);
-        toolbar.setOnClickListener(new View.OnClickListener() {
+        toolbar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                getPresenter().onHomeButtonClick();
+                return false;
+            }
+        });
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getPresenter().onHomeButtonClick();
             }
         });
+*/
+
+
+     /*   toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getPresenter().onHomeButtonClick();
+            }
+        });*/
     }
 }
