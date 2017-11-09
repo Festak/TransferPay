@@ -1,1 +1,1 @@
-include ':cmvp-core', ':app-transferpay', ':creditcarddesign'
+include ':cmvp-core', ':app-transferpay', ':creditcarddesign', ':snake'
