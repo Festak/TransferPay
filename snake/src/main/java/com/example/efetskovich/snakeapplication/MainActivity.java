@@ -1,12 +1,12 @@
 package com.example.efetskovich.snakeapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.efetskovich.snakeapplication.engine.GameEngine;
 import com.example.efetskovich.snakeapplication.enums.Direction;
@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             public void run() {
                 gameEngine.update();
 
+                checkOnGameWon();
                 checkOnGameRunning(this);
                 checkOnGameLost();
-
 
                 snakeView.setSnakeViewMap(gameEngine.getMap());
                 snakeView.invalidate();
@@ -81,10 +81,26 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         }
     }
 
-    private void gameLost() {
-        Toast.makeText(MainActivity.this, "You lost", Toast.LENGTH_SHORT).show();
+    private void checkOnGameWon() {
+        if (gameEngine.getCurrentGameState() == GameState.WON) {
+            gameWin();
+        }
     }
 
+    private void gameWin() {
+        finishActivity(true);
+    }
+
+    private void gameLost() {
+        finishActivity(false);
+    }
+
+    private void finishActivity(boolean result) {
+        Intent intent = new Intent();
+        intent.putExtra("result", result);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {

@@ -7,5 +7,6 @@ package com.example.efetskovich.snakeapplication.enums;
 public enum GameState {
     READY,
     RUNNING,
-    LOST
+    LOST,
+    WON
 }

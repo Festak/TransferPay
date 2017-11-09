@@ -29,6 +29,8 @@ public class GameEngine {
 
     private boolean increaseTail = false;
 
+    private int score = 0;
+
     public GameEngine() {
         walls = new LinkedList<>();
         snake = new LinkedList<>();
@@ -207,12 +209,20 @@ public class GameEngine {
 
         if (increaseTail) {
             snake.add(new Coordinate(newX, newY));
+            score++;
+            if (score == 3) {
+                setCurrentGameState(GameState.WON);
+            }
             increaseTail = false;
         }
 
         snake.get(0).setX(snake.get(0).getX() + x);
         snake.get(0).setY(snake.get(0).getY() + y);
 
+    }
+
+    public int getScore() {
+        return score;
     }
 
     public GameState getCurrentGameState() {

@@ -14,11 +14,9 @@ import com.transfer.pay.models.Transaction;
 import com.transfer.pay.models.User;
 import com.transfer.pay.ormlite.ORMLiteFactcory;
 import com.transfer.pay.ui.TransferPayBasePresenter;
-import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,7 +26,10 @@ import java.util.List;
 
 public class TransactionOverviewPresenter extends TransferPayBasePresenter<EmptyViewModel, TransactionOverviewViewHelper> {
 
+    private Transaction transaction;
+
     public void onPayNowClick(final Transaction transaction) {
+        this.transaction = transaction;
         performFakeAsyncOperation(new Runnable() {
             @Override
             public void run() {
@@ -40,12 +41,15 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
                                 getMoney() / transaction.getExchangeRate() > com.transfer.pay.utils.Converter
                                 .convertStringToDouble(transaction.getExchangeAmount())) {
 
-                            transaction.setTransactionDate(new Date().toString());
+                            getViewHelper().startSnakeIntent();
+
+                   /*         transaction.setTransactionDate(new Date().toString());
                             UserManager.getInstance().insertTransaction(transaction);
                             calculateNewUserMoney(transaction);
                             UserManager.getInstance().updateUser();
+                            getViewHelper().changeFragment(TransferPayFragmentFactory.ID_PAYMENT_RESULT);*/
 
-                            getViewHelper().changeFragment(TransferPayFragmentFactory.ID_PAYMENT_RESULT);
+
                         } else {
                             getViewHelper().showNotEnoughMoneyMessage();
                         }
@@ -81,6 +85,14 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
             creditCardModels.add(model);
         }
         return creditCardModels;
+    }
+
+    public void operateResult(boolean result) {
+        if (result) {
+            getViewHelper().showToast("Одобрено");
+        } else {
+            getViewHelper().showToast("Не одобрено");
+        }
     }
 
     private void calculateNewUserMoney(final Transaction transaction) {
