@@ -87,8 +87,15 @@ public class NavigationMapFactory {
                 createDestinationFragmentActivity(TransferPayFragmentFactory.ID_CHANGEPASS,
                         null,
                         R.string.change_password_title
-                        )
-                );
+                )
+        );
+
+        map.put(TransferPayFragmentFactory.ID_PAYMENT_RESULT,
+                createDestinationFragment(TransferPayFragmentFactory.ID_PAYMENT_RESULT,
+                        null,
+                        R.string.payment_result_title
+                )
+        );
 
         return map;
     }

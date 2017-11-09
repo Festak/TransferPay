@@ -275,6 +275,11 @@
     <string name="need_help_additional_information">Additional Information</string>
     <string name="beneficiary_or_card">Choose in what type you want to send your money:\n Credit Card is a card. \n Bank Account is a bank account.</string>
 
+    <!-- Payment Result Screen -->
+    <string name="payment_result_title">Payment Result</string>
+    <string name="payment_result_successfully">Payment success</string>
+    <string name="payment_result_wrong">Payment not success</string>
+
 
 
 </resources>

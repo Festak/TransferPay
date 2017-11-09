@@ -11,6 +11,7 @@ import com.transfer.pay.ui.fragments.logo.LogoFragment;
 import com.transfer.pay.ui.fragments.myprofile.MyProfileFragment;
 import com.transfer.pay.ui.fragments.newbeneficiary.NewBeneficiaryFragment;
 import com.transfer.pay.ui.fragments.paymentoptions.PaymentOptionsFragment;
+import com.transfer.pay.ui.fragments.paymentresult.PaymentResultFragment;
 import com.transfer.pay.ui.fragments.settings.SettingsFragment;
 import com.transfer.pay.ui.fragments.settingstab.SettingsTabFragment;
 import com.transfer.pay.ui.fragments.terms.TermsFragment;
@@ -38,6 +39,7 @@ public class TransferPayFragmentFactory implements FragmentFactory {
     public static final int ID_LOGO = 110;
     public static final int ID_CHANGEPASS = 120;
     public static final int ID_CARD_DATA = 130;
+    public static final int ID_PAYMENT_RESULT = 170;
 
     private HashMap<Integer, Class<? extends Fragment>> fragmentsList;
 
@@ -70,6 +72,7 @@ public class TransferPayFragmentFactory implements FragmentFactory {
         fragmentsList.put(ID_LOGO, LogoFragment.class);
         fragmentsList.put(ID_CHANGEPASS, ChangePasswordFragment.class);
         fragmentsList.put(ID_CARD_DATA, CardDataFragment.class);
+        fragmentsList.put(ID_PAYMENT_RESULT, PaymentResultFragment.class);
         return fragmentsList;
     }
 

@@ -45,7 +45,7 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
                             calculateNewUserMoney(transaction);
                             UserManager.getInstance().updateUser();
 
-                            getViewHelper().changeFragment(TransferPayFragmentFactory.ID_TRANSACTION_HISTORY);
+                            getViewHelper().changeFragment(TransferPayFragmentFactory.ID_PAYMENT_RESULT);
                         } else {
                             getViewHelper().showNotEnoughMoneyMessage();
                         }
