@@ -7,6 +7,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.edmon.pianotiles2.TilesActivity;
+import com.example.efetskovich.galleryapp.GalleryActivity;
 import com.example.efetskovich.snakeapplication.MainActivity;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
@@ -25,6 +26,7 @@ public class TransactionOverviewViewHelper extends ViewHelper<TransactionOvervie
 
     public static final int SNAKE_INTENT = 1;
     public static final int PIANO_INTENT = 2;
+    public static final int GALLERY_INTENT = 3;
 
     @Override
     protected void onInitView() {
@@ -55,6 +57,11 @@ public class TransactionOverviewViewHelper extends ViewHelper<TransactionOvervie
     public void startPianoIntent() {
         Intent intent = new Intent(getRoot().getContext(), TilesActivity.class);
         startIntent(intent, PIANO_INTENT);
+    }
+
+    public void startGalleryIntent() {
+        Intent intent = new Intent(getRoot().getContext(), GalleryActivity.class);
+        startIntent(intent, GALLERY_INTENT);
     }
 
     public void startIntent(Intent intent, int requestCode) {

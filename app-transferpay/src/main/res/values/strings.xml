@@ -191,7 +191,7 @@
     <string name="transaction_overview_estimated_amount_received">ESTIMATED AMOUNT\n RECEIVED</string>
     <string name="transaction_type_snake">SNAKE</string>
     <string name="transaction_type_piano">PIANO</string>
-    <string name="transaction_type_pin_tan">PIN+TAN</string>
+    <string name="transaction_type_gallery">GALLERY</string>
     <string name="validation_not_enough_money">Not enough money on your card!</string>
     <string name="validation_minimum_transaction">Min to send is 10 USD</string>
     <string name="validation_card_data">Add information about your card in card options</string>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GalleryApp</string>
+    <string name="bear">Bear</string>
+    <string name="cat">Cat</string>
+    <string name="cloud">Cloud</string>
+    <string name="crocodile">Crocodile</string>
+    <string name="dog">Dog</string>
+    <string name="facebook">Facebook</string>
+    <string name="house">House</string>
+    <string name="mobile">Mobile</string>
+    <string name="panther">Panther</string>
+    <string name="twitter">Twitter</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="youtube">YouTube</string>
+</resources>

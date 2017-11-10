@@ -105,10 +105,10 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
             viewHelper.startSnakeIntent();
         } else if (verificationType.equals(viewHelper.getStringById(R.string.transaction_type_piano))) {
             getViewHelper().startPianoIntent();
-        } else if (verificationType.equals("")) {
-
+        } else if (verificationType.equals(viewHelper.getStringById(R.string.transaction_type_gallery))) {
+            getViewHelper().startGalleryIntent();
         } else {
-            viewHelper.startSnakeIntent();
+            viewHelper.startPianoIntent();
         }
     }
 
