@@ -14,9 +14,11 @@ import com.transfer.pay.models.Transaction;
 import com.transfer.pay.models.User;
 import com.transfer.pay.ormlite.ORMLiteFactcory;
 import com.transfer.pay.ui.TransferPayBasePresenter;
+import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -42,13 +44,6 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
                                 .convertStringToDouble(transaction.getExchangeAmount())) {
 
                             getViewHelper().startSnakeIntent();
-
-                   /*         transaction.setTransactionDate(new Date().toString());
-                            UserManager.getInstance().insertTransaction(transaction);
-                            calculateNewUserMoney(transaction);
-                            UserManager.getInstance().updateUser();
-                            getViewHelper().changeFragment(TransferPayFragmentFactory.ID_PAYMENT_RESULT);*/
-
 
                         } else {
                             getViewHelper().showNotEnoughMoneyMessage();
@@ -89,10 +84,15 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
 
     public void operateResult(boolean result) {
         if (result) {
-            getViewHelper().showToast("Одобрено");
+            transaction.setTransactionDate(new Date().toString());
+            UserManager.getInstance().insertTransaction(transaction);
+            calculateNewUserMoney(transaction);
+            UserManager.getInstance().updateUser();
+            getViewHelper().verificationResult(true);
         } else {
-            getViewHelper().showToast("Не одобрено");
+            getViewHelper().verificationResult(true);
         }
+        getViewHelper().changeFragment(TransferPayFragmentFactory.ID_PAYMENT_RESULT);
     }
 
     private void calculateNewUserMoney(final Transaction transaction) {

@@ -39,7 +39,7 @@ public class BrandActivity extends AppCompatActivity {
     }
 
     private void initApplicationLogo() {
-        String fileName = SharedPreferenceHelper.readPreference(this, SharedPreferenceConstants.LOGO_IMAGE, null);
+        String fileName = SharedPreferenceHelper.readPreferenceString(this, SharedPreferenceConstants.LOGO_IMAGE, null);
         ImageView imageView = (ImageView) findViewById(R.id.applicationLogo);
 
         if (fileName != null) {

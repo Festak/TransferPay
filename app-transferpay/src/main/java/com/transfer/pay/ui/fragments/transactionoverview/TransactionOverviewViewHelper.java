@@ -10,9 +10,11 @@ import com.example.efetskovich.snakeapplication.MainActivity;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.constants.ContainerId;
+import com.transfer.pay.constants.SharedPreferenceConstants;
 import com.transfer.pay.databinding.TransactionOverviewBinding;
 import com.transfer.pay.ui.UiConfigurator;
 import com.transfer.pay.ui.activities.home.HomePresenter;
+import com.transfer.pay.utils.SharedPreferenceHelper;
 
 /**
  * Created by e.fetskovich on 6/6/17.
@@ -61,6 +63,10 @@ public class TransactionOverviewViewHelper extends ViewHelper<TransactionOvervie
 
     public void showMinimumSendMessage() {
         showToast(R.string.validation_minimum_transaction, Toast.LENGTH_SHORT);
+    }
+
+    public void verificationResult(boolean result){
+        SharedPreferenceHelper.writePreferenceBoolean(getRoot().getContext(), SharedPreferenceConstants.PAYMENT_RESULT, result);
     }
 
     private void initSpinnerAdapter() {

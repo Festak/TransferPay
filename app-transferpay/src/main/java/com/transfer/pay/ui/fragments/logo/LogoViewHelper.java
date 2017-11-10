@@ -78,7 +78,7 @@ public class LogoViewHelper extends ViewHelper<LogoPresenter, LogoBinding> {
             public void onClickedItem(final int position) {
                 Logo logo = adapter.getItemByPosition(position);
                 getPresenter().setLogoToUser(logo);
-                SharedPreferenceHelper.writePreference(getRoot().getContext(), SharedPreferenceConstants.LOGO_IMAGE, logo.getFileName());
+                SharedPreferenceHelper.writePreferenceString(getRoot().getContext(), SharedPreferenceConstants.LOGO_IMAGE, logo.getFileName());
                 adapter.notifyDataSetChanged();
                 getPresenter().performFakeAsyncOperation(new Runnable() {
                     @Override

@@ -16,8 +16,8 @@ public class SharedPreferenceHelper {
      * @param defValue
      * @return
      */
-    public static String readPreference(Context context, String key,
-                                        String defValue) {
+    public static String readPreferenceString(Context context, String key,
+                                              String defValue) {
         return getPreferences(context).getString(key, defValue);
     }
 
@@ -28,11 +28,19 @@ public class SharedPreferenceHelper {
      * @param key
      * @param value
      */
-    public static void writePreference(Context context, String key, String value) {
+    public static void writePreferenceString(Context context, String key, String value) {
         getEditor(context).putString(key, value).commit();
     }
 
-    public static boolean isKeyExists(Context context, String key){
+    public static void writePreferenceBoolean(Context context, String key, boolean value) {
+        getEditor(context).putBoolean(key, value).commit();
+    }
+
+    public static boolean readPreferenceBoolean(Context context, String key, boolean defvalue) {
+        return getPreferences(context).getBoolean(key, defvalue);
+    }
+
+    public static boolean isKeyExists(Context context, String key) {
         return getPreferences(context).contains(key);
     }
 

@@ -7,6 +7,7 @@ package com.transfer.pay.constants;
 public class SharedPreferenceConstants {
 
     public static final String LOGO_IMAGE = "logoImage";
+    public static final String PAYMENT_RESULT = "paymentResult";
 
     private SharedPreferenceConstants(){
         // do nothing
