@@ -6,6 +6,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.edmon.pianotiles2.TilesActivity;
 import com.example.efetskovich.snakeapplication.MainActivity;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
@@ -23,6 +24,7 @@ import com.transfer.pay.utils.SharedPreferenceHelper;
 public class TransactionOverviewViewHelper extends ViewHelper<TransactionOverviewPresenter, TransactionOverviewBinding> {
 
     public static final int SNAKE_INTENT = 1;
+    public static final int PIANO_INTENT = 2;
 
     @Override
     protected void onInitView() {
@@ -50,6 +52,11 @@ public class TransactionOverviewViewHelper extends ViewHelper<TransactionOvervie
         startIntent(intent, SNAKE_INTENT);
     }
 
+    public void startPianoIntent() {
+        Intent intent = new Intent(getRoot().getContext(), TilesActivity.class);
+        startIntent(intent, PIANO_INTENT);
+    }
+
     public void startIntent(Intent intent, int requestCode) {
         TransactionOverviewFragment fragment = (TransactionOverviewFragment) getActivityContainer().
                 getSupportFragmentManager().
@@ -65,8 +72,12 @@ public class TransactionOverviewViewHelper extends ViewHelper<TransactionOvervie
         showToast(R.string.validation_minimum_transaction, Toast.LENGTH_SHORT);
     }
 
-    public void verificationResult(boolean result){
+    public void verificationResult(boolean result) {
         SharedPreferenceHelper.writePreferenceBoolean(getRoot().getContext(), SharedPreferenceConstants.PAYMENT_RESULT, result);
+    }
+
+    public String getStringById(int id) {
+        return getRoot().getContext().getString(id);
     }
 
     private void initSpinnerAdapter() {

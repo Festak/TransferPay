@@ -32,30 +32,34 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
 
     public void onPayNowClick(final Transaction transaction) {
         this.transaction = transaction;
-        performFakeAsyncOperation(new Runnable() {
-            @Override
-            public void run() {
-                if (transaction.getPaymentOption().getCreditCardDataOne() != null) {
-                    if (transaction.getYouSend() / transaction.getExchangeRate() > 10) {
-                        if (transaction.
-                                getPaymentOption().
-                                getCreditCardDataOne().
-                                getMoney() / transaction.getExchangeRate() > com.transfer.pay.utils.Converter
-                                .convertStringToDouble(transaction.getExchangeAmount())) {
+        if (transaction.getOperationType() != null) {
+            performFakeAsyncOperation(new Runnable() {
+                @Override
+                public void run() {
+                    if (transaction.getPaymentOption().getCreditCardDataOne() != null) {
+                        if (transaction.getYouSend() / transaction.getExchangeRate() > 10) {
+                            if (transaction.
+                                    getPaymentOption().
+                                    getCreditCardDataOne().
+                                    getMoney() / transaction.getExchangeRate() > com.transfer.pay.utils.Converter
+                                    .convertStringToDouble(transaction.getExchangeAmount())) {
 
-                            getViewHelper().startSnakeIntent();
+                                startGameByVerificationType(transaction.getOperationType());
 
+                            } else {
+                                getViewHelper().showNotEnoughMoneyMessage();
+                            }
                         } else {
-                            getViewHelper().showNotEnoughMoneyMessage();
+                            getViewHelper().showMinimumSendMessage();
                         }
                     } else {
-                        getViewHelper().showMinimumSendMessage();
+                        getViewHelper().showToast(R.string.validation_card_data, Toast.LENGTH_SHORT);
                     }
-                } else {
-                    getViewHelper().showToast(R.string.validation_card_data, Toast.LENGTH_LONG);
                 }
-            }
-        });
+            });
+        } else {
+            getViewHelper().showToast(R.string.validation_operation_type, Toast.LENGTH_SHORT);
+        }
     }
 
     public Transaction initTransaction() {
@@ -90,9 +94,22 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
             UserManager.getInstance().updateUser();
             getViewHelper().verificationResult(true);
         } else {
-            getViewHelper().verificationResult(true);
+            getViewHelper().verificationResult(false);
         }
         getViewHelper().changeFragment(TransferPayFragmentFactory.ID_PAYMENT_RESULT);
+    }
+
+    private void startGameByVerificationType(String verificationType) {
+        TransactionOverviewViewHelper viewHelper = getViewHelper();
+        if (verificationType.equals(viewHelper.getStringById(R.string.transaction_type_snake))) {
+            viewHelper.startSnakeIntent();
+        } else if (verificationType.equals(viewHelper.getStringById(R.string.transaction_type_piano))) {
+            getViewHelper().startPianoIntent();
+        } else if (verificationType.equals("")) {
+
+        } else {
+            viewHelper.startSnakeIntent();
+        }
     }
 
     private void calculateNewUserMoney(final Transaction transaction) {

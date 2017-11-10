@@ -114,13 +114,13 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/transaction_type_ok"/>
+                        android:text="@string/transaction_type_snake"/>
 
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/transaction_type_pin"/>
+                        android:text="@string/transaction_type_piano"/>
 
                     <RadioButton
                         android:layout_width="0dp"

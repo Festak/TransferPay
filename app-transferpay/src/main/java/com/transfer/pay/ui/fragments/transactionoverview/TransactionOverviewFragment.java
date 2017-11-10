@@ -18,10 +18,8 @@ public class TransactionOverviewFragment extends TransferPayBaseFragment<EmptyVi
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            if (requestCode == TransactionOverviewViewHelper.SNAKE_INTENT) {
-                boolean result = data.getBooleanExtra("result", false);
-                getPresenter().operateResult(result);
-            }
+            boolean result = data.getBooleanExtra("result", false);
+            getPresenter().operateResult(result);
         }
     }
 
