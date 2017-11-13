@@ -71,7 +71,9 @@ public class BeneficiariesViewHelper extends ViewHelper<BeneficiariesPresenter, 
                 new OnClickedItemListener() {
                     @Override
                     public void onClickedItem(int position) {
-                        // TODO: FINISH EDIT LOGIC
+                        CreditCardAccountModel creditCardAccountModel = cardsAdapter.getItemByPosition(position);
+                        cardsAdapter.deleteItemByPosition(position);
+                        getPresenter().deleteCreditCard(creditCardAccountModel);
                     }
                 }
         );
@@ -95,7 +97,9 @@ public class BeneficiariesViewHelper extends ViewHelper<BeneficiariesPresenter, 
                 new OnClickedItemListener() {
                     @Override
                     public void onClickedItem(int position) {
-                        // TODO: FINISH EDIT LOGIC
+                        BankAccountModel model = accountsAdapter.getItemByPosition(position);
+                        accountsAdapter.deleteItemByPosition(position);
+                        getPresenter().deleteBankAccount(model);
                     }
                 }
         );

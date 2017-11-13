@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -15,7 +15,7 @@
 
         <variable
             name="model"
-            type="com.transfer.pay.models.CreditCardAccountModel" />
+            type="com.transfer.pay.models.CreditCardAccountModel"/>
 
         <variable
             name="listener"
@@ -26,6 +26,7 @@
             type="android.view.View.OnClickListener"/>
 
     </data>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,9 +41,20 @@
             android:padding="@dimen/activity_horizontal_margin">
 
             <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_cross"
+                android:onClick="@{longListener.onClick}"
+                android:src="@drawable/ic_cross"
+                />
+
+            <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/ic_send"
                 android:onClick="@{listener.onClick}"
                 android:src="@drawable/ic_send"
@@ -67,7 +79,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:onClick="@{longListener.onClick}"
                     android:text="@{model.creditCardNumber}"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/header_text"

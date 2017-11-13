@@ -14,11 +14,11 @@ import com.transfer.pay.ui.list.listener.OnLongItemClickListener;
 
 public class CreditCardAccountBinder implements ViewHolderBinder<BeneficiaryItemCreditAccountCardBinding, CreditCardAccountModel> {
     private OnClickedItemListener listener;
-    private OnClickedItemListener onLongItemClickListener;
+    private OnClickedItemListener onDeleteItemClickListener;
 
-    public CreditCardAccountBinder(OnClickedItemListener listener, OnClickedItemListener longItemClickListener) {
+    public CreditCardAccountBinder(OnClickedItemListener listener, OnClickedItemListener deleteItemClickListener) {
         this.listener = listener;
-        this.onLongItemClickListener = longItemClickListener;
+        this.onDeleteItemClickListener = deleteItemClickListener;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class CreditCardAccountBinder implements ViewHolderBinder<BeneficiaryItem
         OnItemClickListener itemClickedListener = new OnItemClickListener(listener, position);
         binding.setListener(itemClickedListener);
 
-        OnLongItemClickListener onLongItemClickListener = new OnLongItemClickListener(listener, position);
+        OnLongItemClickListener onLongItemClickListener = new OnLongItemClickListener(onDeleteItemClickListener, position);
         binding.setLongListener(onLongItemClickListener);
 
         initCreditCardTypeByItem(binding, item);

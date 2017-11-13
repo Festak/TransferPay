@@ -33,6 +33,16 @@
             android:padding="@dimen/activity_horizontal_margin">
 
             <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_cross"
+                android:onClick="@{longListener.onClick}"
+                android:src="@drawable/ic_cross"
+                />
+
+            <ImageView
+                android:layout_centerVertical="true"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_alignParentRight="true"
@@ -60,7 +70,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:onClick="@{longListener.onClick}"
                     android:text="@{model.accountNo}"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/header_text"

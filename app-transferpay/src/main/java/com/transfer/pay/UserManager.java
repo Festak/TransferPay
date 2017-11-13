@@ -50,6 +50,28 @@ public class UserManager {
         return updateUser();
     }
 
+    public User removeCreditAccountCard(CreditCardAccountModel creditCardAccountModel) {
+        user.getCreditCardsAccount().remove(creditCardAccountModel);
+        try {
+            ORMLiteFactcory.getHelper().getCreditCardAccountDao().delete(creditCardAccountModel);
+            ORMLiteFactcory.getHelper().getUserDao().refresh(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return updateUser();
+    }
+
+    public User removeBankAccount(BankAccountModel bankAccountModel) {
+        user.getBankAccountModels().remove(bankAccountModel);
+        try {
+            ORMLiteFactcory.getHelper().getBankAccountModelDao().delete(bankAccountModel);
+            ORMLiteFactcory.getHelper().getUserDao().refresh(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return updateUser();
+    }
+
     public CreditCardModel getCreditCardById(int id) {
         CreditCardModel model = null;
         for (CreditCardModel creditCardModel : user.getCreditCards()) {
