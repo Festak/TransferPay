@@ -55,7 +55,6 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
             @Override
             public void run() {
                 if (compareUsers()) {
-                    UserManager.getInstance().performLogin();
                     getRemittanceRouter().openTwoFactorAuthActivity();
                 } else {
                     getViewHelper().showInvalidLogin();

@@ -8,7 +8,6 @@ import com.istatkevich.cmvp.core.fragmentswitcher.FragmentSwitcher;
 import com.istatkevich.cmvp.core.router.ActivityDestinationParams;
 import com.transfer.pay.R;
 import com.transfer.pay.TransferPayRouter;
-import com.transfer.pay.UserManager;
 import com.transfer.pay.utils.fragment.params.SpaFragmentParams;
 
 import java.util.Map;
@@ -64,7 +63,6 @@ public class MainMenuNavigator implements Navigator {
     }
 
     private void performLogout() {
-        UserManager.getInstance().performLogout();
         activity.finish();
     }
 }

@@ -3,23 +3,12 @@ package com.transfer.pay.data;
 import android.content.Context;
 
 import com.transfer.pay.constants.Fields;
-import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.Settings;
 import com.transfer.pay.models.TransactionParams;
-import com.transfer.pay.models.User;
-import com.transfer.pay.ui.list.ListItemData;
 import com.transfer.pay.utils.json.JsonUtils;
-
-import java.lang.reflect.Type;
-import java.util.List;
-
-/**
- * Created by i.statkevich on 6/12/17.
- */
 
 public class DataStorage {
     private static final String PREFERENCES_STORAGE_NAME = "preferences_storage_name";
-    private static final String FIELD_LOGIN_STATUS = "login_status";
 
     private static DataStorage instance;
     private SharedPreferencesStorage sharedPreferencesStorage;
@@ -42,14 +31,6 @@ public class DataStorage {
         return instance;
     }
 
-    public void saveLoginStatus(boolean status) {
-        sharedPreferencesStorage.putBoolean(FIELD_LOGIN_STATUS, status);
-    }
-
-    public boolean loadLoginStatus() {
-        return sharedPreferencesStorage.getBoolean(FIELD_LOGIN_STATUS);
-    }
-
     public Settings loadSettings() {
         if(containsKey(Fields.Preferences.SETTINGS)){
             return loadObject(Fields.Preferences.SETTINGS, Settings.class);
@@ -60,36 +41,6 @@ public class DataStorage {
 
     public void saveSettings(Object settings) {
         saveObject(settings, Fields.Preferences.SETTINGS);
-    }
-
-    public void saveBeneficiary(Object beneficiary) {
-        saveObject(beneficiary, Fields.Preferences.CHOOSED_BENEFICIARY);
-    }
-
-    public void saveUser(User user) {
-        saveObject(user, Fields.Preferences.USER);
-    }
-
-    public void saveBeneficiaries(List<ListItemData> listItemData) {
-        saveObject(listItemData, Fields.Preferences.BENEFICIARIES);
-    }
-
-    public void saveCreditCards(List<CreditCardModel> creditCards) {
-        saveObject(creditCards, Fields.Preferences.PAYMENT_OPTIONS);
-    }
-
-    public ListItemData loadChoosedBeneficiary() {
-        return loadObject(Fields.Preferences.CHOOSED_BENEFICIARY, ListItemData.class);
-    }
-
-    public User loadUser() {
-        return loadObject(Fields.Preferences.USER, User.class);
-    }
-
-
-    public <T> List<T> loadCollection(String key, Class<T> clazz, Type type) {
-        String json = sharedPreferencesStorage.getString(key);
-        return JsonUtils.loadCollectionFromJson(json, type, clazz);
     }
 
     public boolean containsKey(String key) {

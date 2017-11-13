@@ -23,7 +23,6 @@ public class UserManager {
 
     private UserManager() {
         dataStorage = DataStorage.getInstance();
-        user = loadUser();
     }
 
     public static UserManager getInstance() {
@@ -51,10 +50,10 @@ public class UserManager {
         return updateUser();
     }
 
-    public CreditCardModel getCreditCardById(int id){
+    public CreditCardModel getCreditCardById(int id) {
         CreditCardModel model = null;
-        for(CreditCardModel creditCardModel: user.getCreditCards()){
-            if(creditCardModel.getCreditCardId() == id){
+        for (CreditCardModel creditCardModel : user.getCreditCards()) {
+            if (creditCardModel.getCreditCardId() == id) {
                 model = creditCardModel;
             }
         }
@@ -130,44 +129,18 @@ public class UserManager {
         dataStorage.removeKey(Fields.Preferences.USER);
     }
 
-    public void setLogoName(String logoName) {
-        user.setCurrentLogo(logoName);
-    }
-
     public String getCurrentLogo() {
         return user.getCurrentLogo();
     }
 
-    public void performLogin() {
-        dataStorage.saveLoginStatus(true);
-    }
-
-    public void performLogout() {
-        dataStorage.saveLoginStatus(false);
-    }
-
-    public boolean isUserAuthorized() {
-        return dataStorage.loadLoginStatus();
-    }
-
-
-    public void saveUser() {
-        dataStorage.saveUser(user);
-    }
-
     public void changeUserPassword(String password) {
         user.setPassword(password);
-        saveUser();
-    }
-
-    private User loadUser() {
-        User user = null;
-        if (dataStorage.containsKey(Fields.Preferences.USER)) {
-            user = dataStorage.loadUser();
-        } else {
-            user = new User();
+        try {
+            ORMLiteFactcory.getHelper().getUserDao().update(user);
+            updateUser();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return user;
     }
 
 
