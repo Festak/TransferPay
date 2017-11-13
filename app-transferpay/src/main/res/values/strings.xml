@@ -60,6 +60,7 @@
     <string name="beneficiary_new_or">or</string>
     <string name="beneficiary_new_choose_country_in_settings">Choose country in settings</string>
     <string name="beneficiary_new_choose_bank_in_settings">Choose bank in settings</string>
+    <string name="beneficiary_new_input_fields">Input all required fields</string>
 
 
     <!-- SETTINGS Screen -->

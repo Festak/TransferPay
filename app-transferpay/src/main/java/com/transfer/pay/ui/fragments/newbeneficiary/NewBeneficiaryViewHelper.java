@@ -27,6 +27,7 @@ public class NewBeneficiaryViewHelper extends ViewHelper<NewBeneficiaryPresenter
         initDatePickerForEditText();
         initSpinnerAdapter();
         initTooltip();
+        configureSpinners();
     }
 
     @Override
@@ -39,7 +40,7 @@ public class NewBeneficiaryViewHelper extends ViewHelper<NewBeneficiaryPresenter
         return R.layout.new_beneficiary;
     }
 
-    public void showTooltip(View view){
+    public void showTooltip(View view) {
         tooltip.show(view);
     }
 
@@ -59,9 +60,13 @@ public class NewBeneficiaryViewHelper extends ViewHelper<NewBeneficiaryPresenter
         UiConfigurator.initSpinnerAdapterWithResourceData(spinner, R.array.card_types);
     }
 
-    private void initTooltip(){
+    private void initTooltip() {
         View showTooltip = getBinding().showTooltip;
         tooltip = TooltipFactory.create(showTooltip, R.string.beneficiary_or_card);
+    }
+
+    private void configureSpinners() {
+        UiConfigurator.initSpinnerAdapterWithResourceData(getBinding().spinnerDefaultCountry, R.array.countries);
     }
 
 

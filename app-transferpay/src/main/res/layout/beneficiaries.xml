@@ -32,9 +32,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/addBeneficiary"
-            android:layout_alignParentTop="true">
+            android:layout_alignParentTop="true"
+            android:scrollbars="none">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -47,8 +48,9 @@
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/creditCardList"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bankAccountList"/>
+            </RelativeLayout>
         </ScrollView>
 
 

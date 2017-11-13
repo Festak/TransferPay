@@ -109,12 +109,12 @@
                     android:layout_height="wrap_content"
                     android:text="@string/beneficiary_new_country" />
 
-                <TextView
-                    style="@style/HintBeneficiaryText"
-                    android:layout_width="wrap_content"
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinnerDefaultCountry"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{bankAccountModel.country == null ? @string/beneficiary_new_choose_country_in_settings : bankAccountModel.country }"
-                    tools:text="Country Name" />
+                    bind:selectedValue="@={bankAccountModel.country}"/>
 
                 <TextView
                     style="@style/MainBeneficiaryText"
@@ -122,12 +122,21 @@
                     android:layout_height="wrap_content"
                     android:text="@string/beneficiary_new_bank" />
 
-                <TextView
-                    style="@style/HintBeneficiaryText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{bankAccountModel.chooseBank == null ? @string/beneficiary_new_choose_bank_in_settings : bankAccountModel.chooseBank}"
-                    tools:text="Bank Name" />
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/beneficiaryChooseBankLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/settings_label_default_bank_name"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:text="@={bankAccountModel.chooseBank}" />
+
+                </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/accountNo"

@@ -7,10 +7,6 @@ import com.transfer.pay.databinding.SettingsBinding;
 import com.transfer.pay.ui.UiConfigurator;
 import com.transfer.pay.ui.activities.home.HomePresenter;
 
-/**
- * Created by i.statkevich on 5/25/17.
- */
-
 public class SettingsViewHelper extends ViewHelper<SettingsPresenter, SettingsBinding> {
 
     @Override
