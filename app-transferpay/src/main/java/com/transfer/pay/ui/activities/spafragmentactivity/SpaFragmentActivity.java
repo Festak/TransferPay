@@ -9,9 +9,6 @@ import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.R;
 import com.transfer.pay.ui.TransferPayBaseActivity;
 
-/**
- * @author Created by i.statkevich on 16.01.2017.
- */
 
 public abstract class SpaFragmentActivity extends TransferPayBaseActivity<EmptyViewModel, SpaFragmentActivityViewHelper,
         SpaFragmentActivityPresenter> {

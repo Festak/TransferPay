@@ -281,6 +281,8 @@
     <string name="payment_result_successfully">Payment success</string>
     <string name="payment_result_wrong">Payment not success</string>
 
+    <string name="bank_account_choose">Choose bank: </string>
+
 
 
 </resources>

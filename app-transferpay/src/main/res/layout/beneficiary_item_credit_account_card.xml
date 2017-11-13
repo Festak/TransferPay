@@ -6,6 +6,14 @@
     <data>
 
         <variable
+            name="creditCardTypeLayout"
+            type="com.transfer.pay.models.CreditCardTypeLayout"/>
+
+        <variable
+            name="v"
+            type="android.view.View"/>
+
+        <variable
             name="model"
             type="com.transfer.pay.models.CreditCardAccountModel" />
 
@@ -18,53 +26,127 @@
             type="android.view.View.OnClickListener"/>
 
     </data>
-
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/transaction_history"
-        android:layout_height="@dimen/home_icon_credit_card_size">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
 
-        <ImageView
-            android:id="@+id/CreditCardIcon"
-            android:onClick="@{longListener.onClick}"
-            android:layout_width="@dimen/home_icon_credit_card_size"
-            android:layout_height="@dimen/home_icon_credit_card_size"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            app:srcCompat="@drawable/ic_credit_card_24dp" />
+        <RelativeLayout
+            android:id="@+id/rl_card"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:background="@drawable/cardbackground_world"
+            android:padding="@dimen/activity_horizontal_margin">
 
-        <TextView
-            android:id="@+id/cardHolderName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_toRightOf="@+id/CreditCardIcon"
-            android:text="@{model.cardHolderName}"
-            android:textSize="18sp"
-            tools:text="Card Holder" />
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_send"
+                android:onClick="@{listener.onClick}"
+                android:src="@drawable/ic_send"
+                />
 
-        <TextView
-            android:id="@+id/creditCardNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/cardHolderName"
-            android:layout_toEndOf="@+id/CreditCardIcon"
-            android:layout_toRightOf="@+id/CreditCardIcon"
-            android:text="@{model.creditCardNumber}"
-            tools:text="XXXX-XXXX-XXXX-1234" />
-
-        <Button
-            android:id="@+id/buttonSend"
-            style="@style/ButtonPrimary"
-            android:layout_width="wrap_content"
-            android:onClick="@{listener.onClick}"
-            android:layout_height="32dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:text="Send" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin">
 
 
-    </RelativeLayout>
+                <ImageView
+                    android:layout_width="55dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="@dimen/items_inbetween"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/card_chip_main"/>
+
+                <TextView
+                    android:id="@+id/tv_card_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:onClick="@{longListener.onClick}"
+                    android:text="@{model.creditCardNumber}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/header_text"
+                    tools:text="XXXX-XXXX-XXXX-1234"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/items_inbetween_small"
+                        android:text="Expires"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/xsmall_text"
+                        tools:text="Expires"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_validity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{model.validDate}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/xsmall_text"
+                        tools:text="09/21"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_member_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@{model.cardHolderName}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/medium_text"
+                    tools:text="Fetskovich Evgeny"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/cardtype_width"
+                android:layout_height="@dimen/cardtype_height"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/items_inbetween_small"
+                android:layout_marginRight="@dimen/items_inbetween_small"
+                android:background="@drawable/ic_billing_amex_logo1"
+                android:visibility="@{creditCardTypeLayout.amex ? v.VISIBLE : v.GONE}"/>
+
+            <ImageView
+                android:layout_width="@dimen/cardtype_width"
+                android:layout_height="@dimen/cardtype_height"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/items_inbetween_small"
+                android:layout_marginRight="@dimen/items_inbetween_small"
+                android:background="@drawable/ic_billing_visa_logo"
+                android:visibility="@{creditCardTypeLayout.visa ? v.VISIBLE : v.GONE}"/>
+
+            <ImageView
+                android:layout_width="@dimen/cardtype_width"
+                android:layout_height="@dimen/cardtype_height"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/items_inbetween_small"
+                android:layout_marginRight="@dimen/items_inbetween_small"
+                android:background="@drawable/ic_billing_mastercard_logo"
+                android:visibility="@{creditCardTypeLayout.master ? v.VISIBLE : v.GONE}"/>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
 </layout>
