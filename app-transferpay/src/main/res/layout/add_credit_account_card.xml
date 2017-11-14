@@ -7,7 +7,7 @@
 
         <variable
             name="card"
-            type="com.transfer.pay.models.CreditCardAccountModel" />
+            type="com.transfer.pay.models.CreditCardAccountModel"/>
     </data>
 
     <ScrollView
@@ -30,7 +30,7 @@
                     android:hint="@string/add_card_label_cardholder_name"
                     android:lines="1"
                     android:maxLines="1"
-                    android:text="@={card.cardHolderName}" />
+                    android:text="@={card.cardHolderName}"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -38,14 +38,14 @@
                 style="@style/SpinnerLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_card_card_type" />
+                android:text="@string/add_card_card_type"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spinnerCardType"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                bind:selectedValue="@={card.cardType}" />
+                bind:selectedValue="@={card.cardType}"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                     android:inputType="phone"
                     android:lines="1"
                     android:maxLines="1"
-                    android:text="@={card.creditCardNumber}" />
+                    android:text="@={card.creditCardNumber}"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -71,10 +71,12 @@
                     android:id="@+id/fieldValidThru"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/add_card_label_valid_thru"
+                    android:hint="@string/card_mm_yy"
+                    android:inputType="number"
                     android:lines="1"
+                    android:maxLength="5"
                     android:maxLines="1"
-                    android:text="@={card.validDate}" />
+                    android:text="@={card.validDate}"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -99,7 +101,7 @@
                         android:lines="1"
                         android:maxLength="3"
                         android:maxLines="1"
-                        android:text="@={card.CVV}" />
+                        android:text="@={card.CVV}"/>
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -111,13 +113,13 @@
                     android:textColor="@color/textLight"
                     android:textSize="12sp"
                     app:layout_alignSelf="center"
-                    app:layout_flexBasisPercent="30%" />
+                    app:layout_flexBasisPercent="30%"/>
 
                 <ImageView
                     android:layout_width="56dp"
                     android:layout_height="28dp"
                     app:layout_minWidth="56dp"
-                    app:srcCompat="@drawable/ic_credit_card_24dp" />
+                    app:srcCompat="@drawable/ic_credit_card_24dp"/>
 
             </com.google.android.flexbox.FlexboxLayout>
 

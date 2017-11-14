@@ -46,7 +46,7 @@ public class PaymentOptionsPresenter extends TransferPayBasePresenter<EmptyViewM
         }
     }
 
-    public void removeUserCard(CreditCardModel creditCardModel){
+    public void removeUserCard(CreditCardModel creditCardModel) {
         User user = UserManager.getInstance().removeCreditCard(creditCardModel);
         getViewHelper().updateData(user.getCreditCards());
     }
@@ -68,11 +68,22 @@ public class PaymentOptionsPresenter extends TransferPayBasePresenter<EmptyViewM
         creditCardModel.setValidDate(cardView.getExpiry());
         creditCardModel.setCVV(cardView.getCVV());
         creditCardModel.setCardHolderName(cardView.getCardHolderName());
-        creditCardModel.setCreditCardNumber(cardView.getCardNumber());
+        creditCardModel.setCreditCardNumber(formatCardNumber(cardView.getCardNumber()));
         creditCardModel.setCardType(cardView.getCardType().name());
 
 
         return creditCardModel;
+    }
+
+    private String formatCardNumber(String number) {
+        String totalNumber = "";
+        for (int i = 0; i < number.length(); i++) {
+            if (i % 4 == 0 && i != 0) {
+                totalNumber += "-";
+            }
+            totalNumber += number.charAt(i);
+        }
+        return totalNumber;
     }
 
 }

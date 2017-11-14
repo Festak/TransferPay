@@ -1,17 +1,21 @@
 package com.transfer.pay.ui.fragments.newbeneficiary;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.cooltechworks.creditcarddesign.CreditCardUtils;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.databinding.NewBeneficiaryBinding;
 import com.transfer.pay.factories.TooltipFactory;
-import com.transfer.pay.listeners.calendar.CalendarListener;
-import com.transfer.pay.listeners.calendar.DateListener;
 import com.transfer.pay.ui.UiConfigurator;
 import com.transfer.pay.ui.customviews.Tooltip;
 import com.transfer.pay.ui.watchers.CreditCardWatcher;
+
+import java.util.Calendar;
 
 /**
  * Created by e.fetskovich on 6/6/17.
@@ -51,8 +55,81 @@ public class NewBeneficiaryViewHelper extends ViewHelper<NewBeneficiaryPresenter
     }
 
     private void initDatePickerForEditText() {
-        View view = getBinding().creditCardIncludeLayout.fieldValidThru;
-        view.setOnFocusChangeListener(new DateListener(new CalendarListener(view)));
+        final EditText view = getBinding().creditCardIncludeLayout.fieldValidThru;
+        view.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString().replace(CreditCardUtils.SLASH_SEPERATOR, "");
+
+                String month, year="";
+                if(text.length() >= 2) {
+                    month = text.substring(0, 2);
+
+                    if(text.length() > 2) {
+                        year = text.substring(2);
+                    }
+
+                        int mm = Integer.parseInt(month);
+
+                        if (mm <= 0 || mm >= 13) {
+                            view.setError(getRoot().getContext().getString(com.cooltechworks.creditcarddesign.R.string.error_invalid_month));
+                            return;
+                        }
+
+                        if (text.length() >= 4) {
+
+                            int yy = Integer.parseInt(year);
+
+                            final Calendar calendar = Calendar.getInstance();
+                            int currentYear = calendar.get(Calendar.YEAR);
+                            int currentMonth = calendar.get(Calendar.MONTH) + 1;
+
+                            int millenium = (currentYear / 1000) * 1000;
+
+
+                            if (yy + millenium < currentYear) {
+                                view.setError(getRoot().getContext().getString(com.cooltechworks.creditcarddesign.R.string.error_card_expired));
+                                return;
+                            } else if (yy + millenium == currentYear && mm < currentMonth) {
+                                view.setError(getRoot().getContext().getString(com.cooltechworks.creditcarddesign.R.string.error_card_expired));
+                                return;
+                            }
+                        }
+
+                }
+                else {
+                    month = text;
+                }
+
+                int previousLength = view.getText().length();
+                int cursorPosition = view.getSelectionEnd();
+
+                text = CreditCardUtils.handleExpiration(month,year);
+
+                view.removeTextChangedListener(this);
+                view.setText(text);
+                view.setSelection(text.length());
+                view.addTextChangedListener(this);
+
+                int modifiedLength = text.length();
+
+                if(modifiedLength <= previousLength && cursorPosition < modifiedLength) {
+                    view.setSelection(cursorPosition);
+                }
+
+            }
+        });
+       // view.setOnFocusChangeListener(new DateListener(new CalendarListener(view)));
     }
 
     private void initSpinnerAdapter() {
