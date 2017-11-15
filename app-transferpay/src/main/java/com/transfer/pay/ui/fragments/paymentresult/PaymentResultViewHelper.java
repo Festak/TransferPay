@@ -18,7 +18,7 @@ public class PaymentResultViewHelper extends ViewHelper<PaymentResultPresenter, 
 
     @Override
     protected void onBindVariables(PaymentResultFragmentBinding binding) {
-        super.onBindVariables(binding);
+        getPresenter().onBindVariables(binding);
     }
 
     @Override

@@ -96,6 +96,7 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
         } else {
             getViewHelper().verificationResult(false);
         }
+        TempDataManager.getDataManager().setTransaction(transaction);
         getViewHelper().changeFragment(TransferPayFragmentFactory.ID_PAYMENT_RESULT);
     }
 

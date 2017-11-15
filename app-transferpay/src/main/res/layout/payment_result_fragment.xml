@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="transaction"
+            type="com.transfer.pay.models.Transaction"/>
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -10,9 +18,21 @@
             android:id="@+id/paymentResultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textSize="22sp"
-            android:text="@string/payment_result_successfully"/>
+            android:layout_centerHorizontal="true"
+            android:text="@string/payment_result_successfully"
+            android:textSize="22sp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/paymentResultText">
+
+            <include
+                android:id="@+id/transactionItem"
+                layout="@layout/transaction_history_item"
+                app:transaction="@{transaction}" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 </layout>
