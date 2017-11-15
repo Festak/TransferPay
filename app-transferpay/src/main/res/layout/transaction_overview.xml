@@ -15,6 +15,10 @@
 
         <import type="com.transfer.pay.ui.binding.Converter"/>
 
+        <import
+            alias="CurrencyHelper"
+            type="com.transfer.pay.utils.CurrencyHelper"/>
+
         <variable
             name="v"
             type="android.view.View"/>
@@ -68,10 +72,34 @@
                     android:layout_marginTop="@dimen/text_link_margin_top"
                     bind:selectedValue="@={transaction.paymentOption}"/>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    android:visibility="@{transaction.paymentOption.getCreditCardDataOne.currency == null ? v.GONE : v.VISIBLE}">
+
+                    <TextView
+                        android:id="@+id/currrencyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{CurrencyHelper.configureCurrencyString(transaction.paymentOption.getCreditCardDataOne.currency)}"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/configure_currency"
+                    android:textSize="16sp"
+                    android:visibility="@{transaction.paymentOption.getCreditCardDataOne == null ? v.VISIBLE : v.GONE}"/>
+
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/fieldYouSend"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp">
 
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/youSendTextField"

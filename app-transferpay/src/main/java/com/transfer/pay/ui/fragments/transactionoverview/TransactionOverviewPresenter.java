@@ -75,6 +75,7 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
         binding.setPresenter(this);
         binding.setTransaction(initTransaction());
         binding.setHasPaymentOptions(isUserHasPaymentOptions());
+      //  initCurrencyText();
     }
 
     public List<CreditCardModel> getPaymentOptions() {
@@ -98,6 +99,18 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
         }
         TempDataManager.getDataManager().setTransaction(transaction);
         getViewHelper().changeFragment(TransferPayFragmentFactory.ID_PAYMENT_RESULT);
+    }
+
+    private void initCurrencyText() {
+        Transaction transaction = getViewHelper().getBinding().getTransaction();
+        CreditCardData creditCardData = transaction.getPaymentOption().getCreditCardDataOne();
+        String currencyText;
+        if (creditCardData != null && creditCardData.getCurrency() != null) {
+            currencyText = "From " + creditCardData.getCurrency().getName() + "(" + creditCardData.getCurrency().getFormatToUsd() + ") to USD (1).";
+        } else{
+            currencyText = "Set your card currency in payment settings.";
+        }
+        getViewHelper().initCurrencyText(currencyText);
     }
 
     private void startGameByVerificationType(String verificationType) {

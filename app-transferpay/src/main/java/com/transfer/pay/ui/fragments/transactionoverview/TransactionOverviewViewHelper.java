@@ -87,6 +87,10 @@ public class TransactionOverviewViewHelper extends ViewHelper<TransactionOvervie
         return getRoot().getContext().getString(id);
     }
 
+    public void initCurrencyText(String text){
+        getBinding().currrencyText.setText(text);
+    }
+
     private void initSpinnerAdapter() {
         UiConfigurator.initSpinnerAdapterWithObjects(getBinding().spinnerPaymentOptions, getPresenter().getPaymentOptions());
     }

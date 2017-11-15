@@ -198,6 +198,9 @@
     <string name="validation_card_data">Add information about your card in card options</string>
     <string name="validation_operation_type">Please, select one of verification types</string>
     <string name="validation_zero_payment_options">Your payment options is empty.\nPlease go to your settings and add them.</string>
+    <string name="currency_from">From: </string>
+    <string name="currency_to"> to USD (1)</string>
+    <string name="configure_currency">Please, configure your currency in payment settings.</string>
 
     <!-- Change password -->
     <string name="change_password_title">Change password</string>
