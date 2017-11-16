@@ -50,7 +50,7 @@
     <!-- NEW BENEFICIARIES SCREEN -->
     <string name="beneficiary_new_title">New Beneficiary</string>
     <string name="beneficiary_new_country">Beneficiary Country</string>
-    <string name="beneficiary_new_full_name">Beneficiary Name</string>
+    <string name="beneficiary_new_full_name">Default Bank Name</string>
     <string name="beneficiary_new_bank">Beneficiary Bank</string>
     <string name="beneficiary_new_delivery_option">Delivery Option</string>
     <string name="beneficiary_new_choose_bank">Choose Bank</string>
@@ -68,7 +68,7 @@
     <string name="settings_default_title">Default</string>
     <string name="settings_label_branding_logo">Default Bank Logo</string>
     <string name="settings_label_default_country">Default country</string>
-    <string name="settings_label_default_bank_name">Default Bank Name</string>
+    <string name="settings_label_default_bank_id">Bank Number</string>
     <string name="settings_label_my_currency">My currency</string>
     <string name="settings_label_beneficiary_currency">Beneficiary currency</string>
     <string name="settings_label_exchange_rate">Exchange rate</string>
@@ -285,7 +285,7 @@
     <string name="payment_result_successfully">Payment success</string>
     <string name="payment_result_wrong">Payment not success</string>
 
-    <string name="bank_account_choose">Choose bank: </string>
+    <string name="bank_account_choose">Bank Number: </string>
 
 
 
