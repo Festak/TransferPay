@@ -49,7 +49,6 @@ public class LoginActivity extends TransferPayBaseActivity<LoginViewModel, Login
     protected LoginPresenter createPresenter() {
         LoginPresenter loginPresenter = new LoginPresenter();
         addToBackStack(loginPresenter);
-
         return loginPresenter;
     }
 

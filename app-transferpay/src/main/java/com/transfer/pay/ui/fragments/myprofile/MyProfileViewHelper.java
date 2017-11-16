@@ -6,10 +6,6 @@ import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.databinding.MyProfileBinding;
 import com.transfer.pay.ui.activities.home.HomePresenter;
 
-/**
- * Created by i.statkevich on 5/25/17.
- */
-
 
 public class MyProfileViewHelper extends ViewHelper<MyProfilePresenter, MyProfileBinding> {
 
