@@ -53,6 +53,7 @@ dependencies {
     // Splash animation
     compile 'com.tbuonomo.andrui:materialsquareloading:1.0.1'
     compile 'com.github.2359media:EasyAndroidAnimations:0.8'
+    compile 'com.jjoe64:graphview:4.2.1'
 
 
     testCompile 'junit:junit:4.12'
