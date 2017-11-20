@@ -93,7 +93,7 @@
     <dimen name="items_inbetween_small">4dp</dimen>
     <dimen name="items_inbetween_medium">12dp</dimen>
 
-
+    <!-- Credit card dimensions -->
     <dimen name="card_height">230dp</dimen>
     <dimen name="chip_top_margin">25dp</dimen>
     <dimen name="chip_width">55dp</dimen>
@@ -102,5 +102,14 @@
     <dimen name="cardtype_height">30dp</dimen>
     <dimen name="margin_10">10dp</dimen>
     <dimen name="card_margin">25dp</dimen>
+
+    <!--Auth Result-->
+    <dimen name="auth_result_label_height">90dp</dimen>
+    <dimen name="auth_result_badge_width">113dp</dimen>
+    <dimen name="auth_result_label_text_size">17sp</dimen>
+    <dimen name="auth_result_step_size">25dp</dimen>
+    <dimen name="auth_result_badge_icon_width">36dp</dimen>
+    <dimen name="auth_result_badge_icon_height">36dp</dimen>
+    <dimen name="auth_result_button_close_size">42dp</dimen>
 
 </resources>

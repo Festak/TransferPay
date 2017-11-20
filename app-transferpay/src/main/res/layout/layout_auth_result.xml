@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/authBackground"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:id="@+id/auth_badge"
+        android:layout_width="@dimen/auth_result_badge_width"
+        android:layout_height="@dimen/auth_result_label_height"
+        android:layout_centerVertical="true"
+        android:background="@color/authBadgeBackground">
+
+        <ProgressBar
+            android:id="@+id/auth_progress"
+            android:layout_width="@dimen/auth_result_badge_icon_width"
+            android:layout_height="@dimen/auth_result_badge_icon_width"
+            android:layout_centerInParent="true" />
+
+        <ImageView
+            android:id="@+id/auth_icon"
+            android:layout_width="@dimen/auth_result_badge_icon_width"
+            android:layout_height="@dimen/auth_result_badge_icon_height"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_cross" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/auth_text"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/auth_result_label_height"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/auth_badge"
+        android:layout_toRightOf="@+id/auth_badge"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="@string/auth_result_text_approved"
+        android:textColor="@color/textInvert"
+        android:textSize="@dimen/auth_result_label_text_size" />
+
+    <View
+        android:id="@+id/auth_button_close"
+        android:layout_width="@dimen/auth_result_button_close_size"
+        android:layout_height="@dimen/auth_result_button_close_size"
+        android:layout_below="@+id/auth_badge"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_error"
+        android:clickable="true" />
+
+</RelativeLayout>

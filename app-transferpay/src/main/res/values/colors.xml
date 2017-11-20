@@ -60,6 +60,11 @@
     <color name="tooltipBackground">@color/colorWhite</color>
     <color name="tooltipGreyOpacityBackground">#99616161</color>
 
+    <!-- Auth Result-->
+    <color name="authBackground">#95ffffff</color>
+    <color name="authBadgeBackground">@color/colorWhite</color>
+    <color name="authLabelBackgroundSuccess">#6caf2e</color>
+    <color name="authLabelBackgroundFailed">#FFd83131</color>
 
     <!-- XXX colors -->
 </resources>
