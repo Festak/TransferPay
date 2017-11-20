@@ -11,6 +11,7 @@ import com.transfer.pay.databinding.TransactionOverviewBinding;
 import com.transfer.pay.models.CreditCardData;
 import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.Transaction;
+import com.transfer.pay.models.TransactionFeeProfit;
 import com.transfer.pay.models.User;
 import com.transfer.pay.ormlite.ORMLiteFactcory;
 import com.transfer.pay.ui.TransferPayBasePresenter;
@@ -89,11 +90,7 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
 
     public void operateResult(boolean result) {
         if (result) {
-            transaction.setTransactionDate(new Date().toString());
-            UserManager.getInstance().insertTransaction(transaction);
-            calculateNewUserMoney(transaction);
-            UserManager.getInstance().updateUser();
-            getViewHelper().verificationResult(true);
+            trueResult();
         } else {
             getViewHelper().verificationResult(false);
         }
@@ -101,16 +98,24 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
         getViewHelper().changeFragment(TransferPayFragmentFactory.ID_PAYMENT_RESULT);
     }
 
-    private void initCurrencyText() {
-        Transaction transaction = getViewHelper().getBinding().getTransaction();
-        CreditCardData creditCardData = transaction.getPaymentOption().getCreditCardDataOne();
-        String currencyText;
-        if (creditCardData != null && creditCardData.getCurrency() != null) {
-            currencyText = "From " + creditCardData.getCurrency().getName() + "(" + creditCardData.getCurrency().getFormatToUsd() + ") to USD (1).";
-        } else{
-            currencyText = "Set your card currency in payment settings.";
+    private void trueResult(){
+        transaction.setTransactionDate(new Date().toString());
+        UserManager.getInstance().insertTransaction(transaction);
+        calculateNewUserMoney(transaction);
+        UserManager.getInstance().updateUser();
+        initTransactionProfit();
+        getViewHelper().verificationResult(true);
+    }
+
+    private void initTransactionProfit(){
+        TransactionFeeProfit feeProfit = new TransactionFeeProfit();
+        feeProfit.setFeeProfit(Double.parseDouble(transaction.getTransferFee()));
+        feeProfit.setTimestamp(new Date().getTime());
+        try {
+            ORMLiteFactcory.getHelper().getTransactionFeeProfitsDao().create(feeProfit);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        getViewHelper().initCurrencyText(currencyText);
     }
 
     private void startGameByVerificationType(String verificationType) {

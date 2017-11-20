@@ -14,6 +14,7 @@ import com.transfer.pay.models.CreditCardModel;
 import com.transfer.pay.models.Currency;
 import com.transfer.pay.models.Role;
 import com.transfer.pay.models.Transaction;
+import com.transfer.pay.models.TransactionFeeProfit;
 import com.transfer.pay.models.User;
 import com.transfer.pay.models.UserRole;
 import com.transfer.pay.ormlite.Dao.BankAccountModelDao;
@@ -23,6 +24,7 @@ import com.transfer.pay.ormlite.Dao.CreditCardDataDao;
 import com.transfer.pay.ormlite.Dao.CurrencyDao;
 import com.transfer.pay.ormlite.Dao.RolesDao;
 import com.transfer.pay.ormlite.Dao.TransactionDao;
+import com.transfer.pay.ormlite.Dao.TransactionProfitDao;
 import com.transfer.pay.ormlite.Dao.UserDao;
 import com.transfer.pay.ormlite.Dao.UserRoleDao;
 import com.transfer.pay.utils.FirstStart;
@@ -38,7 +40,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "transferPay.db";
 
-    private static final int DATABASE_VERSION = 11;
+    private static final int DATABASE_VERSION = 12;
 
     private UserDao userDao = null;
     private CreditCardDao creditCardDao = null;
@@ -49,6 +51,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private CurrencyDao currencyDao = null;
     private RolesDao rolesDao = null;
     private UserRoleDao userRoleDao = null;
+    private TransactionProfitDao transactionFeeProfitsDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -176,6 +179,17 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return userRoleDao;
     }
 
+    public TransactionProfitDao getTransactionFeeProfitsDao() {
+        if (transactionFeeProfitsDao == null) {
+            try {
+                transactionFeeProfitsDao = new TransactionProfitDao(getConnectionSource(), TransactionFeeProfit.class);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return transactionFeeProfitsDao;
+    }
+
     @Override
     public void close() {
         super.close();
@@ -192,6 +206,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         TableUtils.createTable(connectionSource, Currency.class);
         TableUtils.createTable(connectionSource, CreditCardData.class);
         TableUtils.createTable(connectionSource, UserRole.class);
+        TableUtils.createTable(connectionSource, TransactionFeeProfit.class);
     }
 
     private void dropTables(ConnectionSource connectionSource) throws SQLException {
@@ -204,6 +219,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         TableUtils.dropTable(connectionSource, CreditCardAccountModel.class, true);
         TableUtils.dropTable(connectionSource, Transaction.class, true);
         TableUtils.dropTable(connectionSource, User.class, true);
+        TableUtils.dropTable(connectionSource, TransactionFeeProfit.class, true);
     }
 
     private void destroyObjects() {
@@ -216,6 +232,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         rolesDao = null;
         currencyDao = null;
         userRoleDao = null;
+        transactionFeeProfitsDao = null;
     }
 
 
