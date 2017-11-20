@@ -7,10 +7,6 @@ import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.istatkevich.cmvp.core.viewmodel.ViewModel;
 import com.transfer.pay.TransferPayRouter;
 
-/**
- * Created by i.statkevich on 5/25/17.
- */
-
 public class TransferPayBasePresenter<VD extends ViewModel, VH extends ViewHelper<? extends Presenter, ?>>
         extends Presenter<VD, VH> {
     public static final long POST_DELAY_MS = 2000;

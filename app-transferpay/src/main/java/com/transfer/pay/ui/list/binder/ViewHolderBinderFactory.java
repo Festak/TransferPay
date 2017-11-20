@@ -3,10 +3,6 @@ package com.transfer.pay.ui.list.binder;
 import com.transfer.pay.ui.list.ListItemType;
 import com.transfer.pay.ui.list.listener.OnClickedItemListener;
 
-/**
- * Created by i.statkevich on 6/2/17.
- */
-
 public class ViewHolderBinderFactory implements BinderFactory {
 
     private OnClickedItemListener listener;

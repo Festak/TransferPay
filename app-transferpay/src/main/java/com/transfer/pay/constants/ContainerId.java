@@ -1,9 +1,5 @@
 package com.transfer.pay.constants;
 
-/**
- * Created by i.statkevich on 5/25/17.
- */
-
 public class ContainerId {
     public static class Activity {
         public static final String LOGIN = "LoginActivity";

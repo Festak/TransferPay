@@ -6,11 +6,6 @@ import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.databinding.ActivitySpaBaseLayoutBinding;
 
-
-/**
- * @author Created by i.statkevich on 16.01.2017.
- */
-
 public class SpaFragmentActivityViewHelper extends ViewHelper<SpaFragmentActivityPresenter, ActivitySpaBaseLayoutBinding> {
     private Toolbar toolbar;
 

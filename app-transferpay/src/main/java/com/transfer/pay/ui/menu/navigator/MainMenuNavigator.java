@@ -12,10 +12,6 @@ import com.transfer.pay.utils.fragment.params.SpaFragmentParams;
 
 import java.util.Map;
 
-/**
- * Created by i.statkevich on 5/30/17.
- */
-
 public class MainMenuNavigator implements Navigator {
     private AppCompatActivity activity;
     private FragmentSwitcher fragmentSwitcher;

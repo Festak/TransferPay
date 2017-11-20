@@ -5,9 +5,6 @@ import com.transfer.pay.data.DataManager;
 import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.ui.TransferPayBaseFragment;
 
-/**
- * Created by i.statkevich on 5/25/17.
- */
 
 public class SettingsFragment extends TransferPayBaseFragment<EmptyViewModel, SettingsViewHelper, SettingsPresenter> {
 

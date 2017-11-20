@@ -3,10 +3,6 @@ package com.transfer.pay.data;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/**
- * @author Created by i.statkevich on 25.10.2016.
- */
-
 public class SharedPreferencesStorage {
     private static SharedPreferences sharedPreferences;
 

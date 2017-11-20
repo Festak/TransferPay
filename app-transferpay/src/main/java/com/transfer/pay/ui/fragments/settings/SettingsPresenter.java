@@ -6,10 +6,6 @@ import com.transfer.pay.databinding.SettingsBinding;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
 
-/**
- * Created by i.statkevich on 5/25/17.
- */
-
 public class SettingsPresenter extends TransferPayBasePresenter<EmptyViewModel, SettingsViewHelper> {
 
     public void bindVariables(SettingsBinding binding) {

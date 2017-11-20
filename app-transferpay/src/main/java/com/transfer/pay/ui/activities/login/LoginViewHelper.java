@@ -7,10 +7,6 @@ import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.databinding.LoginBinding;
 
-/**
- * @author Created by i.statkevich on 5/24/17.
- */
-
 public class LoginViewHelper extends ViewHelper<LoginPresenter, LoginBinding> {
 
     public void setActionBarTitle(String title) {

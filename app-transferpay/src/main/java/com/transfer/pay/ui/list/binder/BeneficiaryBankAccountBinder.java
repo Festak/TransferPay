@@ -7,10 +7,6 @@ import com.transfer.pay.ui.list.listener.OnClickedItemListener;
 import com.transfer.pay.ui.list.listener.OnItemClickListener;
 import com.transfer.pay.ui.list.listener.OnLongItemClickListener;
 
-/**
- * Created by i.statkevich on 6/2/17.
- */
-
 public class BeneficiaryBankAccountBinder implements ViewHolderBinder<BeneficiaryItemBankAccountBinding, BankAccountModel> {
 
     private OnClickedItemListener listener;

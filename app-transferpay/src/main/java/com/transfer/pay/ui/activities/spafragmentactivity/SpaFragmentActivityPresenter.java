@@ -6,10 +6,6 @@ import com.transfer.pay.ui.TransferPayBasePresenter;
 import com.transfer.pay.utils.fragment.params.SpaFragmentBundleMapper;
 import com.transfer.pay.utils.fragment.params.SpaFragmentParams;
 
-/**
- * @author Created by i.statkevich on 16.01.2017.
- */
-
 public class SpaFragmentActivityPresenter extends TransferPayBasePresenter<EmptyViewModel, SpaFragmentActivityViewHelper> {
     private FragmentSwitcher fragmentSwitcher;
 

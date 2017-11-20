@@ -15,9 +15,6 @@ import com.transfer.pay.ui.menu.navigator.Navigator;
 import com.transfer.pay.utils.FileUtils;
 import com.transfer.pay.utils.UserNameCombiner;
 
-/**
- * Created by i.statkevich on 6/1/17.
- */
 
 public class HomePresenter extends TransferPayBasePresenter<EmptyViewModel, HomeViewHelper> implements Navigator {
 

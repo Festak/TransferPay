@@ -14,10 +14,6 @@ import com.transfer.pay.utils.ResourceUtils;
 
 import java.util.List;
 
-/**
- * Created by i.statkevich on 6/2/17.
- */
-
 public class UiConfigurator {
 
     public static void initRecyclerView(RecyclerView.Adapter adapter, View root, int recyclerId) {

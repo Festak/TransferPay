@@ -9,9 +9,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Created by i.statkevich on 04.11.2016.
- */
 
 public class JsonUtils {
 

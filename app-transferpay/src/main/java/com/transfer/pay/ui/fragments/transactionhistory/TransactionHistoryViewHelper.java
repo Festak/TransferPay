@@ -14,11 +14,6 @@ import com.transfer.pay.ui.list.binder.ViewHolderBinder;
 import java.util.Collection;
 import java.util.LinkedList;
 
-/**
- * Created by i.statkevich on 5/25/17.
- */
-
-
 public class TransactionHistoryViewHelper extends ViewHelper<TransactionHistoryPresenter, TransactionHistoryBinding> {
 
     private RecyclerAdapter<TransactionHistoryItemBinding, Transaction> adapter;

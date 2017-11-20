@@ -20,10 +20,6 @@ import com.transfer.pay.ui.fragments.transactionoverview.TransactionOverviewFrag
 
 import java.util.HashMap;
 
-/**
- * Created by i.statkevich on 5/25/17.
- */
-
 public class TransferPayFragmentFactory implements FragmentFactory {
     public static final int ID_BENEFICIARIES = 10;
     public static final int ID_NEW_BENEFICIARY = 13;

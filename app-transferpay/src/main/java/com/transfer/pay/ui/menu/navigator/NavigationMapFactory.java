@@ -14,10 +14,6 @@ import com.transfer.pay.utils.fragment.params.SpaFragmentParams;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by i.statkevich on 6/1/17.
- */
-
 public class NavigationMapFactory {
     private Context context;
 

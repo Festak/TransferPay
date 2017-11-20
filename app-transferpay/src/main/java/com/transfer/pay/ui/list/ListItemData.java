@@ -3,10 +3,6 @@ package com.transfer.pay.ui.list;
 import com.google.gson.annotations.JsonAdapter;
 import com.transfer.pay.utils.gson.converters.ListItemDataSerializer;
 
-/**
- * Created by i.statkevich on 6/2/17.
- */
-
 @JsonAdapter(ListItemDataSerializer.class)
 public class ListItemData {
 

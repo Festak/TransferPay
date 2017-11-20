@@ -1,9 +1,5 @@
 package com.transfer.pay.ui.menu.navigator;
 
-/**
- * Created by i.statkevich on 6/1/17.
- */
-
 public class DestinationParams {
     private DestinationType type;
     private Object params;

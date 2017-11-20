@@ -11,10 +11,6 @@ import com.transfer.pay.databinding.LoginBinding;
 import com.transfer.pay.models.User;
 import com.transfer.pay.ui.TransferPayBasePresenter;
 
-/**
- * @author Created by i.statkevich on 5/24/17.
- */
-
 public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, LoginViewHelper> implements BackStackListener {
 
     public boolean onOptionsItemSelected(MenuItem item) {

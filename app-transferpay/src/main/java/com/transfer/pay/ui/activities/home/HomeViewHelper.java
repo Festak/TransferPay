@@ -6,10 +6,6 @@ import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.databinding.HomeBinding;
 
-/**
- * Created by i.statkevich on 6/1/17.
- */
-
 public class HomeViewHelper extends ViewHelper<HomePresenter, HomeBinding> {
 
     @Override

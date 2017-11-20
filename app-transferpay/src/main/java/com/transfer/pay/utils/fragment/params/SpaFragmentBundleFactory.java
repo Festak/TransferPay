@@ -4,10 +4,6 @@ import android.os.Bundle;
 
 import com.transfer.pay.constants.FragmentBundleFields;
 
-/**
- * @author Created by i.statkevich on 5/10/17.
- */
-
 public class SpaFragmentBundleFactory {
     private SpaFragmentBundleFactory() {
         //do nothing

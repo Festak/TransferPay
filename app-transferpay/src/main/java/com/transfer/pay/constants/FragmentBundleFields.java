@@ -1,8 +1,5 @@
 package com.transfer.pay.constants;
 
-/**
- * @author Created by i.statkevich on 03.11.2016.
- */
 
 public class FragmentBundleFields {
     public static final String STATUS = "status";

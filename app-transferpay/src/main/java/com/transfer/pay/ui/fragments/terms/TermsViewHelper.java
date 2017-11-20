@@ -4,10 +4,6 @@ import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.databinding.TermsBinding;
 
-/**
- * Created by i.statkevich on 5/25/17.
- */
-
 
 public class TermsViewHelper extends ViewHelper<TermsPresenter, TermsBinding> {
 

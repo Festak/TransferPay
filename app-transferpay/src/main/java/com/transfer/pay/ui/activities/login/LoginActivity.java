@@ -11,10 +11,6 @@ import com.transfer.pay.R;
 import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.ui.TransferPayBaseActivity;
 
-/**
- * @author Created by i.statkevich on 5/24/17.
- */
-
 public class LoginActivity extends TransferPayBaseActivity<LoginViewModel, LoginViewHelper, LoginPresenter> {
 
     @Override

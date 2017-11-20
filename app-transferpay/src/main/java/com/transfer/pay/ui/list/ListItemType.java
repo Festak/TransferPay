@@ -1,9 +1,5 @@
 package com.transfer.pay.ui.list;
 
-/**
- * Created by i.statkevich on 6/2/17.
- */
-
 public enum ListItemType {
     UNDEFINED(0),
     BENEFICIARY_CREDIT_CARD(10),

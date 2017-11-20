@@ -11,9 +11,6 @@ import com.istatkevich.cmvp.core.viewmodel.ViewModel;
 import com.transfer.pay.R;
 import com.transfer.pay.TransferPayRouter;
 
-/**
- * @author Created by i.statkevich on 5/24/17.
- */
 
 public abstract class TransferPayBaseActivity<VD extends ViewModel, VH extends ViewHelper<P, ?>, P extends Presenter>
         extends ActivityContainer<VD, VH, P> {
