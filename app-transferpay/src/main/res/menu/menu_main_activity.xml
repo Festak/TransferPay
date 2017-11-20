@@ -11,7 +11,7 @@
             android:icon="@drawable/ic_keyboard_arrow_right_24dp"
             android:title="@string/menu_action_transactions_history" />
         <item
-            android:id="@+id/nav_wallet"
+            android:id="@+id/transfer_fee_profit"
             android:icon="@drawable/ic_keyboard_arrow_right_24dp"
             android:title="@string/menu_action_wallet" />
         <item

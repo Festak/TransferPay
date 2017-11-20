@@ -32,6 +32,7 @@ public class ContainerId {
         public static final String CHANGE_PASSWORD = "ChangePasswordFragment";
         public static final String CARD_DATA = "CardDataFragment";
         public static final String PAYMENT_RESULT = "PaymentResultFragment";
+        public static final String PROFIT_FEE = "ProfitFragment";
 
         public static class Registration {
             private Registration() {

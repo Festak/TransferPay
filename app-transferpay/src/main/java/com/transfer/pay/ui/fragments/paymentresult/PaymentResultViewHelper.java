@@ -47,7 +47,6 @@ public class PaymentResultViewHelper extends ViewHelper<PaymentResultPresenter, 
                 } else {
                     switchState(AuthStatus.ERROR);
                 }
-                getBinding().setResult(paymentResultSuccess);
             }
 
             @Override

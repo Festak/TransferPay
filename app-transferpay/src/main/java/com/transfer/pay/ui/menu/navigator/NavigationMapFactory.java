@@ -115,11 +115,11 @@ public class NavigationMapFactory {
                 )
         );
         map.put(
-                R.id.nav_wallet,
+                R.id.transfer_fee_profit,
                 createDestinationFragment(
-                        TransferPayFragmentFactory.ID_WALLET,
+                        TransferPayFragmentFactory.ID_TRANSFER_FEE_PROFIT,
                         null,
-                        R.string.wallet_title
+                        R.string.profit_title
                 )
         );
         map.put(R.id.nav_my_profile,

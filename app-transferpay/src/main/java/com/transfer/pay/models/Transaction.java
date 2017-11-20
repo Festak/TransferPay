@@ -72,6 +72,10 @@ public class Transaction extends BaseObservable {
     @DatabaseField(columnName = CURRENCY_FIELD, dataType = DataType.STRING)
     private String currency;
 
+    public static final String TRANSACTION_RESULT = "transaction_result";
+    @DatabaseField(columnName = TRANSACTION_RESULT, dataType = DataType.BOOLEAN)
+    private boolean transactionResult;
+
     private TransactionParams transactionParams;
 
     public Transaction() {
@@ -242,6 +246,14 @@ public class Transaction extends BaseObservable {
     public void setCurrency(String currency) {
         this.currency = currency;
         notifyPropertyChanged(BR.currency);
+    }
+
+    public boolean isTransactionResult() {
+        return transactionResult;
+    }
+
+    public void setTransactionResult(boolean transactionResult) {
+        this.transactionResult = transactionResult;
     }
 
     private void calculateAmount(Double send) {

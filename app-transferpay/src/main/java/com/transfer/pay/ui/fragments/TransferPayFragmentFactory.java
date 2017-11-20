@@ -17,6 +17,7 @@ import com.transfer.pay.ui.fragments.settingstab.SettingsTabFragment;
 import com.transfer.pay.ui.fragments.terms.TermsFragment;
 import com.transfer.pay.ui.fragments.transactionhistory.TransactionHistoryFragment;
 import com.transfer.pay.ui.fragments.transactionoverview.TransactionOverviewFragment;
+import com.transfer.pay.ui.fragments.wallet.ProfitFragment;
 
 import java.util.HashMap;
 
@@ -25,7 +26,7 @@ public class TransferPayFragmentFactory implements FragmentFactory {
     public static final int ID_NEW_BENEFICIARY = 13;
     public static final int ID_TRANSACTION_HISTORY = 20;
     public static final int ID_TRANSACTION_OVERVIEW = 23;
-    public static final int ID_WALLET = 30;
+    public static final int ID_TRANSFER_FEE_PROFIT = 30;
     public static final int ID_MY_PROFILE = 40;
     public static final int ID_TERMS = 50;
     public static final int ID_SETTINGS = 60;
@@ -69,6 +70,7 @@ public class TransferPayFragmentFactory implements FragmentFactory {
         fragmentsList.put(ID_CHANGEPASS, ChangePasswordFragment.class);
         fragmentsList.put(ID_CARD_DATA, CardDataFragment.class);
         fragmentsList.put(ID_PAYMENT_RESULT, PaymentResultFragment.class);
+        fragmentsList.put(ID_TRANSFER_FEE_PROFIT, ProfitFragment.class);
         return fragmentsList;
     }
 

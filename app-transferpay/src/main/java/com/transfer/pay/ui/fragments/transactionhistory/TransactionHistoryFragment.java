@@ -23,6 +23,6 @@ public class TransactionHistoryFragment extends TransferPayBaseFragment<EmptyVie
 
     @Override
     public String getContainerId() {
-        return ContainerId.Fragment.BENEFICIARIES;
+        return ContainerId.Fragment.TRANSACTION_HISTORY;
     }
 }

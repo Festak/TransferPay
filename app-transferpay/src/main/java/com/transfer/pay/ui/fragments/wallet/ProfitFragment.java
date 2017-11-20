@@ -5,7 +5,7 @@ import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.ui.TransferPayBaseFragment;
 
 
-public class WalletFragment extends TransferPayBaseFragment<EmptyViewModel, WalletViewHelper, WalletPresenter> {
+public class ProfitFragment extends TransferPayBaseFragment<EmptyViewModel, ProfitViewHelper, ProfitPresenter> {
 
     @Override
     protected EmptyViewModel createViewData() {
@@ -13,17 +13,17 @@ public class WalletFragment extends TransferPayBaseFragment<EmptyViewModel, Wall
     }
 
     @Override
-    protected WalletPresenter createPresenter() {
-        return new WalletPresenter();
+    protected ProfitPresenter createPresenter() {
+        return new ProfitPresenter();
     }
 
     @Override
-    protected WalletViewHelper createViewHelper() {
-        return new WalletViewHelper();
+    protected ProfitViewHelper createViewHelper() {
+        return new ProfitViewHelper();
     }
 
     @Override
     public String getContainerId() {
-        return ContainerId.Fragment.BENEFICIARIES;
+        return ContainerId.Fragment.PROFIT_FEE;
     }
 }

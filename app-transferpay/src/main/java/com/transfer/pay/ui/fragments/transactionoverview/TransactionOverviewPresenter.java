@@ -89,6 +89,7 @@ public class TransactionOverviewPresenter extends TransferPayBasePresenter<Empty
     }
 
     public void operateResult(boolean result) {
+        transaction.setTransactionResult(result);
         if (result) {
             trueResult();
         } else {
