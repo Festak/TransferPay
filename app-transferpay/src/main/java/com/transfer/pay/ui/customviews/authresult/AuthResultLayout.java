@@ -15,10 +15,6 @@ import android.widget.TextView;
 import com.transfer.pay.R;
 
 
-/**
- * @author Created by i.statkevich on 16.02.2017.
- */
-
 public class AuthResultLayout extends RelativeLayout implements View.OnClickListener {
     private ProgressBar progressBar;
     private ImageView authIcon;

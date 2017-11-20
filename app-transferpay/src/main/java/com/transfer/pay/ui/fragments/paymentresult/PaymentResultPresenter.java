@@ -13,6 +13,7 @@ public class PaymentResultPresenter extends TransferPayBasePresenter<EmptyViewMo
 
     public void onBindVariables(PaymentResultFragmentBinding binding) {
         binding.setTransaction(TempDataManager.getDataManager().getTransaction());
+        binding.setResult(null);
     }
     
 }

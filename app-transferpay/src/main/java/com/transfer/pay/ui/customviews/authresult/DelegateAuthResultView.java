@@ -5,9 +5,6 @@ import android.view.ViewGroup;
 
 import com.istatkevich.cmvp.core.HideKeyboard;
 import com.istatkevich.cmvp.core.progressoverlay.Progress;
-/**
- * @author Created by i.statkevich on 5/16/17.
- */
 
 public class DelegateAuthResultView implements AuthResultView {
     private AuthResultLayout authResultLayoutLayout;

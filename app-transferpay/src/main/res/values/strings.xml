@@ -284,6 +284,9 @@
     <string name="payment_result_title">Payment Result</string>
     <string name="payment_result_successfully">Payment success</string>
     <string name="payment_result_wrong">Payment not success</string>
+    <string name="transaction_result">TRANSACTION \nRESULT</string>
+    <string name="transaction_result_success">SUCCESS</string>
+    <string name="transaction_result_failed">Failed</string>
 
     <string name="bank_account_choose">Bank Number: </string>
 

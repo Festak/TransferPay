@@ -1,38 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="transaction"
             type="com.transfer.pay.models.Transaction"/>
+
+        <variable
+            name="result"
+            type="Boolean"/>
+
+        <import
+            alias="v"
+            type="android.view.View"/>
+
     </data>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/paymentResultText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/payment_result_successfully"
-            android:textSize="22sp"/>
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/paymentResultText">
+            android:orientation="vertical">
 
-            <include
-                android:id="@+id/transactionItem"
-                layout="@layout/transaction_history_item"
-                app:transaction="@{transaction}" />
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/transactionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    </RelativeLayout>
+                <include
+                    android:id="@+id/transactionItem"
+                    layout="@layout/transaction_history_item"
+                    app:transaction="@{transaction}"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/transactionLayout"
+                android:layout_marginBottom="@dimen/text_link_margin_top">
+
+                <TextView
+                    android:id="@+id/verificationScenarioText"
+                    style="@style/HintText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:text="@string/transaction_result"
+                    android:textColor="@color/colorGray"/>
+
+                <TextView
+                    android:id="@+id/verificationScenarioResult"
+                    style="@style/UserDataText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="@{result == null ? v.GONE : v.VISIBLE}"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:text="@{result ? @string/transaction_result_success : @string/transaction_result_failed}"
+                    android:textColor="@{result ? @color/authLabelBackgroundSuccess : @color/authLabelBackgroundFailed}"
+                    tools:text="SUCCESS"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 </layout>
