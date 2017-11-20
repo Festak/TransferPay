@@ -7,8 +7,6 @@ import com.istatkevich.cmvp.core.BackStackListener;
 import com.transfer.pay.R;
 import com.transfer.pay.UserManager;
 import com.transfer.pay.constants.Constants;
-import com.transfer.pay.constants.Fields;
-import com.transfer.pay.data.DataStorage;
 import com.transfer.pay.databinding.LoginBinding;
 import com.transfer.pay.models.User;
 import com.transfer.pay.ui.TransferPayBasePresenter;
@@ -38,7 +36,7 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
     }
 
     public void onForgotPasswordClick(View view) {
-        cleanAllData();
+        // do nothing
     }
 
     public void onBindVariables(LoginBinding binding) {
@@ -80,11 +78,4 @@ public class LoginPresenter extends TransferPayBasePresenter<LoginViewModel, Log
         return false;
     }
 
-    private void cleanAllData() {
-        DataStorage.getInstance().removeKey(Fields.Preferences.BENEFICIARIES);
-        DataStorage.getInstance().removeKey(Fields.Preferences.CHOOSED_BENEFICIARY);
-        DataStorage.getInstance().removeKey(Fields.Preferences.PAYMENT_OPTIONS);
-        DataStorage.getInstance().removeKey(Fields.Preferences.USER);
-        DataStorage.getInstance().removeKey(Fields.Preferences.SETTINGS);
-    }
 }
