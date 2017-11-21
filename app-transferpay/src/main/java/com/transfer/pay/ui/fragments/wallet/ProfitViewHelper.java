@@ -41,7 +41,6 @@ public class ProfitViewHelper extends ViewHelper<ProfitPresenter, WalletBinding>
         graph.getViewport().setScalable(true);
         graph.getViewport().setScalableY(true);
 
-        graph.getGridLabelRenderer().setHumanRounding(false);
 
     }
 
