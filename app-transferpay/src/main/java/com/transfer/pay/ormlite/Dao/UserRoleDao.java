@@ -11,6 +11,7 @@ import com.transfer.pay.models.UserRole;
 import com.transfer.pay.ormlite.ORMLiteFactcory;
 
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -29,13 +30,19 @@ public class UserRoleDao extends BaseDaoImpl<UserRole, String> {
 
     private PreparedQuery<Role> rolesForUserQuery = null;
 
-    public List<Role> lookupRolesForUser(User user) throws SQLException {
-        if (rolesForUserQuery == null) {
-            rolesForUserQuery = makeRolesForUserQuery();
+    public List<Role> lookupRolesForUser(User user) {
+        List<Role> roles = new LinkedList<>();
+        try {
+            if (rolesForUserQuery == null) {
+                rolesForUserQuery = makeRolesForUserQuery();
+            }
+            RolesDao rolesDao = ORMLiteFactcory.getHelper().getRolesDao();
+            rolesForUserQuery.setArgumentHolderValue(0, user);
+            roles = rolesDao.query(rolesForUserQuery);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        RolesDao rolesDao = ORMLiteFactcory.getHelper().getRolesDao();
-        rolesForUserQuery.setArgumentHolderValue(0, user);
-        return rolesDao.query(rolesForUserQuery);
+        return roles;
     }
 
     /**

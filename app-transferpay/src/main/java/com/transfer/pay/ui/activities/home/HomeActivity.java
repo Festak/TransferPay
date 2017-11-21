@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 
 import com.istatkevich.cmvp.core.fragmentswitcher.FragmentFactory;
 import com.istatkevich.cmvp.core.fragmentswitcher.FragmentSwitcher;
 import com.istatkevich.cmvp.core.viewmodel.EmptyViewModel;
 import com.transfer.pay.R;
+import com.transfer.pay.UserManager;
 import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.ui.TransferPayBaseActivity;
 import com.transfer.pay.ui.fragments.TransferPayFragmentFactory;
@@ -77,6 +79,11 @@ public class HomeActivity extends TransferPayBaseActivity<EmptyViewModel, HomeVi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        if(!UserManager.getInstance().isUserHasAdminRole()) {
+            Menu menu = navigationView.getMenu();
+            menu.getItem(2).setVisible(false);
+        }
 
         mainMenuDelegate = new MainMenuDelegate();
         mainMenuDelegate.onInit(this, toolbar, drawer, navigationView, getScreenPresenter());

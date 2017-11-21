@@ -11,6 +11,7 @@ import com.transfer.pay.models.User;
 import com.transfer.pay.ormlite.ORMLiteFactcory;
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Created by e.fetskovich on 6/8/17.
@@ -163,6 +164,17 @@ public class UserManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean isUserHasAdminRole() {
+        List<Role> userRoles = ORMLiteFactcory.getHelper().getUserRoleDao().lookupRolesForUser(user);
+        boolean isHasAdminRole = false;
+        for(Role role: userRoles){
+            if(role.getName().equals("admin")){
+                isHasAdminRole = true;
+            }
+        }
+        return isHasAdminRole;
     }
 
 
