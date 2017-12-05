@@ -8,6 +8,7 @@ import com.transfer.pay.R;
 import com.transfer.pay.UserManager;
 import com.transfer.pay.data.DataManager;
 import com.transfer.pay.databinding.NewBeneficiaryBinding;
+import com.transfer.pay.iban.Iban;
 import com.transfer.pay.models.BankAccountModel;
 import com.transfer.pay.models.CreditCardAccountModel;
 import com.transfer.pay.models.NewBeneficiaryType;
@@ -22,14 +23,18 @@ public class NewBeneficiaryPresenter extends TransferPayBasePresenter<EmptyViewM
 
     public void onButtonSaveClick() {
         if (validateData()) {
-            performFakeAsyncOperation(new Runnable() {
-                @Override
-                public void run() {
-                    insertDataToUser();
-                    UserManager.getInstance().updateUser();
-                    getScreen().closeScreen();
-                }
-            });
+            if (validateBankAccountNumber()) {
+                performFakeAsyncOperation(new Runnable() {
+                    @Override
+                    public void run() {
+                        insertDataToUser();
+                        UserManager.getInstance().updateUser();
+                        getScreen().closeScreen();
+                    }
+                });
+            } else {
+                getViewHelper().showToast(R.string.beneficiary_new_account_number, Toast.LENGTH_SHORT);
+            }
         } else {
             getViewHelper().showToast(R.string.beneficiary_new_input_fields, Toast.LENGTH_SHORT);
         }
@@ -44,6 +49,11 @@ public class NewBeneficiaryPresenter extends TransferPayBasePresenter<EmptyViewM
         binding.setBankAccountModel(initBankAccountModel());
         binding.setCard(new CreditCardAccountModel());
         binding.setBeneficiaryType(new NewBeneficiaryType());
+    }
+
+    private boolean validateBankAccountNumber() {
+        String number = getViewHelper().getBinding().getBankAccountModel().getAccountNo();
+        return number.length() == 11;
     }
 
     private boolean validateData() {
@@ -80,7 +90,17 @@ public class NewBeneficiaryPresenter extends TransferPayBasePresenter<EmptyViewM
 
     private void insertDataToUser() {
         if (getViewHelper().getBinding().getBeneficiaryType().getBankAccount()) {
-            UserManager.getInstance().insertBankAccount(getViewHelper().getBinding().getBankAccountModel());
+            Iban iban = null;
+            BankAccountModel bankAccountModel = getViewHelper().getBinding().getBankAccountModel();
+            try {
+                iban = new Iban.Builder()
+                        .accountNumber(bankAccountModel.getAccountNo())
+                        .buildRandom();
+                bankAccountModel.setAccountNo(iban.toFormattedString());
+            } catch (Exception e) {
+                // do nothing
+            }
+            UserManager.getInstance().insertBankAccount(bankAccountModel);
         } else {
             UserManager.getInstance().insertCreditCardAccount(getViewHelper().getBinding().getCard());
         }

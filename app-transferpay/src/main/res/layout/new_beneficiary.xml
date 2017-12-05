@@ -148,6 +148,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/beneficiary_new_account_no"
                         android:inputType="phone"
+                        android:maxLength="11"
                         android:lines="1"
                         android:maxLines="1"
                         android:text="@={bankAccountModel.accountNo}" />

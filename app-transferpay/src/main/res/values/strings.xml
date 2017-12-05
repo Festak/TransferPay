@@ -61,6 +61,7 @@
     <string name="beneficiary_new_choose_country_in_settings">Choose country in settings</string>
     <string name="beneficiary_new_choose_bank_in_settings">Choose bank in settings</string>
     <string name="beneficiary_new_input_fields">Input all required fields</string>
+    <string name="beneficiary_new_account_number">Input 11 symbols-number account</string>
 
 
     <!-- SETTINGS Screen -->
