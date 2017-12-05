@@ -65,11 +65,12 @@
                     android:layout_marginTop="20dp"
                     android:src="@drawable/ic_bank"/>
 
-                <TextView
+                <com.transfer.pay.ui.customviews.TextFitTextView
                     android:id="@+id/tv_card_number"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="20dp"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginRight="20dp"
                     android:text="@{model.accountNo}"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/header_text"
@@ -115,8 +116,9 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <com.transfer.pay.ui.customviews.TextFitTextView
+                android:layout_width="170dp"
+                android:gravity="right"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"

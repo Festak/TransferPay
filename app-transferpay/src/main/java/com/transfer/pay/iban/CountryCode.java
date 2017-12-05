@@ -20,7 +20,7 @@ import java.util.Map;
 
 /**
  * Country Code Enum
- *
+ * <p>
  * <a href="http://en.wikipedia.org/wiki/ISO_3166-1">ISO 3166-1</a> country code.
  */
 public enum CountryCode {
@@ -765,6 +765,16 @@ public enum CountryCode {
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-3 alpha-3</a> code.
      */
     private final String alpha3;
+
+    public static CountryCode getCountryCodeByFullCountry(String name) {
+        CountryCode[] codes = CountryCode.values();
+        for (int i = 0; i < codes.length; i++) {
+            if(codes[i].getName().equals(name)){
+                return codes[i];
+            }
+        }
+        return RU;
+    }
 
     private CountryCode(final String name, final String alpha3) {
         this.name = name;

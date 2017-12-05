@@ -8,6 +8,7 @@ import com.transfer.pay.R;
 import com.transfer.pay.UserManager;
 import com.transfer.pay.data.DataManager;
 import com.transfer.pay.databinding.NewBeneficiaryBinding;
+import com.transfer.pay.iban.CountryCode;
 import com.transfer.pay.iban.Iban;
 import com.transfer.pay.models.BankAccountModel;
 import com.transfer.pay.models.CreditCardAccountModel;
@@ -93,9 +94,13 @@ public class NewBeneficiaryPresenter extends TransferPayBasePresenter<EmptyViewM
             Iban iban = null;
             BankAccountModel bankAccountModel = getViewHelper().getBinding().getBankAccountModel();
             try {
+                CountryCode code = CountryCode.getCountryCodeByFullCountry(bankAccountModel.getCountry());
                 iban = new Iban.Builder()
                         .accountNumber(bankAccountModel.getAccountNo())
+                        .countryCode(code)
+                        .bankCode(bankAccountModel.getChooseBank())
                         .buildRandom();
+
                 bankAccountModel.setAccountNo(iban.toFormattedString());
             } catch (Exception e) {
                 // do nothing

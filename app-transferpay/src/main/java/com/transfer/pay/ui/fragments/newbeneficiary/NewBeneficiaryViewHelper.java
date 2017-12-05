@@ -10,6 +10,7 @@ import com.cooltechworks.creditcarddesign.CreditCardUtils;
 import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.databinding.NewBeneficiaryBinding;
+import com.transfer.pay.factories.SpinnerAdapterFactory;
 import com.transfer.pay.factories.TooltipFactory;
 import com.transfer.pay.ui.UiConfigurator;
 import com.transfer.pay.ui.customviews.Tooltip;
@@ -143,7 +144,8 @@ public class NewBeneficiaryViewHelper extends ViewHelper<NewBeneficiaryPresenter
     }
 
     private void configureSpinners() {
-        UiConfigurator.initSpinnerAdapterWithResourceData(getBinding().spinnerDefaultCountry, R.array.countries);
+        SpinnerAdapterFactory factory = new SpinnerAdapterFactory(getRoot().getContext());
+        getBinding().spinnerDefaultCountry.setAdapter(factory.createStateSpinnerAdapter());
     }
 
 

@@ -70,16 +70,16 @@ public final class IbanUtil {
     public static void validate(final String iban) throws IbanFormatException,
             InvalidCheckDigitException, UnsupportedCountryException {
         try {
-            validateEmpty(iban);
-            validateCountryCode(iban);
-            validateCheckDigitPresence(iban);
+    //        validateEmpty(iban);
+  //          validateCountryCode(iban);
+//            validateCheckDigitPresence(iban);
 
             final BbanStructure structure = getBbanStructure(iban);
 
            // validateBbanLength(iban, structure);
-            validateBbanEntries(iban, structure);
+           // validateBbanEntries(iban, structure);
 
-            validateCheckDigit(iban);
+         //   validateCheckDigit(iban);
         } catch (Iban4jException e) {
             throw e;
         } catch (RuntimeException e) {

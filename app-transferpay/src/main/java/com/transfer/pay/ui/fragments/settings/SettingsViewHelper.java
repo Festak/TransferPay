@@ -4,7 +4,7 @@ import com.istatkevich.cmvp.core.viewhelper.ViewHelper;
 import com.transfer.pay.R;
 import com.transfer.pay.constants.ContainerId;
 import com.transfer.pay.databinding.SettingsBinding;
-import com.transfer.pay.ui.UiConfigurator;
+import com.transfer.pay.factories.SpinnerAdapterFactory;
 import com.transfer.pay.ui.activities.home.HomePresenter;
 
 public class SettingsViewHelper extends ViewHelper<SettingsPresenter, SettingsBinding> {
@@ -30,7 +30,8 @@ public class SettingsViewHelper extends ViewHelper<SettingsPresenter, SettingsBi
     }
 
     private void configureSpinners() {
-        UiConfigurator.initSpinnerAdapterWithResourceData(getBinding().spinnerDefaultCountry, R.array.countries);
+        SpinnerAdapterFactory factory = new SpinnerAdapterFactory(getRoot().getContext());
+        getBinding().spinnerDefaultCountry.setAdapter(factory.createStateSpinnerAdapter());
     }
 
 }
