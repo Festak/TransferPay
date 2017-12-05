@@ -10,6 +10,13 @@ import com.transfer.pay.ui.TransferPayBaseFragment;
  */
 
 public class AddCardFragment extends TransferPayBaseFragment<EmptyViewModel, AddCardViewHelper, AddCardPresenter> {
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getPresenter().changeCardHolder();
+    }
+
     @Override
     protected EmptyViewModel createViewData() {
         return new EmptyViewModel();
