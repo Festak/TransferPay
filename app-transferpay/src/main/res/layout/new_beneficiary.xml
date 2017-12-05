@@ -132,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/settings_label_default_bank_id"
                         android:inputType="phone"
-                        android:maxLength="5"
+                        android:maxLength="4"
                         android:lines="1"
                         android:maxLines="1"
                         android:text="@={bankAccountModel.chooseBank}" />

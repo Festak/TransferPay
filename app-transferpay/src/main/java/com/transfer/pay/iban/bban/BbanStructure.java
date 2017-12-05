@@ -91,6 +91,12 @@ public class BbanStructure {
                         BbanStructureEntry.accountType(1, 'a'),
                         BbanStructureEntry.ownerAccountNumber(1, 'c')));
 
+        structures.put(CountryCode.BY,
+                new BbanStructure(
+                        BbanStructureEntry.bankCode(4, 'n'),
+                        BbanStructureEntry.branchCode(4, 'n'),
+                        BbanStructureEntry.accountNumber(11, 'n')));
+
         structures.put(CountryCode.BG,
                 new BbanStructure(
                         BbanStructureEntry.bankCode(4, 'a'),

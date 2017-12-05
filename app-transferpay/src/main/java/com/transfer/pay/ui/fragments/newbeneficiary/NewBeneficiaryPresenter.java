@@ -103,6 +103,7 @@ public class NewBeneficiaryPresenter extends TransferPayBasePresenter<EmptyViewM
 
                 bankAccountModel.setAccountNo(iban.toFormattedString());
             } catch (Exception e) {
+                e.printStackTrace();
                 // do nothing
             }
             UserManager.getInstance().insertBankAccount(bankAccountModel);
