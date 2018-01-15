@@ -24,17 +24,15 @@ public class NewBeneficiaryPresenter extends TransferPayBasePresenter<EmptyViewM
 
     public void onButtonSaveClick() {
         if (validateData()) {
-            if (validateBankAccountNumber()) {
-                performFakeAsyncOperation(new Runnable() {
-                    @Override
-                    public void run() {
-                        insertDataToUser();
-                        UserManager.getInstance().updateUser();
-                        getScreen().closeScreen();
-                    }
-                });
+
+            if (getViewHelper().getBinding().getBeneficiaryType().getBankAccount()) {
+                if (validateBankAccountNumber()) {
+                    addCardOnBank();
+                } else {
+                    getViewHelper().showToast(R.string.beneficiary_new_account_number, Toast.LENGTH_SHORT);
+                }
             } else {
-                getViewHelper().showToast(R.string.beneficiary_new_account_number, Toast.LENGTH_SHORT);
+                addCardOnBank();
             }
         } else {
             getViewHelper().showToast(R.string.beneficiary_new_input_fields, Toast.LENGTH_SHORT);
@@ -50,6 +48,17 @@ public class NewBeneficiaryPresenter extends TransferPayBasePresenter<EmptyViewM
         binding.setBankAccountModel(initBankAccountModel());
         binding.setCard(new CreditCardAccountModel());
         binding.setBeneficiaryType(new NewBeneficiaryType());
+    }
+
+    private void addCardOnBank() {
+        performFakeAsyncOperation(new Runnable() {
+            @Override
+            public void run() {
+                insertDataToUser();
+                UserManager.getInstance().updateUser();
+                getScreen().closeScreen();
+            }
+        });
     }
 
     private boolean validateBankAccountNumber() {
