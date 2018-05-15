@@ -1,98 +1,98 @@
 <resources>
-    <string name="app_name">TransferPay</string>
+    <string name="app_name">Трансфер Пэй</string>
 
     <!-- Brand Screen -->
 
 
     <!-- Common Strings -->
-    <string name="ok">OK</string>
-    <string name="pick_image_source">Pick image source</string>
-    <string name="internet_connection_not_found">Please, turn ON your internet</string>
-    <string name="production_type">Production</string>
-    <string name="debug_type">Debug</string>
+    <string name="ok">ОК</string>
+    <string name="pick_image_source">Взять изображение</string>
+    <string name="internet_connection_not_found">Пожалуйста, включите интернет</string>
+    <string name="production_type">Продакшен</string>
+    <string name="debug_type">Дебаг</string>
 
     <!-- Two Factor Auth Screen-->
-    <string name="two_factor_auth_title">Two Factor Authentication</string>
-    <string name="two_factor_auth_verif_code_text">Enter the verification code send by SMS to your mobile</string>
-    <string name="two_factor_auth_verify">Verify</string>
-    <string name="two_factor_auth_resend_code">Re-send code</string>
-    <string name="two_factor_auth_code_enter">Enter code</string>
+    <string name="two_factor_auth_title">Двухфакторная аутентификация</string>
+    <string name="two_factor_auth_verif_code_text">Введите код, отправленный вам по СМС</string>
+    <string name="two_factor_auth_verify">Подтвердить</string>
+    <string name="two_factor_auth_resend_code">Переотправить код</string>
+    <string name="two_factor_auth_code_enter">Введите код</string>
 
     <!-- LOGIN Screen -->
-    <string name="login_screen_title">Log-in</string>
-    <string name="login_label_login">Login</string>
-    <string name="login_invalid_access">Login or password are wrong</string>
-    <string name="login_label_password">Password</string>
-    <string name="login_link_forgot_password"><u>Forgot Password</u></string>
-    <string name="login_link_sing_up"><u>Not yet registered? Sign-up Now</u></string>
-    <string name="login_button_log_in">Log-in</string>
+    <string name="login_screen_title">Войти</string>
+    <string name="login_label_login">Логин</string>
+    <string name="login_invalid_access">Логин или пароль</string>
+    <string name="login_label_password">Пароль</string>
+    <string name="login_link_forgot_password"><u>Забыли пароль</u></string>
+    <string name="login_link_sing_up"><u>Еще не зарегистрированы? Регистрация</u></string>
+    <string name="login_button_log_in">Войти</string>
 
     <!-- LOGIN Screen Menu -->
-    <string name="menu_action_spa_settings">Settings</string>
+    <string name="menu_action_spa_settings">Настройки</string>
 
     <!-- BENEFICIARIES Screen -->
-    <string name="beneficiaries_screen_title">Beneficiaries</string>
+    <string name="beneficiaries_screen_title">Бенефициары</string>
     <string name="beneficiaries_message_currency">EUR 1 = USD 1,07</string>
-    <string name="beneficiaries_button_add_beneficiary">+Beneficiary</string>
+    <string name="beneficiaries_button_add_beneficiary">+Бенефициар</string>
 
     <!-- BENEFICIARIES Screen Menu -->
-    <string name="menu_action_settings">Settings</string>
-    <string name="menu_action_history">History</string>
-    <string name="menu_action_beneficiaries">Beneficiaries</string>
-    <string name="menu_action_transactions_history">Transactions History</string>
-    <string name="menu_action_wallet">Profit</string>
-    <string name="menu_action_my_profile">My Profile</string>
-    <string name="menu_action_terms_and_conditions">Terms and Conditions</string>
-    <string name="menu_action_setting">Setting</string>
-    <string name="menu_action_logout">Logout</string>
-    <string name="menu_code_version">dev. Fetskovich</string>
+    <string name="menu_action_settings">Настройки</string>
+    <string name="menu_action_history">История</string>
+    <string name="menu_action_beneficiaries">Бенефициары</string>
+    <string name="menu_action_transactions_history">История транзакций</string>
+    <string name="menu_action_wallet">Прибыль</string>
+    <string name="menu_action_my_profile">Мой профиль</string>
+    <string name="menu_action_terms_and_conditions">Условия и соглашения</string>
+    <string name="menu_action_setting">Настройки</string>
+    <string name="menu_action_logout">Выйти</string>
+    <string name="menu_code_version">разраб. Фецкович Е.К.</string>
 
     <!-- NEW BENEFICIARIES SCREEN -->
-    <string name="beneficiary_new_title">New Beneficiary</string>
-    <string name="beneficiary_new_country">Beneficiary Country</string>
-    <string name="beneficiary_new_full_name">Default Bank Name</string>
-    <string name="beneficiary_new_bank">Beneficiary Bank</string>
-    <string name="beneficiary_new_delivery_option">Delivery Option</string>
-    <string name="beneficiary_new_choose_bank">Choose Bank</string>
-    <string name="beneficiary_new_account_no">Account Number</string>
-    <string name="beneficiary_new_card_number">Credit Card Number</string>
-    <string name="beneficiary_new_details">Beneficiary Details</string>
-    <string name="beneficiary_new_or">or</string>
-    <string name="beneficiary_new_choose_country_in_settings">Choose country in settings</string>
-    <string name="beneficiary_new_choose_bank_in_settings">Choose bank in settings</string>
-    <string name="beneficiary_new_input_fields">Input all required fields</string>
-    <string name="beneficiary_new_account_number">Input 11 symbols-number account</string>
+    <string name="beneficiary_new_title">Новый бенефициар</string>
+    <string name="beneficiary_new_country">Страна</string>
+    <string name="beneficiary_new_full_name">Название банка</string>
+    <string name="beneficiary_new_bank">Банк бенецифиара</string>
+    <string name="beneficiary_new_delivery_option">Способы отправки</string>
+    <string name="beneficiary_new_choose_bank">Выбранный банк</string>
+    <string name="beneficiary_new_account_no">Номер счет</string>
+    <string name="beneficiary_new_card_number">Номер карты</string>
+    <string name="beneficiary_new_details">Детали бенефициара</string>
+    <string name="beneficiary_new_or">или</string>
+    <string name="beneficiary_new_choose_country_in_settings">Выберите страну из настроек</string>
+    <string name="beneficiary_new_choose_bank_in_settings">Выберите банк из настроек</string>
+    <string name="beneficiary_new_input_fields">Заполните все поля</string>
+    <string name="beneficiary_new_account_number">Заполните 11 символов аккаунта</string>
 
 
     <!-- SETTINGS Screen -->
-    <string name="settings_screen_title">Settings</string>
-    <string name="settings_default_title">Default</string>
-    <string name="settings_label_branding_logo">Default Bank Logo</string>
-    <string name="settings_label_default_country">Default country</string>
-    <string name="settings_label_default_bank_id">Bank Number</string>
-    <string name="settings_label_my_currency">My currency</string>
-    <string name="settings_label_beneficiary_currency">Beneficiary currency</string>
-    <string name="settings_label_exchange_rate">Exchange rate</string>
-    <string name="settings_label_fee_min">Fee min</string>
-    <string name="settings_label_fee_percentage">Fee %</string>
-    <string name="settings_button_payment_option">Payment Options</string>
-    <string name="settings_button_save">Save</string>
-    <string name="settings_error_number">ErrorNumber</string>
+    <string name="settings_screen_title">Настройки</string>
+    <string name="settings_default_title">По умолчанию</string>
+    <string name="settings_label_branding_logo">Лого банка</string>
+    <string name="settings_label_default_country">Страна по умолчанию</string>
+    <string name="settings_label_default_bank_id">Номер банка</string>
+    <string name="settings_label_my_currency">Моя валюта</string>
+    <string name="settings_label_beneficiary_currency">Валюта бенефициара</string>
+    <string name="settings_label_exchange_rate">Процент комиссии</string>
+    <string name="settings_label_fee_min">Минимум комиссии</string>
+    <string name="settings_label_fee_percentage">Процент комиссии</string>
+    <string name="settings_button_payment_option">Способы оплаты</string>
+    <string name="settings_button_save">Сохранить</string>
+    <string name="settings_error_number">Номер ошибки</string>
 
     <!-- ADD CARD Screen -->
-    <string name="add_card_screen_title">Add Card Info</string>
-    <string name="add_card_label_cardholder_name">Cardholder Name</string>
-    <string name="add_card_label_card_number">Card Number</string>
-    <string name="add_card_label_valid_thru">Valid thru</string>
+    <string name="add_card_screen_title">Добавить информацию о карте</string>
+    <string name="add_card_label_cardholder_name">Владелец</string>
+    <string name="add_card_label_card_number">Номер</string>
+    <string name="add_card_label_valid_thru">Дата истека</string>
     <string name="add_card_label_cvv">CVV</string>
-    <string name="add_card_card_type">Card Type</string>
-    <string name="add_card_label_button_save">Save</string>
-    <string name="add_card_description_cvv">The last 3 digits on back of your card</string>
+    <string name="add_card_card_type">Тип карты</string>
+    <string name="add_card_label_button_save">Сохранить</string>
+    <string name="add_card_description_cvv">3 последние цифры на карте</string>
 
     <!-- REGISTRATION AML Screen -->
-    <string name="registration_aml_button_back">Back</string>
-    <string name="registration_aml_button_next">Next</string>
-    <string name="registration_aml_new_user">New user</string>
+    <string name="registration_aml_button_back">Назад</string>
+    <string name="registration_aml_button_next">Вперед</string>
+    <string name="registration_aml_new_user">Новый пользователь</string>
     <string name="registration_validation_message">Please fill fields according to it rules</string>
 
     <!-- REGISTRATION AML Screen Step 1 -->
@@ -104,13 +104,13 @@
     <string name="registration_aml_label_confirm_Password">* Confirm Password</string>
 
     <!-- REGISTRATION AML Screen Step 2 -->
-    <string name="registration_aml_title_step_2">Step 2</string>
-    <string name="registration_aml_label_first_name">* First Name</string>
-    <string name="registration_aml_label_last_name">* Last Name</string>
-    <string name="registration_aml_label_nationality">* Nationality</string>
-    <string name="registration_aml_label_birth_date">* Birth Date</string>
-    <string name="registration_aml_label_male">Male</string>
-    <string name="registration_aml_label_female">Female</string>
+    <string name="registration_aml_title_step_2">Шаг 2</string>
+    <string name="registration_aml_label_first_name">* Имя</string>
+    <string name="registration_aml_label_last_name">* Фамилия</string>
+    <string name="registration_aml_label_nationality">* Национальность</string>
+    <string name="registration_aml_label_birth_date">* День рождения</string>
+    <string name="registration_aml_label_male">Парень</string>
+    <string name="registration_aml_label_female">Девушка</string>
 
     <!-- REGISTRATION AML Screen Step 3 -->
     <string name="registration_aml_label_address_line_1">* Address Line 1</string>
@@ -151,82 +151,82 @@
     <string name="registration_aml_two_factor_auth_sms_validation">Please, enter correct sms code</string>
 
     <!-- My Profile Screen -->
-    <string name="my_profile_title">My Profile</string>
-    <string name="my_profile_title_personal_details">Personal Details</string>
-    <string name="my_profile_title_contact_information">Contact Information</string>
-    <string name="my_profile_title_id_information">Id Information</string>
-    <string name="my_profile_label_email">Email</string>
-    <string name="my_profile_label_birth_date">Birth Date</string>
-    <string name="my_profile_label_gender">Gender</string>
-    <string name="my_profile_label_address">Address</string>
-    <string name="my_profile_label_mobile">Mobile</string>
-    <string name="my_profile_label_id_type">Id type</string>
-    <string name="my_profile_label_id_details">Id details</string>
-    <string name="my_profile_label_id_expiry">Id expiry</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="my_profile_change_pin">CHANGE PIN</string>
-    <string name="my_profile_change_password">CHANGE PASSWORD</string>
+    <string name="my_profile_title">Мой профиль</string>
+    <string name="my_profile_title_personal_details">Личные детали</string>
+    <string name="my_profile_title_contact_information">Контактная информация</string>
+    <string name="my_profile_title_id_information">Ид информации</string>
+    <string name="my_profile_label_email">Почта</string>
+    <string name="my_profile_label_birth_date">День рождения</string>
+    <string name="my_profile_label_gender">Пол</string>
+    <string name="my_profile_label_address">Адрес</string>
+    <string name="my_profile_label_mobile">Номер</string>
+    <string name="my_profile_label_id_type">Ид типа</string>
+    <string name="my_profile_label_id_details">Ид деталей</string>
+    <string name="my_profile_label_id_expiry">Ид истекания</string>
+    <string name="title_activity_main">Главный экран</string>
+    <string name="my_profile_change_pin">Изменить пин</string>
+    <string name="my_profile_change_password">Изменить пароль</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Открыть панель навигации</string>
+    <string name="navigation_drawer_close">Закрыть панель навигации</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Настройки</string>
 
     <!-- Payment options Screen -->
-    <string name="payment_option_add_credit_card">+Credit Card</string>
+    <string name="payment_option_add_credit_card">+Кредитная карта</string>
 
     <!-- Transaction History Screen -->
-    <string name="transaction_history_title">Transaction History</string>
-    <string name="transaction_history_payment_option">PAYMENT \nOPTION</string>
-    <string name="transaction_history_verification_scenario">VERIFICATION \nSCENARIO</string>
-    <string name="transaction_history_verification_status">VERIFICATION \nSTATUS</string>
+    <string name="transaction_history_title">История транзакций</string>
+    <string name="transaction_history_payment_option">Способ \nОплаты</string>
+    <string name="transaction_history_verification_scenario">Сценарий \nПодтверждения</string>
+    <string name="transaction_history_verification_status">Статус \nТранзакции</string>
 
     <!-- TRANSACTION OVERVIEW Screen -->
-    <string name="transaction_overview_pay_now">Pay Now</string>
-    <string name="transaction_overview_title">Transaction Overview</string>
-    <string name="transaction_overview_you_send">You Send</string>
-    <string name="transaction_overview_they_receive">They Receive</string>
-    <string name="transaction_overview_you_send_caps">YOU SEND</string>
-    <string name="transaction_overview_currency_exchange_rate">CURRENCY EXCHANGE RATE</string>
-    <string name="transaction_overview_exchange_amount">EXCHANGE AMOUNT</string>
-    <string name="transaction_overview_transfer_fee">TRANSFER FEE</string>
-    <string name="transaction_overview_estimated_amount_received">ESTIMATED AMOUNT\n RECEIVED</string>
-    <string name="transaction_type_snake">SNAKE</string>
-    <string name="transaction_type_piano">PIANO</string>
-    <string name="transaction_type_gallery">GALLERY</string>
-    <string name="validation_not_enough_money">Not enough money on your card!</string>
-    <string name="validation_minimum_transaction">Min to send is 10 USD</string>
-    <string name="validation_card_data">Add information about your card in card options</string>
-    <string name="validation_operation_type">Please, select one of verification types</string>
+    <string name="transaction_overview_pay_now">Заплатить сейчас</string>
+    <string name="transaction_overview_title">Детали транзакции</string>
+    <string name="transaction_overview_you_send">Вы отправляете</string>
+    <string name="transaction_overview_they_receive">Они получают</string>
+    <string name="transaction_overview_you_send_caps">Вы отправляете</string>
+    <string name="transaction_overview_currency_exchange_rate">Процент комиссии</string>
+    <string name="transaction_overview_exchange_amount">Сколько пересылаете</string>
+    <string name="transaction_overview_transfer_fee">Комиссия</string>
+    <string name="transaction_overview_estimated_amount_received">Сколько\n получит</string>
+    <string name="transaction_type_snake">Змейка</string>
+    <string name="transaction_type_piano">Плитка</string>
+    <string name="transaction_type_gallery">Картинки</string>
+    <string name="validation_not_enough_money">Недостаточно средств</string>
+    <string name="validation_minimum_transaction">Минимально для оплаты 10 USD</string>
+    <string name="validation_card_data">Добавьте информацию о карте через настройки</string>
+    <string name="validation_operation_type">Выберите подтверждающий личность сценарий</string>
     <string name="validation_zero_payment_options">Your payment options is empty.\nPlease go to your settings and add them.</string>
-    <string name="currency_from">From: </string>
-    <string name="currency_to"> to USD (1)</string>
+    <string name="currency_from">От: </string>
+    <string name="currency_to"> К USD (1)</string>
     <string name="configure_currency">Please, configure your currency in payment settings.</string>
 
     <!-- Change password -->
-    <string name="change_password_title">Change password</string>
+    <string name="change_password_title">Изменить пароль</string>
     <string name="change_password_successfuly">Password changed successfully</string>
-    <string name="change_password_wrong">Passwords are not equals</string>
-    <string name="change_password_empty">Password field is empty!</string>
+    <string name="change_password_wrong">Пароли не совпадают</string>
+    <string name="change_password_empty">Пароль пуст</string>
 
     <!-- Logo Screen -->
-    <string name="logo_title">Logo</string>
-    <string name="logo_choosed_item">You selected new logo</string>
+    <string name="logo_title">Логотип</string>
+    <string name="logo_choosed_item">Вы выбрали новый логотип</string>
 
     <!-- Profit Screen -->
-    <string name="profit_title">Profit</string>
+    <string name="profit_title">Прибыль</string>
 
     <!-- Terms Screen -->
-    <string name="terms_screen_title">Terms and conditions</string>
+    <string name="terms_screen_title">Условия и соглашения</string>
 
     <!-- Card Data Screen -->
-    <string name="card_data_screen_title">Card Data</string>
+    <string name="card_data_screen_title">Данные о карте</string>
 
     <!-- Edit Card-->
-    <string name="card_edit">Edit Card</string>
+    <string name="card_edit">Редактировать карту</string>
 
     <!-- Spinner countries -->
-    <string name="country_belarus">Belarus</string>
+    <string name="country_belarus">Беларусь</string>
     <string name="country_usa">USA</string>
     <string name="country_russia">Russia</string>
     <!-- EU -->
@@ -247,15 +247,15 @@
     <string name="country_ap_vietman">Vietnam</string>
 
     <!-- Spinner currency -->
-    <string name="currency_title">Currency: </string>
-    <string name="money">Money</string>
+    <string name="currency_title">Валюта: </string>
+    <string name="money">Деньги</string>
     <string name="currency_usd">USD</string>
     <string name="currency_eur">EUR</string>
     <string name="currency_blr_rub">BLR</string>
     <string name="currency_russian_rub">RUS</string>
 
     <!-- Card data-->
-    <string name="total_money_on_card">Money on card: </string>
+    <string name="total_money_on_card">Денег на карте: </string>
 
 
     <!-- Spinner card type -->
@@ -264,43 +264,43 @@
     <string name="card_type_master_card">MASTER_CARD</string>
 
     <!-- Spinner delivery option -->
-    <string name="delivery_option_bank_account">Bank Account</string>
-    <string name="delivery_option_credit_card">Credit Card</string>
-    <string name="delivery_option_cash_payout">Cash Payout</string>
+    <string name="delivery_option_bank_account">Счет в банке</string>
+    <string name="delivery_option_credit_card">Карта</string>
+    <string name="delivery_option_cash_payout">Деньги</string>
 
     <!-- Spinner nationalities -->
-    <string name="nationality_belarus">Belarusian</string>
-    <string name="nationality_russian">Russian</string>
-    <string name="nationality_african">African</string>
+    <string name="nationality_belarus">Белорус</string>
+    <string name="nationality_russian">Русский</string>
+    <string name="nationality_african">Африканец</string>
 
     <!-- Spinner identification type -->
-    <string name="identification_type_passport">Passport</string>
-    <string name="identification_type_national_id">National ID</string>
+    <string name="identification_type_passport">Паспорт</string>
+    <string name="identification_type_national_id">ИД</string>
 
     <!-- Tooltip -->
-    <string name="need_help_additional_information">Additional Information</string>
-    <string name="beneficiary_or_card">Choose in what type you want to send your money:\n Credit Card is a card. \n Bank Account is a bank account.</string>
+    <string name="need_help_additional_information">Дополнительная информация</string>
+    <string name="beneficiary_or_card">Выберите тип бенефициара:\n Кредитная карта \n Счет в банке</string>
 
     <!-- Payment Result Screen -->
-    <string name="payment_result_title">Payment Result</string>
-    <string name="payment_result_successfully">Payment success</string>
-    <string name="payment_result_wrong">Payment not success</string>
-    <string name="transaction_result">TRANSACTION \nRESULT</string>
-    <string name="transaction_result_success">SUCCESS</string>
-    <string name="transaction_result_failed">Failed</string>
+    <string name="payment_result_title">Результат транзакции</string>
+    <string name="payment_result_successfully">Транзакция одобрена</string>
+    <string name="payment_result_wrong">Транзакция не одобрена</string>
+    <string name="transaction_result">Результат \nтранзакции</string>
+    <string name="transaction_result_success">Удачно</string>
+    <string name="transaction_result_failed">Отказано</string>
 
-    <string name="bank_account_choose">Bank Number: </string>
+    <string name="bank_account_choose">Номер банка: </string>
 
     <!-- Auth Result -->
-    <string name="auth_result_text_approved">Your transaction has\nbeen approved.</string>
-    <string name="auth_result_text_not_approved">Your transaction has\n not been approved.</string>
+    <string name="auth_result_text_approved">Транзакция подтверждена</string>
+    <string name="auth_result_text_not_approved">Транзакция не потверждена.</string>
     <string name="auth_result_text_session_is_already_exists">There is less than two minutes since your last session. Please wait a moment then try again.</string>
     <string name="auth_result_text_timeout">Timeout, operation was not completed.</string>
-    <string name="auth_result_text_error">Transaction failed, operation was not completed.</string>
+    <string name="auth_result_text_error">Транзакция одобрена, операция не выполнена.</string>
     <string name="auth_result_text_no_internet_connection">No Internet connection, operation was not completed. Please check Internet connection and try again.</string>
-    <string name="auth_result_text_waiting">Waiting for bank response.</string>
-    <string name="auth_result_step_one_text">Transaction.</string>
+    <string name="auth_result_text_waiting">Ждем ответ от банкаю</string>
+    <string name="auth_result_step_one_text">Транзакция.</string>
     <string name="auth_result_step_two_text">Preparing\nyour\ndream</string>
-    <string name="auth_result_step_three_text">Delivery</string>
+    <string name="auth_result_step_three_text">Перевод</string>
 
 </resources>
