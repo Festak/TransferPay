@@ -93,15 +93,15 @@
     <string name="registration_aml_button_back">Назад</string>
     <string name="registration_aml_button_next">Вперед</string>
     <string name="registration_aml_new_user">Новый пользователь</string>
-    <string name="registration_validation_message">Please fill fields according to it rules</string>
+    <string name="registration_validation_message">Заполните все поля согласно правилам</string>
 
     <!-- REGISTRATION AML Screen Step 1 -->
-    <string name="registration_aml_title_step_1">Step 1</string>
-    <string name="registration_aml_label_country">* Country</string>
-    <string name="registration_aml_label_email">* Email</string>
-    <string name="registration_aml_label_login">* Login</string>
-    <string name="registration_aml_label_password">* Password</string>
-    <string name="registration_aml_label_confirm_Password">* Confirm Password</string>
+    <string name="registration_aml_title_step_1">Шаг 1</string>
+    <string name="registration_aml_label_country">* Страна</string>
+    <string name="registration_aml_label_email">* Почта</string>
+    <string name="registration_aml_label_login">* Логин</string>
+    <string name="registration_aml_label_password">* Пароль</string>
+    <string name="registration_aml_label_confirm_Password">* Подтвердить пароль</string>
 
     <!-- REGISTRATION AML Screen Step 2 -->
     <string name="registration_aml_title_step_2">Шаг 2</string>
@@ -113,42 +113,42 @@
     <string name="registration_aml_label_female">Девушка</string>
 
     <!-- REGISTRATION AML Screen Step 3 -->
-    <string name="registration_aml_label_address_line_1">* Address Line 1</string>
-    <string name="registration_aml_label_address_line_2">Address Line 2</string>
-    <string name="registration_aml_label_address_city">* City</string>
-    <string name="registration_aml_label_address_zip">* Zip/Post Code</string>
-    <string name="registration_aml_label_address_state">State</string>
-    <string name="registration_aml_label_mobile_number">* Mobile Number</string>
+    <string name="registration_aml_label_address_line_1">* Адрес 1</string>
+    <string name="registration_aml_label_address_line_2">Адрес 2 2</string>
+    <string name="registration_aml_label_address_city">* Город</string>
+    <string name="registration_aml_label_address_zip">* Почтовый код</string>
+    <string name="registration_aml_label_address_state">Страна</string>
+    <string name="registration_aml_label_mobile_number">* Мобильный номер</string>
 
     <!-- REGISTRATION AML Screen Step 4 -->
-    <string name="registration_aml_label_identification_type">* Identification Type</string>
-    <string name="registration_aml_label_id_details">* Identification Number</string>
-    <string name="registration_aml_label_id_expiry">* Id Expiration Date</string>
-    <string name="registration_aml_label_id_scan">Id Scan</string>
+    <string name="registration_aml_label_identification_type">* Тип идентификации</string>
+    <string name="registration_aml_label_id_details">* Идентификационный номер</string>
+    <string name="registration_aml_label_id_expiry">* Ид окончания</string>
+    <string name="registration_aml_label_id_scan">Ид паспорт</string>
 
     <!-- REGISTRATION AML Screen Step 5 -->
-    <string name="registration_aml_button_disagree">Disagree</string>
-    <string name="registration_aml_button_agree">Agree</string>
+    <string name="registration_aml_button_disagree">Несогласен</string>
+    <string name="registration_aml_button_agree">Согласен</string>
 
     <!-- REGISTRATION AML Screen Step 6 -->
-    <string name="registration_aml_message_confirm_registration">Please enter the confirmation \ncode sent to your Email</string>
-    <string name="registration_aml_label_enter_code">Enter Code</string>
-    <string name="registration_aml_button_confirm">Confirm</string>
-    <string name="registration_aml_code_send_successfully">Code send to your email successfully.</string>
-    <string name="registration_aml_code_send_failed">Code send failed. Probably check your internet connection.</string>
-    <string name="registration_aml_wrong_send_code">You entered wrong email code</string>
+    <string name="registration_aml_message_confirm_registration">Пожалуйста введите\nкод отправленный на почту</string>
+    <string name="registration_aml_label_enter_code">Введите код</string>
+    <string name="registration_aml_button_confirm">Подтвердить</string>
+    <string name="registration_aml_code_send_successfully">Код успешно отправил на почту.</string>
+    <string name="registration_aml_code_send_failed">Отпрака кода провалена. Проверьте интернет</string>
+    <string name="registration_aml_wrong_send_code">Вы ввели неверный код</string>
 
     <!-- REGISTRATION AML Screen Step 7 -->
-    <string name="registration_aml_message_congratulation">Congratulations!\nYour account has been created.</string>
-    <string name="registration_aml_message_pin_number">Your app pin is</string>
-    <string name="registration_aml_message_how_to_change_pin">You can change this PIN from you Profile Screen.</string>
+    <string name="registration_aml_message_congratulation">Поздравляю!\nВаш аккауни был создан.</string>
+    <string name="registration_aml_message_pin_number">Ваш код приложения</string>
+    <string name="registration_aml_message_how_to_change_pin">Вы можете изменить пароль через профиль.</string>
     <string name="registration_aml_pin_number">1234</string>
 
     <!-- Registration AML Screen Two Factor Auth -->
-    <string name="registration_aml_two_factor_auth">2nd Factor Authentification</string>
-    <string name="registration_aml_two_factor_auth_sms_wrong">Something went failed. Check your phone number</string>
-    <string name="registration_aml_two_factor_auth_sms_ok">Sms has send successfully</string>
-    <string name="registration_aml_two_factor_auth_sms_validation">Please, enter correct sms code</string>
+    <string name="registration_aml_two_factor_auth">2х факторная аутентификация</string>
+    <string name="registration_aml_two_factor_auth_sms_wrong">Ошибка. Проверьте номер.</string>
+    <string name="registration_aml_two_factor_auth_sms_ok">СМС отправлено успешно</string>
+    <string name="registration_aml_two_factor_auth_sms_validation">Введите корректный смс-код</string>
 
     <!-- My Profile Screen -->
     <string name="my_profile_title">Мой профиль</string>
